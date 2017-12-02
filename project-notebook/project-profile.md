@@ -53,9 +53,11 @@ https://represent.io/
 ##### References - Interesting
 
 ```
+https://kentcdodds.com/
 http://harinilabs.com/
 http://www.anshullabs.com/
 http://mbtaviz.github.io/
+
 ```
 
 ##### References
