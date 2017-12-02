@@ -5,7 +5,7 @@
 * [Local Development](local-development.md)
   * [Setting up Mac](local-development/setting-up-mac.md)
     * [XCode Command Line](local-development/setting-up-mac/xcode-command-line.md)
-    * [Setup Homebrew](local-development/setting-up-mac/homebrew.md)
+    * [Setup Homebrew](local-development/setting-up-mac/setup-homebrew.md)
     * [Setup Git](local-development/setting-up-mac/setup-git.md)
   * [Cheatsheet - Git](local-development/cheatsheet-git.md)
 * [Training Information](training-information.md)
