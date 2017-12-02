@@ -26,15 +26,16 @@ Note:
 
 Also read page \#13, \#14
 
-#### Find out about
-
-Dynamic Programming
-
-Aspect Oriented Programming
-
 #### Scoring
 
 * [https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/](https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/)
+
+# More Ideas
+
+```
+Dynamic Programming
+Aspect Oriented Programming
+```
 
 
 

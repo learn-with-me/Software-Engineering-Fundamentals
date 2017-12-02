@@ -17,6 +17,10 @@
   * [Cheatsheet - Git](local-development/cheatsheet-git.md)
 * [Training Information](training-information.md)
 * [Project Notebook](project-notebook.md)
+  * [Project - Profile](project-notebook/project-profile.md)
+  * [Project - React Components](project-notebook/project-react-components.md)
+  * [Project - Gitbook](project-notebook/project-gitbook.md)
+  * [Project - API JS](project-notebook/project-api-js.md)
 * [Internet Of Things](internet-of-things.md)
 * [Everything Else](everything-else.md)
 
