@@ -6,5 +6,5 @@
 * [Training Information](training-information.md)
 * Project Notebook
 * Internet Of Things
-* Everything Else
+* [Everything Else](everything-else.md)
 
