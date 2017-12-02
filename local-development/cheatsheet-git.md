@@ -48,5 +48,12 @@
                                      // Creates named branch in remote if doesn't exist
 ```
 
+##### Note
+
+```
+> git add .                        // Will only add new files and modified files to the index to be committed
+> git add -A                       // Will do everything + also schedule removed files for deletion
+```
+
 
 

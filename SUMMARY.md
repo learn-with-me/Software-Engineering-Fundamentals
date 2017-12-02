@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+  * [Roles & Responsibilities](roles-and-responsibilities.md)
 * [Technical Concepts](technical-concepts.md)
 * [Local Development](local-development.md)
   * [Setting up Mac](local-development/setting-up-mac.md)
