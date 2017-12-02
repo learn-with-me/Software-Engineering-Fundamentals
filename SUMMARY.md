@@ -4,7 +4,7 @@
 * [Technical Concepts](technical-concepts.md)
 * [Local Development](local-development.md)
 * [Training Information](training-information.md)
-* Project Notebook
-* Internet Of Things
+* [Project Notebook](project-notebook.md)
+* [Internet Of Things](internet-of-things.md)
 * [Everything Else](everything-else.md)
 
