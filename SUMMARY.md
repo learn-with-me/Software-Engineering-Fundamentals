@@ -7,6 +7,8 @@
     * [XCode Command Line](local-development/setting-up-mac/xcode-command-line.md)
     * [Setup Homebrew](local-development/setting-up-mac/setup-homebrew.md)
     * [Setup Git](local-development/setting-up-mac/setup-git.md)
+    * [Setup Python](local-development/setting-up-mac/setup-python.md)
+    * [Setup R](local-development/setting-up-mac/setup-r.md)
   * [Cheatsheet - Git](local-development/cheatsheet-git.md)
 * [Training Information](training-information.md)
 * [Project Notebook](project-notebook.md)
