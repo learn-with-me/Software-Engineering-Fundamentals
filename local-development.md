@@ -1,6 +1,6 @@
 # Local Development
 
-Everything you need to know about given technologies to get started. This section also acts as a reference guide to common commands. 
+Everything you need to know about given technologies to get started. This section also acts as a reference guide to common commands.
 
 When setting up a development machine, there are couple of softwares you want to make sure you have installed correctly. I'll have the following list documented:
 
@@ -9,6 +9,10 @@ When setting up a development machine, there are couple of softwares you want to
 * Python
 * Java
 * Node.js
+* Go
+* etc
+
+
 
 
 
