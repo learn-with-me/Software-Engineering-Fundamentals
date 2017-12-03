@@ -33,5 +33,12 @@ eBook conversion
 https://gitbookio.gitbooks.io/documentation/content/build/ebookconvert.html
 ```
 
+##### Document Converter
+
+```
+https://pandoc.org/
+    https://pypi.python.org/pypi/leanpub/
+```
+
 
 

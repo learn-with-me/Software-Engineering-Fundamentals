@@ -15,5 +15,21 @@ apt-get         // command line interface for APT
 > sudo apt-get upgrade -y    // Upgrade currently installed softwares with a Yes
 ```
 
+##### Fundamentals
+
+```
+Linux distributions - http://distrowatch.com/
+
+openSUSE
+Fedora
+	Short lifecycle of 13 months per version
+	Split into community and commercial editions	
+Ubuntu
+	focused on features and support
+	fork of Debian
+	release cycle of 6 months
+	Long-term support of 2 years
+```
+
 
 

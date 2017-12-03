@@ -14,10 +14,13 @@
     * [Setup Java](local-development/setting-up-mac/setup-java.md)
     * [Setup Go](local-development/setting-up-mac/setup-go.md)
     * [Setup Heroku](local-development/setting-up-mac/setup-heroku.md)
+    * [Setup VirtualBox](local-development/setting-up-mac/setup-virtualbox.md)
+    * [Setup Docker](local-development/setting-up-mac/setup-docker.md)
   * [Setting up Linux](local-development/setting-up-linux.md)
+  * [Tool Shop](local-development/tool-shop.md)
+  * [Debugging](local-development/debugging.md)
   * [Cheatsheet - Git](local-development/cheatsheet-git.md)
   * [Cheatsheet - GCP](local-development/cheatsheet-gcp.md)
-  * [Debugging](local-development/debugging.md)
 * [Training Information](training-information.md)
   * [Training - Design](training-information/training-design.md)
   * [Training - Node.js](training-information/training-nodejs.md)
@@ -26,6 +29,7 @@
   * [Training - React](training-information/training-react.md)
   * [Training - Crypto Currencies](training-information/training-crypto-currencies.md)
 * [DevOps](devops.md)
+  * [Docker](devops/docker.md)
 * [Performance](performance.md)
 * [Technology](technology.md)
 * [Project Notebook](project-notebook.md)
@@ -34,5 +38,4 @@
   * [Project - Gitbook](project-notebook/project-gitbook.md)
   * [Project - API JS](project-notebook/project-api-js.md)
 * [Internet Of Things](internet-of-things.md)
-* Technology
 
