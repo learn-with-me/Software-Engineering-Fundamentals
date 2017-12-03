@@ -13,6 +13,25 @@ Or even sometimes they are missing dependencies. Make sure it is all good or def
 
 Option 2:
 > brew cask install vagrant
+
+Option 3:
+> gem install vagrant
+```
+
+##### Supporting Softwares
+
+```
+Forget anything down there, Just install Ansible instead
+
+Chef
+Instructions at: https://docs.chef.io/install_dk.html
+Installed at "/opt/chefdk/"
+To uninstall "> sudo rm -rf /opt/chefdk"
+
+Option 2
+> gem install berkshelf
+> sudo gem install net-ssh
+> gem install chef
 ```
 
 

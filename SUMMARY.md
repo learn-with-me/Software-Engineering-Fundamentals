@@ -34,6 +34,7 @@
   * [Training - React](training-information/training-react.md)
   * [Training - Crypto Currencies](training-information/training-crypto-currencies.md)
   * [Training - Docker](training-information/training-docker.md)
+  * [Training - Vagrant](training-information/training-vagrant.md)
 * [DevOps](devops.md)
   * [Docker](devops/docker.md)
   * [Vagrant](devops/vagrant.md)

@@ -34,6 +34,7 @@
 > docker start web                      // Start a container
 > docker stop web                       // Stop a running container through SIGTERM
 > docker kill web                       // Stop a running container through SIGKILL
+> docker kill $(docker ps -q)           // Kill running containers
 > docker network ls                     // List the networks
 > docker network create --subnet 10.1.0.0/24 --gateway 10.1.0.1 -d overlay mynet    // Create an overlay network
 > docker ps                             // List the running containers
@@ -50,7 +51,6 @@
 > eval $(docker-machine env myhost)                   // Command to configure your shell
 > docker-machine create --driver=virtualbox myhost    // Create a docker host on a computer or cloud provider
 > docker-machine create -d virtualbox myhost          // Same command as above
-
 ```
 
 ##### Container Commands
@@ -77,6 +77,12 @@ docker container stop <container-id>
 docker container stop bb655989064b
 docker container rm bb655989064b
 docker container rm -f bb655989064b
+```
+
+##### Reference
+
+```
+https://github.com/wsargent/docker-cheat-sheet
 ```
 
 
