@@ -20,9 +20,9 @@
     * [Linux Docker](local-development/setting-up-linux/linux-docker.md)
   * [Tool Shop](local-development/tool-shop.md)
   * [Debugging](local-development/debugging.md)
-  * [Cheatsheet - GCP](local-development/cheatsheet-gcp.md)
   * Cheatsheet
     * [Cheatsheet - Docker](local-development/cheatsheet-docker.md)
+    * [Cheatsheet - GCP](local-development/cheatsheet-gcp.md)
     * [Cheatsheet - Git](local-development/cheatsheet-git.md)
 * [Training Information](training-information.md)
   * [Training - Design](training-information/training-design.md)
