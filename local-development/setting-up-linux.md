@@ -13,7 +13,6 @@ apt-get         // command line interface for APT
 > sudo apt-get update        // Update list of available packages
 > sudo apt-get upgrade       // Upgrade currently installed softwares
 > sudo apt-get upgrade -y    // Upgrade currently installed softwares with a Yes
-
 ```
 
 
