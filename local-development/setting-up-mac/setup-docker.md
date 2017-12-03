@@ -1,10 +1,20 @@
 # Docker
 
+> Note: No additional software required, such as VirtualBox since Hypervisor frameworks are now built-in OS
+>
+> * macOS: xhyve VM using Hypervisor.framework \(Already present starting Yosemite 10.10+\)
+> * Windows: Hyper-V VM \(Already present starting Windows 10 64-bit\)
+
 ##### Installation
 
 ```
-Quick and Easy install
-curl -sSL https://get.docker.com | sh
+Start with Community Edition
+
+Option 1:
+docker.com/getdocker                             // Download OS specific version and install.
+https://docs.docker.com/engine/installation      // OS-specific instructions. For production.
+
+If you are unable to meet system requirements as stated above, you'll have to download the toolbox for additional setup
 ```
 
 ##### Verification

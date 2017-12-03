@@ -2,6 +2,9 @@
 
 > Docker wants you to be able to build, ship and run distributed applications. It give you a standard way to package your software, deploy the software and run the software. What goes in the container is up to you.
 
+* Auto-update capability
+* No additional software required such as VirtualBox
+
 ```
 Build    - Docker Image            // Build an application using a docker Image
 Ship     - Docker Hub/Registry     // Ship an application using docker hub
@@ -13,7 +16,8 @@ Run      - Docker Container        // Run the application as a docker container
 ```
 Just like JVM understands the class format, the Docker understands the image format. It takes the image format and runs
 the container for you.
-This is where the containers and Images reside
+This is where the containers and Images reside.
+This is where we have Docker Daemon running.
 
 Note: Docker is a native Linux technology. It is built on concepts like cgroups, namespaces, etc. These inherently
 exist in Linux, so on OSX and Windows, you do have to run sort of a virtual machine.
@@ -30,6 +34,17 @@ Docker Host/Engine
 Docker Registry/Hub
 ```
 
+Docker Toolbox
+
+```
+Docker Engine
+Docker Machine - A CLI. Creates a Virtualbox VM or allows to simulate Docker engine environment
+                It could use VirtualBox as a virtualization provider or some other provider
+Docker Compose - Allows to run multi container applications very easily
+Docker Kitematic - Simple UI that allows you to manage your VMs
+Virtualbox - Included for simplicity
+```
+
 Container:
 
 Each standard package is called a Docker Image..
@@ -39,6 +54,4 @@ Image for an operating system will only run on that OS. PODA is similar to WORA,
 Docker doesn't need hypervisor????
 
 Using 120mb instead of 1GB
-
-
 
