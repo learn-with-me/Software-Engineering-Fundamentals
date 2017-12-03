@@ -1,6 +1,8 @@
 # Docker
 
 > Docker wants you to be able to build, ship and run distributed applications. It give you a standard way to package your software, deploy the software and run the software. What goes in the container is up to you.
+>
+> A container management that can consistently run software as long as a containerization system exists.
 
 * Auto-update capability
 * No additional software required such as VirtualBox
@@ -34,9 +36,11 @@ Docker Host/Engine
 Docker Registry/Hub
 ```
 
-Docker Toolbox
+##### Docker Toolbox
 
 ```
+Only required, if your machine does not fulfill Docker requirements
+
 Docker Engine
 Docker Machine - A CLI. Creates a Virtualbox VM or allows to simulate Docker engine environment
                 It could use VirtualBox as a virtualization provider or some other provider
