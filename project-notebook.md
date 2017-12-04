@@ -28,6 +28,9 @@ https://blog.quandl.com/api-for-stock-data
 Time lapse movie maker
 
 Online Editor
+
+Hustle Projects
+https://willrobotstakemyjob.com/
 ```
 
 

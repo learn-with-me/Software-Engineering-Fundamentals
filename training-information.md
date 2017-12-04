@@ -5,9 +5,11 @@ Out of all the numerous links out there, the intention of this section is to fil
 Most common online resources are:
 
 ```
+https://www.datacamp.com/home
+Mostly Python and Data Science
+
 https://www.coursera.org
 https://www.udacity.com/courses/all
-https://www.datacamp.com/home
 
 Subscription Required
 =====================
