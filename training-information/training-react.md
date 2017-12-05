@@ -14,6 +14,14 @@ https://egghead.io/lessons/react-dynamically-generated-components
 ##### Intermediate Tutorials
 
 ```
+Michael Jackson & Ryan Florence - React Router Guys
+https://www.youtube.com/watch?v=vyO5wKHlWZg
+https://www.youtube.com/watch?v=BcVAq3YFiuc
+https://www.youtube.com/watch?v=hEGg-3pIHlE
+https://www.youtube.com/watch?v=Vur2dAFZ4GE
+https://www.youtube.com/watch?v=wPJxmZx62gI
+https://www.youtube.com/watch?v=kp-NOggyz54
+
 Subscription
 ============
 https://egghead.io/courses/build-your-first-production-quality-react-app
