@@ -12,7 +12,11 @@ When setting up a development machine, there are couple of softwares you want to
 * Go
 * etc
 
+##### Random Links
 
+```
+https://medium.com/@codesponsor/fighting-for-open-source-sustainability-introducing-code-sponsor-577e0ccca025
+```
 
 
 

@@ -41,5 +41,12 @@ Quiz
 http://zen.digital/javascript/quiz/#/intro
 ```
 
+##### Docs - JavaScript - Testing
+
+```
+https://egghead.io/lessons/javascript-test-javascript-with-jest
+https://github.com/kentcdodds/react-jest-workshop
+```
+
 
 
