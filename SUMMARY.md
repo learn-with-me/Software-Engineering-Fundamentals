@@ -17,6 +17,7 @@
     * [Setup VirtualBox](local-development/setting-up-mac/setup-virtualbox.md)
     * [Setup Docker](local-development/setting-up-mac/setup-docker.md)
     * [Setup Vagrant](local-development/setting-up-mac/setup-vagrant.md)
+    * [Setup Nginx](local-development/setting-up-mac/setup-nginx.md)
   * [Setting up Linux](local-development/setting-up-linux.md)
     * [Linux Docker](local-development/setting-up-linux/linux-docker.md)
   * Cheatsheet
@@ -37,6 +38,7 @@
   * [Training - Docker](training-information/training-docker.md)
   * [Training - Vagrant](training-information/training-vagrant.md)
   * [Training - GCP](training-information/training-gcp.md)
+  * [Training - Nginx](training-information/training-nginx.md)
 * [DevOps](devops.md)
   * [Docker](devops/docker.md)
   * [Vagrant](devops/vagrant.md)
