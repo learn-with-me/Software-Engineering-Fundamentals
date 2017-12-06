@@ -45,7 +45,6 @@ Spinnaker
 
 ```
 GoDaddy
-
 ```
 
 ##### Hosting Services
