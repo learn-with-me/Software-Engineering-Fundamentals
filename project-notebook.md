@@ -31,6 +31,11 @@ Online Editor
 
 Hustle Projects
 https://willrobotstakemyjob.com/
+
+Agile Management
+https://www.planitpoker.com/board/#/room/aec10f9b3bbf4ee68f6fac153e7e78ad
+http://funretro.github.io/distributed/#67861990-63c8-4483-b076-1da09ec2988b
+
 ```
 
 
