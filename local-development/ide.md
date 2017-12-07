@@ -4,11 +4,23 @@ It originally sounded like a good idea to let professionals do the work; not any
 
 Investing in learning multiple IDEs or occupying system resources in multiple installation is just not a good idea anymore, hence this section covers a little dive into most popular IDEs available today in the market and what they support.
 
+##### IDE Features to look for
+
+```
+1. Git Integration, merging, diff, resolving conflicts, etc
+2. Debugging client side as well as Node.js
+3. Tool integration like linters, build tools, auto-suggest, template, etc
+4. Unit testing support - with Jest etc
+5. Code styling options, Sorting imports, Formatting code
+```
+
 ---
 
 ##### Open Question:
 
-1. Invest or free version?
+```
+Invest or free version?
+```
 
 ##### Summary
 
@@ -18,6 +30,15 @@ Once I have enough summary in the sub-sections, I have a summary on this page he
 Atom
 Visual Studio Code (Community Edition)
 WebStorm
+PyCharm
+Goglang
+Eclipse
+NetBeans
+Sublime
+Emacs
+Visual Studio
+
+Online Editors
 ```
 
 
