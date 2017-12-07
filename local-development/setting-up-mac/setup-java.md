@@ -19,7 +19,23 @@
     JRE Path: /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/
     JDK Path: /Library/Java/JavaVirtualMachines/jdk1.x.x_xxx.jdk/Contents/Home/
 
-##### Commands
+##### Uninstall
+
+```
+Remove the JDK
+> sudo rm -rf /Library/Java/JavaVirtualMachines/jdk<version>.jdk
+
+Remove plugins
+> sudo rm -rf /Library/PreferencePanes/Java*
+> sudo rm -rf /Library/Internet\ Plug-Ins/Java*
+> sudo rm -rf /Library/Java/*
+> sudo rm -rf /Library/LaunchAgents/com.oracle.java.Java-Updater.plist
+> sudo rm -rf /Library/PrivilegedHelperTools/com.oracle.java.JavaUpdateHelper
+> sudo rm -rf /Library/LaunchDaemons/com.oracle.java.Helper-Tool.plist
+> sudo rm -rf /Library/Preferences/com.oracle.java.Helper-Tool.plist
+```
+
+##### Verification
 
 ```
 > java -version                            // Prints the version of primary JDK
@@ -36,7 +52,7 @@ Java REPL
 > brew install javarepl
 ```
 
-##### Build Management - Maven
+### Build Management - Maven
 
 ```
 Option 1
@@ -50,26 +66,7 @@ Option 2
 > brew install maven@3.3
 ```
 
-##### Uninstall
-
-```
-Remove the JDK
-> sudo rm -rf /Library/Java/JavaVirtualMachines/jdk<version>.jdk
-
-Remove plugins
-> sudo rm -rf /Library/PreferencePanes/JavaControlPanel.prefPane
-> sudo rm -rf /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin
-> sudo rm -rf /Library/LaunchAgents/com.oracle.java.Java-Updater.plist
-> sudo rm -rf /Library/PrivilegedHelperTools/com.oracle.java.JavaUpdateHelper
-> sudo rm -rf /Library/LaunchDaemons/com.oracle.java.Helper-Tool.plist
-> sudo rm -rf /Library/Preferences/com.oracle.java.Helper-Tool.plist
-
-or
-
-> sudo rm -rf /Library/Java/*
-> sudo rm -rf /Library/PreferencePanes/Java*
-> sudo rm -rf /Library/Internet\ Plug-Ins/Java*
-```
+##### 
 
 
 

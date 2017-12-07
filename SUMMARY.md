@@ -20,7 +20,7 @@
     * [Setup Nginx](local-development/setting-up-mac/setup-nginx.md)
   * [Setting up Linux](local-development/setting-up-linux.md)
     * [Linux Docker](local-development/setting-up-linux/linux-docker.md)
-  * Cheatsheet
+  * [Cheatsheet](local-development/cheatsheet.md)
     * [Cheatsheet - Git](local-development/cheatsheet-git.md)
     * [Cheatsheet - Python](local-development/cheatsheet-python.md)
     * [Cheatsheet - Vagrant](local-development/cheatsheet-vagrant.md)
