@@ -27,6 +27,7 @@
     * [Cheatsheet - Docker](local-development/cheatsheet-docker.md)
     * [Cheatsheet - GCP](local-development/cheatsheet-gcp.md)
   * [Tool Shop](local-development/tool-shop.md)
+  * [IDE](local-development/ide.md)
   * [Debugging](local-development/debugging.md)
 * [Training Information](training-information.md)
   * [Training - Design](training-information/training-design.md)

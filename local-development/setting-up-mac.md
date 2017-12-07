@@ -11,7 +11,7 @@
     currently active versions and linking a different version instead. This is much easier and fool-proof than trying to do
     something similar on your own, particularly with software (like LaTeX) that has lots of separate pieces.
 
-##### Package manager
+##### Mac Package manager
 
 ```
 Unlike many Linux distributions, MacOS X does not comes with its own package manager.
