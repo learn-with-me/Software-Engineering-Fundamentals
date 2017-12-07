@@ -28,6 +28,8 @@
     * [Cheatsheet - GCP](local-development/cheatsheet-gcp.md)
   * [Tool Shop](local-development/tool-shop.md)
   * [IDE](local-development/ide.md)
+    * [IDE Atom](local-development/ide/ide-atom.md)
+    * [IDE VIsual Studio Code](local-development/ide/ide-visual-studio-code.md)
   * [Debugging](local-development/debugging.md)
 * [Training Information](training-information.md)
   * [Training - Design](training-information/training-design.md)

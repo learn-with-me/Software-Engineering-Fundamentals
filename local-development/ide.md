@@ -4,3 +4,21 @@ It originally sounded like a good idea to let professionals do the work; not any
 
 Investing in learning multiple IDEs or occupying system resources in multiple installation is just not a good idea anymore, hence this section covers a little dive into most popular IDEs available today in the market and what they support.
 
+---
+
+##### Open Question:
+
+1. Invest or free version?
+
+##### Summary
+
+Once I have enough summary in the sub-sections, I have a summary on this page here in the placeholder below:
+
+```
+Atom
+Visual Studio Code (Community Edition)
+WebStorm
+```
+
+
+
