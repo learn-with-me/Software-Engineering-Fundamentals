@@ -1,5 +1,17 @@
 # Java
 
+##### Java Training
+
+```
+Novice
+======
+https://www.udacity.com/course/object-oriented-programming-in-java--ud283
+
+Newbie - (For first time programmers. Very very basic content. Good compilation.)
+=========
+https://www.udacity.com/course/java-programming-basics--ud282
+```
+
 ##### Novice Training
 
 ```

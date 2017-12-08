@@ -11,7 +11,9 @@ Investing in learning multiple IDEs or occupying system resources in multiple in
 2. Debugging client side as well as Node.js
 3. Tool integration like linters, build tools, auto-suggest, template, etc
 4. Unit testing support - with Jest etc
-5. Code styling options, Sorting imports, Formatting code
+5. Code styling options, Sorting imports
+6. Auto-Formatting code
+7. Database connectivity
 ```
 
 ---
