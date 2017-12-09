@@ -55,5 +55,6 @@
   * [Project - Gitbook](project-notebook/project-gitbook.md)
   * [Project - API JS](project-notebook/project-api-js.md)
   * [Project - Slack Self Invite](project-notebook/project-slack-self-invite.md)
+  * [Project - Blogging](project-notebook/project-blogging.md)
 * [Internet Of Things](internet-of-things.md)
 

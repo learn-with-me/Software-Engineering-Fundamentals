@@ -76,5 +76,12 @@ Nutanix
 zerostack.com
 ```
 
+##### Domain Name Service
+
+```
+domains.google.com
+godaddy.com
+```
+
 
 
