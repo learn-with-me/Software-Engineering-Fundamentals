@@ -56,5 +56,7 @@
   * [Project - API JS](project-notebook/project-api-js.md)
   * [Project - Slack Self Invite](project-notebook/project-slack-self-invite.md)
   * [Project - Blogging](project-notebook/project-blogging.md)
+  * [Project - Authentication](project-notebook/project-authentication.md)
 * [Internet Of Things](internet-of-things.md)
+* [Testing](testing.md)
 

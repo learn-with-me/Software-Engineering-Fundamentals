@@ -16,14 +16,16 @@ Register a domain name and link to your hosting link
 ```
 Provide servers, OS, VMs, Networks, Storage on rent basis
 
-Google Cloud Platform (GCP)
-Amazon Web Services (AWS)
-Microsoft Azure
+Google Cloud Platform (GCP)      - https://cloud.google.com/
+Amazon Web Services (AWS)        - https://aws.amazon.com/
+Microsoft Azure                  - https://azure.microsoft.com/en-us/
 Digital Ocean                    - https://www.digitalocean.com/
 Linode                           - https://www.linode.com/
 Rackspace                        - https://www.rackspace.com/            // Offers Akamai powered CDN
-Open Stack
+Open Stack                       - https://www.openstack.org/ && https://www.openstack.org/software/
 Bare Metal
+        - https://www.packet.net/bare-metal/
+        - https://cloud.oracle.com/infrastructure/compute/pricing
 
 HP Cloud application delivery
     HP Hybrid Cloud - HPE Helion : Partnered with Akamai to offer compute and CDN
@@ -31,6 +33,7 @@ IBM SmartCloud application services
 Salesforce Cloud
 VMWare
 AT&T Synaptic Cloud Storage
+Red Hat Open Shift                - https://www.openshift.com
 ```
 
 ##### Hosting - Platform as a Service
