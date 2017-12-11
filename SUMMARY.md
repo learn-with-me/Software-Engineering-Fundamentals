@@ -49,6 +49,7 @@
 * [Performance](performance.md)
 * [Technology](technology.md)
   * [Notes - Java](technology/notes-java.md)
+    * [Java - Basics](technology/notes-java/java-basics.md)
 * [Project Notebook](project-notebook.md)
   * [Project - Profile](project-notebook/project-profile.md)
   * [Project - React Components](project-notebook/project-react-components.md)
