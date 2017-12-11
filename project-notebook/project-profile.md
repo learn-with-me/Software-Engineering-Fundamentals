@@ -65,6 +65,7 @@ https://sites.google.com/site/lilisuece/
 ```
 http://www.whoisjuan.me/
 http://www.design-talks.com/
+http://www.laudsome.com/
 http://anshulg.com/
 http://www.mansigupta.com/#/push-project/
 ```
