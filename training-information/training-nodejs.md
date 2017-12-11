@@ -48,8 +48,7 @@ http://zen.digital/javascript/quiz/#/intro
 ```
 https://medium.com/@getify
 https://github.com/getify/You-Dont-Know-JS
-https://www.linkedin.com/learning/real-time-web-with-node-js/into-node-js
-
+https://www.lynda.com/Node-js-tutorials/Real-Time-Web-Node-js/573614-2.html
 ```
 
 
