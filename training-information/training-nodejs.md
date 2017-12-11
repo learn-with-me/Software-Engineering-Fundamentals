@@ -41,6 +41,29 @@ Quiz
 http://zen.digital/javascript/quiz/#/intro
 ```
 
+##### ES 2015 Topics
+
+```
+Classes, Mixins, Iterators, Generators, Decorators, Combinators, private properties with Symbol.
+```
+
+##### JS - Graphic Libraries
+
+```
+paper.js
+KineticJS
+Fabric.js
+EaselJS
+```
+
+##### JavaScript Shell
+
+```
+https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Introduction_to_the_JavaScript_shell
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Shells#Standalone_JavaScript_shells
+https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey
+```
+
 ### Follow
 
 ##### Kyle Simpson

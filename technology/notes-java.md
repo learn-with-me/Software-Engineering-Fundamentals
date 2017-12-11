@@ -49,6 +49,20 @@ Can contain multiple JAR/WAR files. Contains application.xml in META-INF folder.
 Applications containing EJBs will also have ejb-jar.xml in the same META-INF folder.
 ```
 
+##### JVM Languages
+
+```
+https://en.wikipedia.org/wiki/List_of_JVM_languages
+https://blog.frankel.ch/rise-fall-jvm-languages/#gsc.tab=0
+```
+
+##### Java Shell
+
+```
+https://dzone.com/articles/jshell-finally-an-official-shell-in-java-9
+http://www.crashub.org/
+```
+
 ##### Index
 
 ```

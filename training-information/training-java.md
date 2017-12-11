@@ -12,6 +12,14 @@ Newbie - (For first time programmers. Very very basic content. Good compilation.
 https://www.udacity.com/course/java-programming-basics--ud282
 ```
 
+##### Spring Training
+
+```
+Intermediate
+============
+https://www.lynda.com/Spring-Framework-tutorials/Spring-Framework-Depth/606088-2.html
+```
+
 ##### Novice Training
 
 ```
