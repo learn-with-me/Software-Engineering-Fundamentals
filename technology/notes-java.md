@@ -3,7 +3,7 @@
 > PATH: This is a concept within Operating System, and not Java. It refers to the path where libraries are found. JDK Home must be added to PATH to have javac and java accessible via command line. Steps to setup PATH are mentioned in JAVA setup instructions.
 >
 > CLASSPATH is the path where jvm should be able to find all the classes. Classpath is the path or list of directory which is used by ClassLoaders to find and load class in Java program. Located in META-INF/manifest.mf file inside JAR file in Java.  
-> http://javarevisited.blogspot.sg/2011/01/how-classpath-work-in-java.html
+> [http://javarevisited.blogspot.sg/2011/01/how-classpath-work-in-java.html](http://javarevisited.blogspot.sg/2011/01/how-classpath-work-in-java.html)
 
 ##### Local Code execution
 
@@ -11,6 +11,7 @@
 via Command Line
 > java -cp <target_directory> <compiled_class_name>
 > java -cp target/classes/ problems.wordCount.WordCount
+> java -cp "target/classes/;lib/log4j.jar" problems.wordCount.WordCount        // with external jar
 > java -classpath target/classes/ problems.wordCount.WordCount
 
 via Maven

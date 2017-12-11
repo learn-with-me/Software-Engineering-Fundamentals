@@ -41,11 +41,15 @@ Quiz
 http://zen.digital/javascript/quiz/#/intro
 ```
 
-##### Docs - JavaScript - Testing
+### Follow
+
+##### Kyle Simpson
 
 ```
-https://egghead.io/lessons/javascript-test-javascript-with-jest
-https://github.com/kentcdodds/react-jest-workshop
+https://medium.com/@getify
+https://github.com/getify/You-Dont-Know-JS
+https://www.linkedin.com/learning/real-time-web-with-node-js/into-node-js
+
 ```
 
 
