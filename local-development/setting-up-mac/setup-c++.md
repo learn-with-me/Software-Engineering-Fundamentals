@@ -6,7 +6,6 @@ Make sure you have XCode command line tools installed
 
 ```
 > c++ --version            // Version of C++ installed
-
 ```
 
 
