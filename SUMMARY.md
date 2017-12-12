@@ -7,8 +7,6 @@
   * [Setting up Linux](local-development/setting-up-linux.md)
     * [Linux Docker](local-development/setting-up-linux/linux-docker.md)
   * [Cheatsheet](local-development/cheatsheet.md)
-    * [Cheatsheet - Vagrant](local-development/cheatsheet-vagrant.md)
-    * [Cheatsheet - Docker](local-development/cheatsheet-docker.md)
     * [Cheatsheet - GCP](local-development/cheatsheet-gcp.md)
   * [Tool Shop](local-development/tool-shop.md)
   * [IDE](local-development/ide.md)
