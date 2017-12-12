@@ -20,6 +20,11 @@ General steps involved using brew
 > brew install node@7    // Install the desired version, if not already done
 > brew link node@7       // Then link the desired version
 > node --version         // confirm the node version if everything went correctly
+
+Option 4
+> curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.7/install.sh | bash
+    // Installs or updated NVM (Node Version Manager)
+    http://sourabhbajaj.com/mac-setup/Node.js/
 ```
 
 ##### Package manager

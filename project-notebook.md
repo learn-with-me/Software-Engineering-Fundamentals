@@ -33,6 +33,8 @@ Finance data
 http://nsetools.readthedocs.io/en/latest/usage.html
 https://www.quandl.com/data/NSE-National-Stock-Exchange-of-India/usage/quickstart/api
 https://blog.quandl.com/api-for-stock-data
+https://www.bignerdranch.com/blog/online-banking-apis/
+https://plaid.com/docs/api/
 
 Time lapse movie maker
 

@@ -45,6 +45,7 @@ https://app.vagrantup.com/boxes/search
 ```
 > vagrant box list                // See a list of all installed boxes on your computer
 > vagrant box add <name> <url>    // Download a box image to your computer
+> vagrant box add precise64 http://files.vagrantup.com/precise64.box        // Example
 > vagrant box outdated            // Check for vagrant box updates
 > vagrant boxes remove <name>     // Deletes a box from the machine
 > vagrant package                 // Packages a running virtualbox env in a reusable box

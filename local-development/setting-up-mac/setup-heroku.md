@@ -3,12 +3,13 @@
 ##### Installation
 
 ```
+Option 1
 > brew install heroku/brew/heroku
-> heroku --version
-> heroku update
-Log file location: ~/Library/Caches/heroku/error.log
 
-heroku plugins        // List any outdated plugins
+Option 2
+> brew install heroku-toolbelt
+
+Log file location: ~/Library/Caches/heroku/error.log
 ```
 
 ##### Uninstall
@@ -21,7 +22,14 @@ OR
 > rm -rf ~/.local/share/heroku ~/.config/heroku ~/Library/Caches/heroku
 ```
 
-##### 
+##### Commands
+
+```
+> heroku --version
+> heroku update
+
+> heroku plugins        // List any outdated plugins
+```
 
 
 

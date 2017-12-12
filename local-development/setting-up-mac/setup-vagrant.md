@@ -13,6 +13,7 @@ Or even sometimes they are missing dependencies. Make sure it is all good or def
 
 Option 2:
 > brew cask install vagrant
+> brew cask install vagrant-manager    // helps you manage all your virtual machines in one place from menu-bar
 
 Option 3:
 > gem install vagrant

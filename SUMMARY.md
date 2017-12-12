@@ -18,6 +18,8 @@
     * [Setup Docker](local-development/setting-up-mac/setup-docker.md)
     * [Setup Vagrant](local-development/setting-up-mac/setup-vagrant.md)
     * [Setup Nginx](local-development/setting-up-mac/setup-nginx.md)
+    * [Setup MySQL](local-development/setting-up-mac/setup-mysql.md)
+    * [Setup C++](local-development/setting-up-mac/setup-c++.md)
   * [Setting up Linux](local-development/setting-up-linux.md)
     * [Linux Docker](local-development/setting-up-linux/linux-docker.md)
   * [Cheatsheet](local-development/cheatsheet.md)
