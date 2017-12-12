@@ -4,8 +4,6 @@
   * [Roles & Responsibilities](roles-and-responsibilities.md)
 * [Technical Concepts](technical-concepts.md)
 * [Local Development](local-development.md)
-  * [Setting up Mac](local-development/setting-up-mac.md)
-    * [Setup C++](local-development/setting-up-mac/setup-c++.md)
   * [Setting up Linux](local-development/setting-up-linux.md)
     * [Linux Docker](local-development/setting-up-linux/linux-docker.md)
   * [Cheatsheet](local-development/cheatsheet.md)
