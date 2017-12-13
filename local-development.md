@@ -1,16 +1,6 @@
 # Local Development
 
-When setting up a development machine, there are couple of softwares you want to make sure you have installed correctly. I'll have the following list documented:
-
-* OS Package Manager
-* Git
-* Python
-* Java
-* Node.js
-* Go
-* etc
-
-##### Random Links
+Random Links
 
 ```
 https://medium.com/@codesponsor/fighting-for-open-source-sustainability-introducing-code-sponsor-577e0ccca025

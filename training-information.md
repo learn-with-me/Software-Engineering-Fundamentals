@@ -19,6 +19,13 @@ https://www.lynda.com
 https://www.egghead.io
 ```
 
+#### Quick Help
+
+```
+http://devdocs.io/
+https://devhints.io/
+```
+
 # Random Reads - To be sorted
 
 ```

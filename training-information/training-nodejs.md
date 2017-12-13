@@ -1,5 +1,16 @@
 # NodeJS
 
+##### Officially Supported
+
+```
+https://nodejs.org/en/get-involved/
+https://nodejs.org/api/
+
+https://nodeschool.io/
+https://stackoverflow.com/questions/tagged/node.js
+https://docs.nodejitsu.com/
+```
+
 ##### Novice Training
 
 ```
