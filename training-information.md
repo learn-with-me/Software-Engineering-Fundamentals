@@ -2,7 +2,7 @@
 
 Out of all the numerous links out there, the intention of this section is to filter out resources and documents that work for me.
 
-Most common online resources are:
+#### Common online resources
 
 ```
 https://www.datacamp.com/home
@@ -17,6 +17,14 @@ Subscription Required
 =====================
 https://www.lynda.com
 https://www.egghead.io
+```
+
+##### Introduction to Programming
+
+```
+https://csfirst.withgoogle.com/en/home
+https://scratch.mit.edu/
+https://hourofcode.com/us
 ```
 
 #### Quick Help
