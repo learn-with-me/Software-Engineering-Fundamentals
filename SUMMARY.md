@@ -41,6 +41,7 @@
   * [Project - Slack Self Invite](project-notebook/project-slack-self-invite.md)
   * [Project - Blogging](project-notebook/project-blogging.md)
   * [Project - Authentication](project-notebook/project-authentication.md)
+  * [Project - Travel Helper](project-notebook/project-travel-helper.md)
 * [Internet Of Things](internet-of-things.md)
 * [Testing](testing.md)
 
