@@ -38,7 +38,14 @@ https://gitbookio.gitbooks.io/documentation/content/build/ebookconvert.html
 ```
 https://pandoc.org/
     https://pypi.python.org/pypi/leanpub/
+    https://github.com/jgm/pandoc
 http://markua.com/
+```
+
+##### Working eBook converter - ActionScript
+
+```
+https://github.com/progit/progit2
 ```
 
 
