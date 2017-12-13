@@ -34,6 +34,12 @@ http://devdocs.io/
 https://devhints.io/
 ```
 
+# Free e-books resources
+
+```
+http://www.oreilly.com/web-platform/free/
+```
+
 # Random Reads - To be sorted
 
 ```
