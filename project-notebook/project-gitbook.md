@@ -1,6 +1,6 @@
 # Editor like GitBook
 
-Tools to look at
+##### Tools to look at
 
 ```
 https://dillinger.io/
@@ -10,7 +10,7 @@ https://markable.in/
 https://wri.pe
 ```
 
-Softwares possibly needed
+##### Softwares possibly needed
 
 ```
 Ace Editor                    - https://ace.c9.io/
@@ -23,7 +23,7 @@ Code Mirror (browser editor)  - http://codemirror.net/
 JS Deflate                    - https://github.com/dankogai/js-deflate
 ```
 
-Other tricks
+##### Other tricks
 
 ```
 Right click
@@ -40,6 +40,10 @@ https://pandoc.org/
     https://pypi.python.org/pypi/leanpub/
     https://github.com/jgm/pandoc
 http://markua.com/
+
+https://github.com/laboon/ebook
+https://github.com/seblucas/cops
+https://github.com/janeczku/calibre-web
 ```
 
 ##### Working eBook converter - ActionScript

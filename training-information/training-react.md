@@ -31,6 +31,12 @@ Subscription
 https://egghead.io/courses/build-your-first-production-quality-react-app
 ```
 
+##### eBooks
+
+```
+https://github.com/survivejs/react-book
+```
+
 ##### Specific Topics
 
 ```
