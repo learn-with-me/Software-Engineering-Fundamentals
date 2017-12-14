@@ -44,6 +44,7 @@ http://markua.com/
 https://github.com/laboon/ebook
 https://github.com/seblucas/cops
 https://github.com/janeczku/calibre-web
+https://github.com/dadadel/ebooks
 ```
 
 ##### Working eBook converter - ActionScript

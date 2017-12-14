@@ -41,6 +41,7 @@ http://www.oreilly.com/web-platform/free/
 
 http://www.onlineprogrammingbooks.com/
 http://www.freetechbooks.com/
+https://devfreebooks.github.io/
 https://www.free-ebooks.net/                        // 5 books a month
 http://www.freebookcentre.net/
 ```
@@ -52,6 +53,10 @@ https://docs.google.com/document/d/1fBwyLwdIUYcfsSg8DddK0Z_dMVNDz5BNjGg2nkAncUo/
 
 https://lostechies.com/jimmybogard/2010/08/25/an-effective-testing-strategy/
     https://martinfowler.com/bliki/SubcutaneousTest.html
+
+https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone
+
+https://github.com/bitcoinbook/bitcoinbook
 ```
 
 

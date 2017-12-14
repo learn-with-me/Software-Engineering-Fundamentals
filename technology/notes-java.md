@@ -1,5 +1,7 @@
 # Java
 
+Java is a static, compiled language
+
 > PATH: This is a concept within Operating System, and not Java. It refers to the path where libraries are found. JDK Home must be added to PATH to have javac and java accessible via command line. Steps to setup PATH are mentioned in JAVA setup instructions.
 >
 > CLASSPATH is the path where jvm should be able to find all the classes. Classpath is the path or list of directory which is used by ClassLoaders to find and load class in Java program. Located in META-INF/manifest.mf file inside JAR file in Java.  

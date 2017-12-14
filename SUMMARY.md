@@ -3,6 +3,7 @@
 * [Introduction](README.md)
   * [Roles & Responsibilities](roles-and-responsibilities.md)
 * [Technical Concepts](technical-concepts.md)
+  * [Language Classification](technical-concepts/language-types.md)
 * [Local Development](local-development.md)
   * [Setting up Linux](local-development/setting-up-linux.md)
     * [Linux Docker](local-development/setting-up-linux/linux-docker.md)
