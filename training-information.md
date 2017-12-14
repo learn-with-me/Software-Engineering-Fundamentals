@@ -38,6 +38,11 @@ https://devhints.io/
 
 ```
 http://www.oreilly.com/web-platform/free/
+
+http://www.onlineprogrammingbooks.com/
+http://www.freetechbooks.com/
+https://www.free-ebooks.net/                        // 5 books a month
+http://www.freebookcentre.net/
 ```
 
 # Random Reads - To be sorted
