@@ -50,5 +50,6 @@
     * [Arduino Basics](internet-of-things/arduino/arduino-basics.md)
   * [Raspberry Pi](internet-of-things/raspberry-pi.md)
   * [Amazon Dash Button](internet-of-things/amazon-dash-button.md)
+  * [Build a Desktop](internet-of-things/build-a-desktop.md)
 * [Testing](testing.md)
 
