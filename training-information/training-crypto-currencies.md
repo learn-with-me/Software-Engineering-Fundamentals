@@ -32,6 +32,8 @@ https://bitconnect.co/
 
 ```
 https://bitsonblocks.net/
+
+https://www.engadget.com/2017/12/14/bitcoin-is-failing-as-a-currency/
 ```
 
 ##### Links
