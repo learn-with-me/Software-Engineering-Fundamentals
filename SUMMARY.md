@@ -34,6 +34,8 @@
   * [Notes - Java](technology/notes-java.md)
     * [Java - Basics](technology/notes-java/java-basics.md)
     * [Java - Spring](technology/notes-java/java-spring.md)
+  * [Notes - HTML5](technology/notes-html5.md)
+  * [Notes - Node.js](technology/notes-nodejs.md)
 * [Project Notebook](project-notebook.md)
   * [Project - Profile](project-notebook/project-profile.md)
   * [Project - React Components](project-notebook/project-react-components.md)

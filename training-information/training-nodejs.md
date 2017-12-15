@@ -15,14 +15,13 @@ https://docs.nodejitsu.com/
 ##### Novice Training
 
 ```
-https://www.udacity.com/course/java-programming-basics--ud282
+Kyle Simpson
+https://www.lynda.com/Node-js-tutorials/Real-Time-Web-Node-js/573614-2.html
 ```
 
 ##### Intermediate Training
 
 ```
-https://www.udacity.com/course/javascript-design-patterns--ud989
-
 Subscription
 ============
 https://egghead.io/browse/platforms/node
@@ -47,6 +46,8 @@ http://zen.digital/javascript/quiz/#/intro
 
 ```
 Classes, Mixins, Iterators, Generators, Decorators, Combinators, private properties with Symbol.
+
+https://www.udacity.com/course/javascript-design-patterns--ud989
 ```
 
 ##### eBooks
@@ -88,7 +89,6 @@ https://www.youtube.com/watch?v=-72P4ii-z0Q
 ```
 https://medium.com/@getify
 https://github.com/getify/You-Dont-Know-JS
-https://www.lynda.com/Node-js-tutorials/Real-Time-Web-Node-js/573614-2.html
 ```
 
 
