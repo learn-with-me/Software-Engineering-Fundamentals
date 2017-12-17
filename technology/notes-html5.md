@@ -12,8 +12,6 @@ If you use native api in your code and a breaking change is introduced, you'll h
 * WebRTC
 * WebSockets
 
-
-
 ##### Reference
 
 ```

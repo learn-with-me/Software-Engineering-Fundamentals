@@ -17,6 +17,7 @@
   * [Debugging](local-development/debugging.md)
 * [Training Information](training-information.md)
   * [Training - Design](training-information/training-design.md)
+  * [Training - JavaScript](training-information/training-javascript.md)
   * [Training - Node.js](training-information/training-nodejs.md)
   * [Training - Java](training-information/training-java.md)
   * [Training - Python](training-information/training-python.md)
@@ -25,7 +26,7 @@
   * [Training - Docker](training-information/training-docker.md)
   * [Training - Vagrant](training-information/training-vagrant.md)
   * [Training - GCP](training-information/training-gcp.md)
-  * [Training - Nginx](training-information/training-nginx.md)
+  * [Training - JavaScript](training-information/training-javascript.md)
 * [DevOps](devops.md)
   * [Docker](devops/docker.md)
   * [Vagrant](devops/vagrant.md)
@@ -53,5 +54,6 @@
   * [Raspberry Pi](internet-of-things/raspberry-pi.md)
   * [Amazon Dash Button](internet-of-things/amazon-dash-button.md)
   * [Build a Desktop](internet-of-things/build-a-desktop.md)
+* [Data Science](data-science.md)
 * [Testing](testing.md)
 
