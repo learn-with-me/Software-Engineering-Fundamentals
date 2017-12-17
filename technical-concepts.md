@@ -1,5 +1,7 @@
 ### Programming Fundamentals 101
 
+> Just because you can do it with a language/framework, does not mean you should.
+
 **Object Oriented Programming** -
 
 **Functional Programing** - more flexible, makes testing and debugging easier

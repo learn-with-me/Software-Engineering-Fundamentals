@@ -23,6 +23,7 @@ https://www.egghead.io
 
 ```
 https://csfirst.withgoogle.com/en/home
+https://developers.google.com/blockly/
 https://scratch.mit.edu/
 https://hourofcode.com/us
 ```
@@ -32,6 +33,17 @@ https://hourofcode.com/us
 ```
 http://devdocs.io/
 https://devhints.io/
+```
+
+##### Online Learning Management System
+
+```
+https://moodle.org/
+    https://moodle.com/cloud/free/
+    http://elearningexperts.net/moodle-partner/?moodlead=elearningexperts.general
+http://www.atutor.ca/
+https://eliademy.com/
+https://www.formalms.org/
 ```
 
 # Free e-books resources
