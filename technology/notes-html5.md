@@ -4,13 +4,27 @@
 
 If you use native api in your code and a breaking change is introduced, you'll have a bunch of places to go and change into, however facade is like a pressure release value. Framework is just a more complex version of facade. They add all kinds of extra stuff into it like polyfills, etc.
 
-##### API
+##### Persistent Storage API
+
+The API stores some information in the browser.
 
 * Cookies
-* LocalStorage
+  ```
+  Get and set cookies related to the current document
+  ```
 * SessionStorage
-* WebRTC
-* WebSockets
+* ```
+  Maintains separate storage area or each given origin that's available for the duration of the page session.
+  ```
+* LocalStorage
+  ```
+  Stores data as key-value pair locally on user's browser. Unlike cookie, local storage is persistent. Data will
+  always be available even after the browser is closed.
+  ```
+* 
+WebRTC API
+
+WebSockets API
 
 ##### Reference
 
