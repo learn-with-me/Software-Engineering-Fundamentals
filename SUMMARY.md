@@ -26,7 +26,7 @@
   * [Training - Crypto Currencies](training-information/training-crypto-currencies.md)
   * [Training - Docker](training-information/training-docker.md)
   * [Training - Vagrant](training-information/training-vagrant.md)
-  * [Training - Nginx](training-information/training-nginx.md)
+  * [Training - GCP](training-information/training-gcp.md)
 * [DevOps](devops.md)
   * [Docker](devops/docker.md)
   * [Vagrant](devops/vagrant.md)
