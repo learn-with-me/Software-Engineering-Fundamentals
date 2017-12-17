@@ -38,6 +38,8 @@ https://devhints.io/
 ##### Online Learning Management System
 
 ```
+https://github.com/edx/edx-platform
+
 https://moodle.org/
     https://moodle.com/cloud/free/
     http://elearningexperts.net/moodle-partner/?moodlead=elearningexperts.general
@@ -69,6 +71,8 @@ https://lostechies.com/jimmybogard/2010/08/25/an-effective-testing-strategy/
 https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone
 
 https://github.com/bitcoinbook/bitcoinbook
+
+https://closebrace.com/
 ```
 
 

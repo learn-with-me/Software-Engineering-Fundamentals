@@ -26,6 +26,20 @@ Live Reload
 Deployment plan and resources
 ```
 
+##### Node Projects
+
+```
+https://chat.meatspac.es/
+    https://github.com/meatspaces/meatspace-chat-v2
+https://talky.io/
+```
+
+##### Electron Projects
+
+```
+https://github.com/nwjs/nw.js/wiki/List-of-apps-and-companies-using-nw.js
+```
+
 ##### Ideas in progress
 
 ```

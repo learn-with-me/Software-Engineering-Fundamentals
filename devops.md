@@ -77,6 +77,7 @@ https://thecodebee.com/4ways-to-host-angular-app-in-under-5-mins/
 ```
 Nutanix
 zerostack.com
+Bitnami.com
 ```
 
 ##### Domain Name Service
