@@ -38,6 +38,7 @@
   * [Notes - HTML5](technology/notes-html5.md)
   * [Notes - Node.js](technology/notes-nodejs.md)
     * [Node Packages](technology/notes-nodejs/node-packages.md)
+    * [Package Manager](technology/notes-nodejs/package-manager.md)
 * [Project Notebook](project-notebook.md)
   * [Project - Profile](project-notebook/project-profile.md)
   * [Project - React Components](project-notebook/project-react-components.md)
