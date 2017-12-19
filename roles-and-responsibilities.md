@@ -8,8 +8,8 @@ The Dev Manager is responsible for the technical leadership and management of th
 * Represent the overall Product Health
 * Own the instrumentation (dashboards, SRE visibility, etc.) and the data surrounding a product
 * Define tech-related backlog items. Specifically:
-* Define technical MVP and success criteria
-* Ensure that technical stores meet minimum standards
+    * Define technical MVP and success criteria
+    * Ensure that technical stores meet minimum standards
 * Prioritize technology-related backlog items
 * Ensure alignment with corporate technology strategy and best practices
 * Facilitate inter-team and intra-team conflict resolution
