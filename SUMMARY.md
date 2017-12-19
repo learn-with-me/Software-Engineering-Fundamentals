@@ -35,6 +35,7 @@
   * [Notes - Java](technology/notes-java.md)
     * [Java - Basics](technology/notes-java/java-basics.md)
     * [Java - Spring](technology/notes-java/java-spring.md)
+    * [Serialization](technology/notes-java/serialization.md)
   * [Notes - HTML5](technology/notes-html5.md)
   * [Notes - Node.js](technology/notes-nodejs.md)
     * [Node Packages](technology/notes-nodejs/node-packages.md)
