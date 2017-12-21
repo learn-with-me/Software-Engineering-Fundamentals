@@ -62,5 +62,12 @@ https://trello.com/b/HQDFrFYf/vertmtl
 https://gitter.im
 ```
 
+##### Other
+
+```
+https://david-dm.org/
+https://readthedocs.org/
+```
+
 
 
