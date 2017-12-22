@@ -21,6 +21,7 @@ Amazon Web Services (AWS)        - https://aws.amazon.com/
 Microsoft Azure                  - https://azure.microsoft.com/en-us/
 Digital Ocean                    - https://www.digitalocean.com/
 Linode                           - https://www.linode.com/
+Vultr                            - https://www.vultr.com/
 Rackspace                        - https://www.rackspace.com/            // Offers Akamai powered CDN
 Open Stack                       - https://www.openstack.org/ && https://www.openstack.org/software/
 Bare Metal

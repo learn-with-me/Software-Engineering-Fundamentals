@@ -48,6 +48,12 @@ https://eliademy.com/
 https://www.formalms.org/
 ```
 
+##### Blog Resources
+
+```
+https://medium.freecodecamp.org
+```
+
 # Free e-books resources
 
 ```

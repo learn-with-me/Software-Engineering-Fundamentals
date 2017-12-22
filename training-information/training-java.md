@@ -12,6 +12,13 @@ Newbie - (For first time programmers. Very very basic content. Good compilation.
 https://www.udacity.com/course/java-programming-basics--ud282
 ```
 
+##### Quick Concepts
+
+```
+http://xahlee.info/java-a-day/extend.html
+https://www.tutorialspoint.com/java/java_interfaces.htm
+```
+
 ##### Spring Training
 
 ```
