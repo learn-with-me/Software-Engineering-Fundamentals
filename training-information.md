@@ -28,11 +28,18 @@ https://scratch.mit.edu/
 https://hourofcode.com/us
 ```
 
-#### Quick Help
+#### Quick Help - Cheatsheet
 
 ```
 http://devdocs.io/
 https://devhints.io/
+http://overapi.com/
+
+RegEx
+https://www.debuggex.com/cheatsheet/regex/javascript
+
+Blog
+https://medium.freecodecamp.org/modern-frontend-hacking-cheatsheets-df9c2566c72a
 ```
 
 ##### Online Learning Management System

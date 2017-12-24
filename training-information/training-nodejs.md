@@ -27,7 +27,11 @@ Subscription
 https://egghead.io/browse/platforms/node
 ```
 
-# 
+##### Project Ideas
+
+```
+https://github.com/sqreen/awesome-nodejs-projects
+```
 
 
 
