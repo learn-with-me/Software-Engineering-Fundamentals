@@ -52,6 +52,7 @@ https://www.formalms.org/
 
 ```
 https://medium.freecodecamp.org
+https://hackernoon.com/
 ```
 
 # Free e-books resources
