@@ -1,15 +1,17 @@
-Applications
+# Applications
 
-Web Apps
+#### Web Apps
 
-Progressive Web Apps
+##### Progressive Web Apps
 
 ```
 https://developers.google.com/web/progressive-web-apps/
     https://developers.google.com/web/fundamentals/codelabs/your-first-pwapp/
+
+https://medium.freecodecamp.org/why-progressive-web-apps-are-the-future-of-web-development-13db7dd5f640
 ```
 
-AMP
+##### AMP
 
 ```
 https://developers.google.com/amp/
