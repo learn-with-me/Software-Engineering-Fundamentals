@@ -16,7 +16,7 @@
     * [IDE Atom](local-development/ide/ide-atom.md)
     * [IDE Visual Studio Code](local-development/ide/ide-visual-studio-code.md)
     * [IDE IntelliJ](local-development/ide/ide-intellij.md)
-    * [IDE Webstorm](local-development/ide/ide-webstorm.md)
+    * [IDE WebStorm](local-development/ide/ide-webstorm.md)
   * [Debugging](local-development/debugging.md)
 * [DevOps](devops.md)
   * [Virtualbox](devops/virtualbox.md)
