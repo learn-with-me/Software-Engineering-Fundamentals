@@ -48,6 +48,7 @@
     * [Node Packages](technology/notes-nodejs/node-packages.md)
     * [Package Manager](technology/notes-nodejs/package-manager.md)
   * [Notes - Postgres](technology/notes-postgres.md)
+  * [Notes - Neo4j](technology/notes-neo4j.md)
 * [Internet Of Things](internet-of-things.md)
   * [Electric Circuits](internet-of-things/electric-circuits.md)
   * [Arduino](internet-of-things/arduino.md)

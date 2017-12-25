@@ -11,6 +11,7 @@ This book is everything that I know or need to refer to.
 ```
 Java8
 MongoDB
+Neo4j
 Google Cloud Developer
 AWS Developer
 ```
