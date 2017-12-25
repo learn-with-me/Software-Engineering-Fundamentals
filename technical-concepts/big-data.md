@@ -1,6 +1,6 @@
-# Big Data
+# Big Data SQL
 
-Big Data SQL is the use of an SQL-like language as the interface to a big data technology.
+It is important to choose the right tool for the job. Information below is going to help you understand basics of each tool. Big Data SQL is the use of an SQL-like language as the interface to a big data technology.
 
 #### Big Data Storage Engines
 
@@ -98,6 +98,7 @@ performance queries using Spark's RDDs.
 
 ```
 http://exponential.io/blog/2015/02/26/big-data-sql/
+http://exponential.io/categories/cassandra/
 ```
 
 
