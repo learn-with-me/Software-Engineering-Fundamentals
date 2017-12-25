@@ -6,10 +6,17 @@
 * Refer: [https://code.visualstudio.com/docs?start=true](https://code.visualstudio.com/docs?start=true)
 * Looks very promising for full-stack work
 
-##### Plugins & Configurations
+##### Extensions/Plugins/Configurations
 
 ```
+https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome
+https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense
+```
 
+##### Read More
+
+```
+https://code.visualstudio.com/docs/nodejs/nodejs-tutorial
 ```
 
 

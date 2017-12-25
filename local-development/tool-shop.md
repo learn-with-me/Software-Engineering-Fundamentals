@@ -62,6 +62,12 @@ https://trello.com/b/HQDFrFYf/vertmtl
 https://gitter.im
 ```
 
+##### Demo without deploying
+
+```
+https://ngrok.com/
+```
+
 ##### Other
 
 ```
