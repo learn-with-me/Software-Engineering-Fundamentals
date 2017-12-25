@@ -17,7 +17,17 @@ Postgres supports a long list of database features, including several enterprise
 * Several unusual data types, like Money, Geometry, IP addresses, JSON, and data ranges.
 * Can execute stored procedures in over a dozen programming languages, including Java, Perl, Python, Ruby, and C/C++.
 
+#### Database Clients
 
+```
+This section will move to mac_setup
+
+PostgreSQL - Postico, pgAdmin
+Sequel Pro does not work with this DB.
+MySQLWorkbench?
+
+Find out what client works with which DB
+```
 
 #### References
 
