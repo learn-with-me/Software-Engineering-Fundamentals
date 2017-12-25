@@ -6,6 +6,8 @@
   * [Language Classification](technical-concepts/language-classification.md)
   * [Application Classification](technical-concepts/application-classification.md)
   * [Data Structures & Algorithms](technical-concepts/data-structures-and-algorithms.md)
+  * [Databases](technical-concepts/databases.md)
+  * [Big Data](technical-concepts/big-data.md)
 * [Local Development](local-development.md)
   * [Setting up Linux](local-development/setting-up-linux.md)
     * [Linux Docker](local-development/setting-up-linux/linux-docker.md)
