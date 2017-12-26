@@ -13,6 +13,7 @@
 * [Local Development](local-development.md)
   * [Setting up Linux](local-development/setting-up-linux.md)
     * [Linux Docker](local-development/setting-up-linux/linux-docker.md)
+    * [Linux MySQL](local-development/setting-up-linux/linux-mysql.md)
   * [Cheatsheet](local-development/cheatsheet.md)
     * [Cheatsheet - GCP](local-development/cheatsheet-gcp.md)
   * [Tool Shop](local-development/tool-shop.md)
