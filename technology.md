@@ -52,6 +52,9 @@ https://codeburst.io/
 https://tutorialzine.com/articles
 https://blog.risingstack.com/
 http://jster.net/blog
+https://www.upwork.com/hiring/author/careywodehouse/
+    https://www.upwork.com/hiring/development/the-basics-of-compiled-languages-interpreted-languages-and-just-in-time-compilers/
+    http://corksandcaftans.com/
 
 Dead:
 =====
