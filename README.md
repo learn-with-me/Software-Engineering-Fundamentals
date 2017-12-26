@@ -16,7 +16,17 @@ Google Cloud Developer
 AWS Developer
 ```
 
-##### 
+##### Promotions
+
+```
+https://education.github.com/pack
+```
+
+##### Yet to be sorted
+
+```
+https://proffer.network/hackathon
+```
 
 
 

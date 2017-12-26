@@ -37,6 +37,8 @@ Also read page \#13, \#14
 ```
 Dynamic Programming
 Aspect Oriented Programming
+
+https://12factor.net/
 ```
 
 

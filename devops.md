@@ -2,6 +2,13 @@
 
 Anything and Everything related to maintaining a software once you have the bundle created. This includes CI/CD, automated unit testing and decided where and how to deploy, and much more...
 
+##### Explore
+
+```
+https://github.com/githubsaturn/captainduckduck
+    https://medium.freecodecamp.org/how-i-cut-my-heroku-cost-by-400-5b9d0220ce13
+```
+
 ##### Deploying a basic website
 
 ```

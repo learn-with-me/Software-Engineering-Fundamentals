@@ -13,10 +13,12 @@ https://medium.freecodecamp.org
 https://edgecoders.com/
 https://codeburst.io/
 https://tutorialzine.com/articles
+https://blog.risingstack.com/
+http://jster.net/blog
 
 Dead:
 =====
-https://www.airpair.com/            # Died 2 years back in 2015-2016
+https://www.airpair.com/            # Died around 2 years back in 2015
 ```
 
 ##### Good Reads - to be sorted

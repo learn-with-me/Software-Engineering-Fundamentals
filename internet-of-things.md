@@ -63,6 +63,10 @@ https://aiyprojects.withgoogle.com/
 
 ```
 http://microbit.org/
+https://www.microcenter.com/
+https://www.aliexpress.com/
+https://www.gearbest.com/
+
 http://www.microcenter.com/product/480034/MicroBit_Go_Kit                       // $12 kit
 
 http://www.microcenter.com/site/content/Google_AIY_Preorder.aspx                // $35 kit
