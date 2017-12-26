@@ -35,7 +35,15 @@ https://codebunk.com/
 https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in
 ```
 
-# Tools
+# Live coding
+
+```
+https://hackhands.com/
+
+https://scrimba.com/            # This tool also lets you record it
+```
+
+##### Tools
 
 ##### Code Linter
 
@@ -66,6 +74,12 @@ https://gitter.im
 
 ```
 https://ngrok.com/
+```
+
+##### Browser
+
+```
+https://brave.com/
 ```
 
 ##### Other

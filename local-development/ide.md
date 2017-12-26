@@ -26,22 +26,29 @@ Invest or free version?
 
 ##### Summary
 
-Once I have enough summary in the sub-sections, I have a summary on this page here in the placeholder below:
+Keep moving each topic in their own sub section
 
 ```
-Atom
-Visual Studio Code (Community Edition)
-WebStorm
 PyCharm
 Goglang
 Eclipse
 NetBeans
+Brackets
 Sublime
 Emacs
 Visual Studio
 https://www.decoide.org/
 
 Online Editors
+```
+
+##### Embedded Code Editors
+
+```
+https://microsoft.github.io/monaco-editor/index.html
+https://kazzkiq.github.io/CodeFlask.js/
+https://codemirror.net/
+
 ```
 
 
