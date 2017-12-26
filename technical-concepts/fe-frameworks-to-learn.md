@@ -13,12 +13,16 @@ Good frameworks also have smart defaults and follow the convention over configur
 * Learn the power of CSS and how to use it to minimize your applications JavaScript code. Learn the new Flexbox and Grid layouts. Learn about UI-responsive design.
 * Learn how to add static types to JavaScript with TypeScript \(or Flow\) and learn where you should focus on types vs testing.
 
-
-
 ##### Resource
 
 ```
 https://medium.com/@samerbuna/which-javascript-frameworks-should-you-learn-in-2018-ecea9a27617d
+```
+
+##### Good resources to continue this page
+
+```
+https://www.sitepen.com/blog/2017/11/10/web-frameworks-conclusions/
 ```
 
 

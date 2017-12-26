@@ -65,7 +65,7 @@ https://edgecoders.com/learnings-from-analyzing-my-compromised-server-linode-cd3
     https://tasdikrahman.me/projects/
 
 https://codeburst.io/easy-guide-for-webpack-2-0-from-scratch-fe508a3ce44e
-
+https://www.linkedin.com/pulse/javascript-named-vs-anonymous-functions-chris-ng/
 https://medium.freecodecamp.org/heres-my-free-css-grid-course-merry-christmas-3826dd24f098
 ```
 

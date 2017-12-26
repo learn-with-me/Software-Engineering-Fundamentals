@@ -35,5 +35,11 @@ Example: Maven, Gradle, NPM, bower, pip, etc
 Source: https://en.wikipedia.org/wiki/List_of_software_package_management_systems
 ```
 
+##### Interesting Problems
+
+```
+http://adventofcode.com/
+```
+
 
 
