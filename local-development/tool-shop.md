@@ -35,15 +35,14 @@ https://codebunk.com/
 https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in
 ```
 
-# Live coding
+##### Live coding
 
 ```
 https://hackhands.com/
-
 https://scrimba.com/            # This tool also lets you record it
 ```
 
-##### Tools
+# Tools
 
 ##### Code Linter
 
