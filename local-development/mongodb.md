@@ -11,6 +11,10 @@
     > show dbs // Display the list of available databases
     > use <database_name> // You can select existing database or create new with this command and set it to use
     > db // Execute to verify if the database you expected is in use
+4. Terminal 3: This is where you run your node script. Examples below:
+    Remember:
+    1. For local you'll use localhost and 27017 is the default MongoDB port, feel free to change it.
+    2. It is ideal to store the URI in environment variable
 
 ```
 
