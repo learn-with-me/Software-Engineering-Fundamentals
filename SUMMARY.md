@@ -16,6 +16,7 @@
     * [Linux MySQL](local-development/setting-up-linux/linux-mysql.md)
   * [Cheatsheet](local-development/cheatsheet.md)
     * [Cheatsheet - GCP](local-development/cheatsheet-gcp.md)
+    * [MongoDB](local-development/mongodb.md)
   * [Tool Shop](local-development/tool-shop.md)
   * [IDE](local-development/ide.md)
     * [IDE Atom](local-development/ide/ide-atom.md)
