@@ -34,6 +34,8 @@
       })
     : express.static(path.join(__dirname, 'public/images'));
 
+    const app = express();
+    app.use('/images', proxyBaseImageUrl);
 
 
 
