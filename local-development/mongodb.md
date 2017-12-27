@@ -15,16 +15,16 @@
     Remember:
     1. For local you'll use localhost and 27017 is the default MongoDB port, feel free to change it.
     2. It is ideal to store the URI in environment variable
+
 var MongoClient = require('mongodb').MongoClient;
 
 MongoClient.connect("mongodb://localhost:27017/myNewDatabase", function(err, data) {
-if (err) {
-console.log('Cannot connect to MongoDB', err);
-} else {
-console.log('Connected to MongoDB');
-}
+    if (err) {
+        console.log('Cannot connect to MongoDB', err);
+    } else {
+        console.log('Connected to MongoDB');
+    }
 });
-
 ```
 
 
