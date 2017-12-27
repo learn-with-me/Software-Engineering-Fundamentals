@@ -16,6 +16,8 @@
 
 ##### Proxy path to a CDN
 
+    Intend to set custom path to an image request
+
     Express App
     1. Add `express-http-proxy` as dependency
         $ yarn add express-http-proxy

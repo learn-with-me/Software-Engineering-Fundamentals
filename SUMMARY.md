@@ -18,6 +18,7 @@
     * [Cheatsheet - GCP](local-development/cheatsheet-gcp.md)
     * [MongoDB](local-development/mongodb.md)
     * [Node.js](local-development/nodejs.md)
+    * [Docker](local-development/docker.md)
   * [Tool Shop](local-development/tool-shop.md)
   * [IDE](local-development/ide.md)
     * [IDE Atom](local-development/ide/ide-atom.md)
