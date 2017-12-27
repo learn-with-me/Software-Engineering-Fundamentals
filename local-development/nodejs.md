@@ -14,5 +14,17 @@
     4. Now finally execute your node process as usual
             $ node index.js
 
+##### Proxy path to a CDN
+
+    Express App
+    1. Add `express-http-proxy` as dependency
+        $ yarn add express-http-proxy
+    2. Add the following code
+
+    const proxy = require('express-http-proxy');
+    const baseImageUrl = process.env.BASE_IMAGE_URL;
+
+
+
 
 
