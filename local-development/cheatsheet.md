@@ -1,6 +1,6 @@
 # Cheatsheet
 
-Area where you'll find quick references to common commands related to few technologies. 
+Area where you'll find quick references to common commands related to few technologies.
 
 Here are couple ways that I would look for answers:
 
