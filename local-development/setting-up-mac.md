@@ -1,6 +1,0 @@
-# Setting up Mac OSx
-
-##### 
-
-
-
