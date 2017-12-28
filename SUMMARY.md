@@ -10,6 +10,7 @@
   * [Databases](technical-concepts/databases.md)
   * [Big Data](technical-concepts/big-data.md)
   * [FE Frameworks to Learn](technical-concepts/fe-frameworks-to-learn.md)
+  * [Software Licensing](technical-concepts/software-licensing.md)
 * [Local Development](local-development.md)
   * [Setting up Linux](local-development/setting-up-linux.md)
     * [Linux Docker](local-development/setting-up-linux/linux-docker.md)
@@ -65,3 +66,4 @@
   * [Google AIY](internet-of-things/google-aiy.md)
 * [Data Science](data-science.md)
 * [Testing](testing.md)
+

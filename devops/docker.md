@@ -1,5 +1,7 @@
 # Docker
 
+> Docker is an open-source engine that automates the deployment of applications into containers.
+>
 > Docker wants you to be able to build, ship and run distributed applications. It give you a standard way to package your software, deploy the software and run the software. What goes in the container is up to you.
 >
 > A container management that can consistently run software as long as a containerization system exists.
@@ -68,7 +70,6 @@ Check Quay.io
 • Provision Swarm clusters
 
 Tool that lets you install Docker Engine on virtual hosts, and manage the hosts with docker-machine commands.
-
 ```
 
 Container:
@@ -80,4 +81,13 @@ Image for an operating system will only run on that OS. PODA is similar to WORA,
 Docker doesn't need hypervisor????
 
 Using 120mb instead of 1GB
+
+##### Resources
+
+```
+https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b
+https://www.youtube.com/watch?v=JBtWxj9l7zM
+```
+
+
 
