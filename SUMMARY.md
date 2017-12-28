@@ -15,9 +15,9 @@
     * [Linux Docker](local-development/setting-up-linux/linux-docker.md)
     * [Linux MySQL](local-development/setting-up-linux/linux-mysql.md)
   * [How To](local-development/how-to.md)
-    * [MongoDB](local-development/mongodb.md)
-    * [Node.js](local-development/nodejs.md)
-    * [Docker](local-development/docker.md)
+    * [MongoDB](local-development/how-to/mongodb.md)
+    * [Node.js](local-development/how-to/nodejs.md)
+    * [Docker](local-development/how-to/docker.md)
   * [Tool Shop](local-development/tool-shop.md)
   * [IDE](local-development/ide.md)
     * [IDE Atom](local-development/ide/ide-atom.md)
@@ -65,4 +65,3 @@
   * [Google AIY](internet-of-things/google-aiy.md)
 * [Data Science](data-science.md)
 * [Testing](testing.md)
-
