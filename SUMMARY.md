@@ -62,6 +62,7 @@
   * [Raspberry Pi](internet-of-things/raspberry-pi.md)
   * [Amazon Dash Button](internet-of-things/amazon-dash-button.md)
   * [Build a Desktop](internet-of-things/build-a-desktop.md)
+    * [CPU](internet-of-things/build-a-desktop/cpu.md)
   * [Google AIY](internet-of-things/google-aiy.md)
 * [Data Science](data-science.md)
 * [Testing](testing.md)

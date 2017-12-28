@@ -13,6 +13,15 @@ Ship     - Docker Hub/Registry     // Ship an application using docker hub
 Run      - Docker Container        // Run the application as a docker container
 ```
 
+##### Process
+
+```
+Dockerfile build the Docker Image, that contains all the softwares and dependencies; even Node.js. Which means you do
+not need to install Node.js on your production server.
+
+You run containers from an Image. A container consists of Web Server, Host OS, Docker Engine and Apps
+```
+
 ##### Docker Engine/Host
 
 ```
@@ -47,6 +56,19 @@ Docker Machine - A CLI. Creates a Virtualbox VM or allows to simulate Docker eng
 Docker Compose - Allows to run multi container applications very easily
 Docker Kitematic - Simple UI that allows you to manage your VMs
 Virtualbox - Included for simplicity
+
+Check Quay.io
+```
+
+##### Docker Machine
+
+```
+• Install and run Docker on Mac or Windows
+• Provision and manage multiple remote Docker hosts
+• Provision Swarm clusters
+
+Tool that lets you install Docker Engine on virtual hosts, and manage the hosts with docker-machine commands.
+
 ```
 
 Container:

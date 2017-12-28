@@ -80,6 +80,9 @@ https://www.youtube.com/watch?v=OEUAktaVhQs
 https://www.youtube.com/watch?v=AqC04uPW1qE
 
 https://www.youtube.com/watch?v=iZopPdlwdoo
+
+https://lifehacker.com/5828747/how-to-build-a-computer-from-scratch-the-complete-guide
+https://lifehacker.com/the-always-up-to-date-guide-to-building-a-hackintosh-o-5841604
 ```
 
 ##### Free Softwares
