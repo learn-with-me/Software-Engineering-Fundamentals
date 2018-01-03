@@ -3,6 +3,7 @@
 * [Introduction](README.md)
   * [Roles & Responsibilities](roles-and-responsibilities.md)
   * [Job Search](job-search.md)
+  * [Interview - Tech breakdown](interview-tech-breakdown.md)
 * [Technical Concepts](technical-concepts.md)
   * [Language Classification](technical-concepts/language-classification.md)
   * [Application Classification](technical-concepts/application-classification.md)
