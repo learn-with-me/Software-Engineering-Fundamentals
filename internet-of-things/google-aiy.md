@@ -7,8 +7,20 @@ Do -it-yourself artificial intelligence maker toolkit
 Build your own natural language recognizer and connect it to the Google assistant
 
 ```
-Instructions
+Docs
+====
 https://aiyprojects.withgoogle.com/voice
+https://www.raspberrypi.org/documentation/setup/
+
+What do you need
+================
+Voice Kit
+Raspberry Pi3
+Power supply (atleast 5V 2Amp)
+SD micro Card (atleast 8GB class 4 SD card preinstalled with NOOBS)
+USB Keyboard and Mouse
+HDMI monitor
+++ based on project you are working on
 
 
 ```
@@ -20,7 +32,6 @@ Build an intelligent camera that can see and recognize objects using Tensorflow
 ```
 Instructions
 https://aiyprojects.withgoogle.com/vision/
-
 ```
 
 

@@ -52,6 +52,17 @@ DC Motor
 4-8 Ohm speakers upto 3 watt
 ```
 
+##### Unifying
+
+```
+One receiver for many devices
+This comes in handy when you loose your wireless device's receiver and you are interested in configuring a new one.
+
+Links
+=====
+https://www.logitech.com/en-us/promotions/6072
+```
+
 ##### Checkout
 
 ```
