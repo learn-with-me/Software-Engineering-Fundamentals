@@ -1,6 +1,6 @@
 # MongoDB
 
-A document based database. Natively supports scaling out through sharding feature.
+A document based database. Natively supports scaling out through sharding feature. Core server built in C++. Stores data as BSON \(bsonspec.org\). MongoDB drivers are the ones that map your JSON request to BSON and communicate further.
 
 > **MongoDB Compass:** Compass is a GUI client for viewing MongoDB databases and documents they contain. Supports read and write data.
 >
@@ -18,9 +18,13 @@ Collection: Collection stores individual Records. Each datbase & collection comb
 Record: Often referred as documents.
 Indexes: ?? Related to performance.
 
+CRUD Operations:
+Create, Read, Update, Delete
+
 Remember:
 There is no authorization yet supported on document level, but only database or collection level.
 MongoDB supports nesting a document.
+All documents must have _id field. If not added while inserting data, MongoDB generates a unique value. A BSON thing.
 ```
 
 Scalar Data Types
