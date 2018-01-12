@@ -2,7 +2,7 @@
 
 #### Web Apps
 
-##### Progressive Web Apps
+##### Progressive Web Apps \(PWA\)
 
 ```
 https://developers.google.com/web/progressive-web-apps/
