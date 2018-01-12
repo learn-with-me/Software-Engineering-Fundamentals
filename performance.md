@@ -13,5 +13,13 @@ Server
 Database (relational vs NoSQL)
 ```
 
+##### Techniques
+
+```
+Server Side Code Chunking
+https://developers.google.com/speed/webp/
+    https://developers.google.com/speed/webp/docs/webp_study
+```
+
 
 
