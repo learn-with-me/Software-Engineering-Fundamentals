@@ -42,6 +42,9 @@ Salesforce Cloud
 VMWare
 AT&T Synaptic Cloud Storage
 Red Hat Open Shift                - https://www.openshift.com
+
+http://www.shinyapps.io/                # R app Hosting
+        https://taran.shinyapps.io/ROptApp/
 ```
 
 ##### Hosting - Platform as a Service
@@ -103,7 +106,6 @@ https://linode.com/docs/
 https://www.digitalocean.com/community/tutorials
     https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2
 https://developers.digitalocean.com/guides/
-
 ```
 
 
