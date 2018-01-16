@@ -102,7 +102,6 @@ https://www.namecheap.com/
 SSL Certificate
 https://www.elegantthemes.com/blog/tips-tricks/how-to-get-a-free-ssl-certificate-and-why-google-is-forcing-you-to
 https://webmasters.googleblog.com/2014/08/https-as-ranking-signal.html
-
 ```
 
 ##### Blogs to read
