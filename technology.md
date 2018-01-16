@@ -46,6 +46,7 @@ http://www.aemcq5tutorials.com/
 ##### Blogs to follow
 
 ```
+https://webmasters.googleblog.com/
 https://medium.freecodecamp.org
 https://edgecoders.com/
 https://codeburst.io/

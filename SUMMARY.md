@@ -57,6 +57,7 @@
   * [Notes - Postgres](technology/notes-postgres.md)
   * [Notes - Neo4j](technology/notes-neo4j.md)
   * [Notes - MongoDB](technology/notes-mongodb.md)
+  * [Notes - Hadoop](technology/notes-hadoop.md)
 * [Internet Of Things](internet-of-things.md)
   * [Electric Circuits](internet-of-things/electric-circuits.md)
   * [Arduino](internet-of-things/arduino.md)

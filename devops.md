@@ -91,11 +91,18 @@ zerostack.com
 Bitnami.com
 ```
 
-##### Domain Name Service
+#### Domain Name Service
 
 ```
-domains.google.com
-godaddy.com
+https://www.namesilo.com
+    https://www.namesilo.com/Support/Why-we-do-not-offer-SSL%2FTLS-certificates
+https://domains.google/
+https://www.namecheap.com/
+
+SSL Certificate
+https://www.elegantthemes.com/blog/tips-tricks/how-to-get-a-free-ssl-certificate-and-why-google-is-forcing-you-to
+https://webmasters.googleblog.com/2014/08/https-as-ranking-signal.html
+
 ```
 
 ##### Blogs to read
