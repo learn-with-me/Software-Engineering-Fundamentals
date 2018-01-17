@@ -77,6 +77,7 @@ http://microbit.org/
 https://www.microcenter.com/
 https://www.aliexpress.com/
 https://www.gearbest.com/
+https://www.monoprice.com/
 
 http://www.microcenter.com/product/480034/MicroBit_Go_Kit                       // $12 kit
 
