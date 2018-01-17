@@ -1,5 +1,43 @@
 # Node.js Tricks
 
+##### Create a simple server
+
+```
+var http = require('http');
+
+http.createServer(function(request, response) {
+  response.writeHead(200, {"Content-type": "text/plain"});
+  response.end("Hello world!");
+}).listen(8000);
+```
+
+##### Setting up express app
+
+```
+var express = require('express');
+var app = express();
+var engines = require('consolidate');
+
+app.engine('html', engines.nunjucks);    // HTML templating engine
+app.set('view engine', 'html');
+app.set('views', __dirname + '/views');
+app.use(express.bodyparser());            // binds post variables to req.body.xxx
+app.use(app.router);                      // enables routing in express app
+
+app.get('/', function(req, res) {
+    // res.send('hello world');
+    res.render('hello', {'name': 'Templates'});        // hello is the name of the template file
+});
+
+app.use(function(req, res) {
+    res.sendStatus(404);
+});
+
+var server = app.listen(3000, function() {
+    var port = server.address.port();
+});
+```
+
 ##### Handling environment variables
 
     If you have a single environment variable, you can fire the node process as
@@ -38,6 +76,15 @@
 
     const app = express();
     app.use('/images', proxyBaseImageUrl);
+
+##### Libraries
+
+```
+express            - FE web framework
+consolidate        - a wrapper for number of template engines for express
+    nunjucks       - Requires installation if needed be used
+mongodb            - MongoDB node.js driver (converts json to bson, opening sockets, managing connections, etc)
+```
 
 
 
