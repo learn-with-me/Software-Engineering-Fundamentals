@@ -17,6 +17,15 @@
     2. It is ideal to store the URI in environment variable
 ```
 
+##### Load dump data into DB
+
+```
+$ tar -xvzf <tar_file_name.tar>           // Unzip the compressed database files
+$ mongod --dbpath=/data/db                // Runs the server on default port and waiting for connections
+$ mongorestore <db_dump_folder>           // Imports the dump files into the db
+
+```
+
 ##### Node.js Driver
 
 ```
@@ -32,7 +41,7 @@ MongoClient.connect("mongodb://localhost:27017/myNewDatabase", function(err, dat
                 // do something
             });
         });
-        
+
         data.close();
     }
 });
