@@ -27,6 +27,28 @@ Information Source:
 https://medium.freecodecamp.org/want-to-know-how-deep-learning-works-heres-a-quick-guide-for-everyone-1aedeca88076
 ```
 
+##### Artificial Intelligence Tree
+
+```
+Artificial Intelligence
+    Machine Learning
+        Deep Learning
+        Predictive Analytics
+    Natural Language Processing
+        Translation
+        Classification & Clustering
+        Information Extraction
+    Vision
+        Image Recognition
+        Machine Vision
+    Speech
+        Speech to Text
+        Text to Speech
+    Robotics
+    Expert Systems
+    Planning, Scheduling & Optimization
+```
+
 ##### Domain
 
 ```
