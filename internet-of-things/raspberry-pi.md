@@ -11,5 +11,40 @@ https://www.gearbest.com
 https://www.aliexpress.com/
 ```
 
+##### Parts Required
+
+```
+Raspberry Pi
+Micro SD card (atleast 16 GB)
+Power supply (ateast 2Amp)
+Display + Cable to connect to your display
+Keyboard + Mouse (get a wireless or a USB hardware)
+```
+
+##### Setup
+
+```
+NOOBS           # OS Installer https://www.raspberrypi.org/downloads/noobs/
+Raspbian        # Operating System
+
+First things first. Install NOOBS on the SD card
+Plug-in the card in Raspberry Pi, connect the display and power supply.
+The moment you connect the power supply, the Pi will boot up.
+```
+
+##### Tutorials
+
+```
+https://www.youtube.com/watch?v=IbKY-n71XCE
+https://www.youtube.com/watch?v=wdHgvrRozlQ
+```
+
+##### Projects
+
+```
+https://www.youtube.com/watch?v=ZszlVVY1LXo
+https://www.youtube.com/watch?v=ZtQyOvrW_K8
+```
+
 
 

@@ -11,6 +11,7 @@ Docs
 ====
 https://aiyprojects.withgoogle.com/voice
 https://www.raspberrypi.org/documentation/setup/
+https://www.raspberrypi.org/magpi-issues/MagPi57.pdf            # Link to magazine
 
 What do you need
 ================
@@ -22,7 +23,10 @@ USB Keyboard and Mouse
 HDMI monitor
 ++ based on project you are working on
 
-
+Writing image to SD card
+========================
+https://dl.google.com/dl/aiyprojects/vision/aiyprojects-2018-01-03.img.xz    # Image download location
+https://etcher.io/                                                           # Card writing utility
 ```
 
 #### Vision Kit
