@@ -3,7 +3,8 @@
 ##### Libraries
 
 ```
-Bokeh        # Python interactive visualization library that targets modern web browsers for presentation.
+Bokeh        # Interactive visualization library that targets modern web browsers for presentation.
+Dash         # Framework for building analytical web applications.
 ```
 
 
