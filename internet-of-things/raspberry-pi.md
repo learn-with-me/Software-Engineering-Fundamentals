@@ -23,6 +23,8 @@ Raspbian        # Operating System
 First things first. Install NOOBS on the SD card
 Plug-in the card in Raspberry Pi, connect the display and power supply.
 The moment you connect the power supply, the Pi will boot up.
+
+https://www.raspberrypi.org/documentation/setup/
 ```
 
 ##### Documentation
