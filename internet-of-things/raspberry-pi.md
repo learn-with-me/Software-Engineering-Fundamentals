@@ -11,7 +11,7 @@ https://www.gearbest.com
 https://www.aliexpress.com/
 ```
 
-##### Parts Required
+##### Hardware Required
 
 ```
 Raspberry Pi
