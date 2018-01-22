@@ -63,13 +63,6 @@ Links
 https://www.logitech.com/en-us/promotions/6072
 ```
 
-##### Checkout
-
-```
-https://api.ai
-https://aiyprojects.withgoogle.com/
-```
-
 ##### Places to shop
 
 ```
@@ -85,15 +78,13 @@ http://www.microcenter.com/site/content/Google_AIY_Preorder.aspx                
 https://www.arrow.com/en/products/raspberrypi3/raspberry-pi-foundation
 https://www.arrow.com/en/products/raspberrypizerow/raspberry-pi-foundation
 http://www.microcenter.com/product/486575/Zero_W                                // $5
-
-Raspberry Pi Zero W - kit only, No board
-https://www.ebay.com/i/172845521190?chn=ps&dispctrl=1                    // $7
 ```
 
 ##### Temp Links
 
 ```
 https://www.youtube.com/watch?v=lWFiKMSB_4M
+https://api.ai
 ```
 
 
