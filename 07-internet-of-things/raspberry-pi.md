@@ -27,13 +27,13 @@ The moment you connect the power supply, the Pi will boot up.
 https://www.raspberrypi.org/documentation/setup/
 ```
 
-##### Connecting to a screen
+##### Connecting to a screen/display
 
 ```
-Option 1:
+Option 1 (Monitor):
 Connect your monitor using HDMI cable. If your monitor does not support HDMI connection, you may have to buy adapter.
 
-Option 2:
+Option 2 (Laptop):
 You'll need option 1 to start temporarily.
 In your raspberry Pi, go to Home -> Preferences -> Raspberry Pi configuration
 This opens up a panel. Navigate to "Interfaces" tab, enable "VNC" and click OK.
