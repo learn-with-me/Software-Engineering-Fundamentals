@@ -44,6 +44,15 @@ Laptop: Connect your Pi with your laptop using an Ethernet cable.
 All you have to do is install VNC client and enter the IP to connect to the screen. You should be all set!
 ```
 
+##### Operating System
+
+```
+Raspbian                    # Most popular OS
+Windows 10 IOT Core         # Stripped down version of Windows 10
+RetroPie                    # Turn your Pi into gaming system
+OpenELEC                    # Turn your Pi into a media server. Browse local or online media
+```
+
 ##### Documentation
 
 ```
