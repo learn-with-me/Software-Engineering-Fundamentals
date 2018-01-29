@@ -55,6 +55,7 @@
   * [Amazon Dash Button](07-internet-of-things/amazon-dash-button.md)
   * [Build a Desktop](07-internet-of-things/build-a-desktop/README.md)
     * [CPU](07-internet-of-things/build-a-desktop/cpu.md)
+  * [Home Networking](07-internet-of-things/home-networking.md)
 * [Local Development](local-development/README.md)
   * [Setting up Linux](local-development/setting-up-linux/README.md)
     * [Linux Docker](local-development/setting-up-linux/linux-docker.md)
