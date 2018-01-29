@@ -86,7 +86,9 @@ https://www.youtube.com/watch?v=ZszlVVY1LXo
 https://www.youtube.com/watch?v=ZtQyOvrW_K8
 
 https://www.youtube.com/watch?v=wmz5YS6ikCI        # Pi Web Server
+https://www.youtube.com/watch?v=ys2tj1OM6K0        # Make a Pi Email server
 https://www.youtube.com/watch?v=N7c8CMuBx-Y        # Pi Web Server
+https://www.youtube.com/watch?v=UjDUpdNojaQ        # Setup a Pi Web Server
 https://www.youtube.com/watch?v=vzojwG7OB7c&t=980s # Pi Web Server using Google domains
 https://www.youtube.com/watch?v=Tq4DtROoLJo        # Access your Pi from anywhere
 https://www.youtube.com/watch?v=OE2FC1aSAqM        # Access Pi desktop from anywhere

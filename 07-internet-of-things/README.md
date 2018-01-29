@@ -85,6 +85,9 @@ http://www.microcenter.com/product/486575/Zero_W                                
 ```
 https://www.youtube.com/watch?v=lWFiKMSB_4M
 https://api.ai
+
+https://www.youtube.com/watch?v=-XZNr7mS0iw        # SSD life expectancy
+https://www.youtube.com/watch?v=CDxaRfwzFrs        # Introduction to Servers
 ```
 
 
