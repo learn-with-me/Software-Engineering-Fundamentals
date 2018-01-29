@@ -64,8 +64,19 @@ https://www.element14.com/community/welcome
 ##### Tutorials
 
 ```
+https://www.youtube.com/watch?v=x8kRK0DIIF8&list=PLPK2l9Knytg67nkvpnnl81ossAHfOgmqU&index=10
+    https://www.youtube.com/watch?v=mbIT5TZPS0I&list=PLPK2l9Knytg67nkvpnnl81ossAHfOgmqU&index=28
 https://www.youtube.com/watch?v=IbKY-n71XCE
 https://www.youtube.com/watch?v=wdHgvrRozlQ
+```
+
+##### Integrations
+
+```
+https://ifttt.com/
+https://www.particle.io/
+https://data.sparkfun.com/
+https://io.adafruit.com/
 ```
 
 ##### Projects
@@ -73,6 +84,9 @@ https://www.youtube.com/watch?v=wdHgvrRozlQ
 ```
 https://www.youtube.com/watch?v=ZszlVVY1LXo
 https://www.youtube.com/watch?v=ZtQyOvrW_K8
+
+https://www.youtube.com/watch?v=wmz5YS6ikCI        # Pi Web Server
+
 ```
 
 ##### Ordering Resources
