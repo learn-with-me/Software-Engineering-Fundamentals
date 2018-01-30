@@ -85,6 +85,8 @@ https://io.adafruit.com/
 https://www.youtube.com/watch?v=ZszlVVY1LXo
 https://www.youtube.com/watch?v=ZtQyOvrW_K8
 
+https://www.youtube.com/watch?v=zFAX4pH1BPA        # Connect a camera to Pi Zero
+    $ raspistill -o test.jpg
 https://www.youtube.com/watch?v=wmz5YS6ikCI        # Pi Web Server
 https://www.youtube.com/watch?v=ys2tj1OM6K0        # Make a Pi Email server
 https://www.youtube.com/watch?v=N7c8CMuBx-Y        # Pi Web Server
@@ -100,6 +102,13 @@ https://www.youtube.com/watch?v=KJKhRLKXr-Q        # Cluster computing
 https://www.youtube.com/watch?v=bd6Wh5LuoQU        # Personal Cloud Storage
 https://www.youtube.com/watch?v=uS5dTx8vjq4        # Home Automation with Alexa
 https://www.youtube.com/watch?v=OC6QSXzkQU8        # Home Automation with Alexa: Multiple devices
+```
+
+##### Projects - Tutorials
+
+```
+https://projects.raspberrypi.org/en/projects/getting-started-with-picamera
+
 ```
 
 ##### Ordering Resources
