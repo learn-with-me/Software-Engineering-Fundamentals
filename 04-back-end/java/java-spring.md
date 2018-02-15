@@ -18,6 +18,7 @@ https://linkurio.us/blog/manage-software-dependencies-with-graph-visualization/
 Configuration Management
 
 ```
+https://spring.io/guides/gs/centralized-configuration/
 https://github.com/cfg4j/cfg4j
 ```
 
@@ -25,6 +26,12 @@ Swagger
 
 ```
 https://springfox.github.io/springfox/docs/snapshot/
+```
+
+Graph
+
+```
+http://jgrapht.org/javadoc/overview-summary.html
 ```
 
 
