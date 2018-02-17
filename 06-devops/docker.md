@@ -2,7 +2,7 @@
 
 > Docker is an open-source engine that automates the deployment of applications into containers.
 >
-> Docker wants you to be able to build, ship and run distributed applications. It give you a standard way to package your software, deploy the software and run the software. What goes in the container is up to you.
+> Docker wants you to be able to build, ship/deploy and run distributed applications \(to avoid single point of failure\). It give you a standard way to package your software, deploy the software and run the software. What goes in the container is up to you.
 >
 > A container management that can consistently run software as long as a containerization system exists.
 
