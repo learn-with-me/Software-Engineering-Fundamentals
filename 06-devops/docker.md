@@ -1,6 +1,6 @@
 # Docker
 
-> Docker is an open-source engine that automates the deployment of applications into containers.
+> Docker is an open-source engine \(native Linux technology\) that automates the deployment of applications into containers.
 >
 > Docker wants you to be able to build, ship/deploy and run distributed applications \(to avoid single point of failure\). It give you a standard way to package your software, deploy the software and run the software. What goes in the container is up to you.
 >
@@ -9,10 +9,38 @@
 * Auto-update capability
 * No additional software required such as VirtualBox
 
+##### Workflow
+
 ```
 Build    - Docker Image            // Build an application using a docker Image
-Ship     - Docker Hub/Registry     // Ship an application using docker hub
+Ship     - Docker Hub/Registry     // Ship an application using docker hub, Docker Trusted registry, JFrog, etc
 Run      - Docker Container        // Run the application as a docker container
+
+Docker Client (CLI)
+    Stateless. Configured to talk to Docker Host.
+Docker Host
+    This is where the state is maintained.
+    Has a Docker Daemon running, listening to incoming requests (REST API call) from the Docker CLI.
+    By default configured to talk to Registry (Docker Hub).
+    You can have cluster of Docker Hosts to avoid single point of failure.
+Docker Registry
+
+Free Docker Registry
+--------------------
+https://www.sonatype.com/docker
+https://codefresh.io/docker-registry/free-private-docker-registry/
+    https://codefresh.io/google-cloud/?utm_source=SumoMe&utm_medium=Banner&utm_campaign=SM2
+https://canister.io/
+https://treescale.com/
+```
+
+##### Steps of functionality
+
+```
+Build an image, which you'll be able to run on any operating system.
+You should have a Docker Engine/Docker host running, that understands the image format.
+Docker Engine takes the image format and runs the software for you.
+
 ```
 
 ##### Process
