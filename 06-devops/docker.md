@@ -91,15 +91,23 @@ Check Quay.io
 Tool that lets you install Docker Engine on virtual hosts, and manage the hosts with docker-machine commands.
 ```
 
-Container:
+##### Container
 
+```
 Each standard package is called a Docker Image..
-
 Image for an operating system will only run on that OS. PODA is similar to WORA, but not same.
-
-Docker doesn't need hypervisor????
+```
 
 Using 120mb instead of 1GB
+
+##### Building an image
+
+```
+Create a Dockerfile in an empty folder and build the image. Reason for an empty image is that entire content is sent
+over from Docker client to the Docker host which is unnecessary.
+You can have a .dockerignore file if you'd like to ignore few files during this transfer.
+$ docker image build -t helloworld .
+```
 
 ##### Resources
 
