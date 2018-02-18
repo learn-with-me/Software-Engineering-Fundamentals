@@ -18,12 +18,15 @@ Run      - Docker Container        // Run the application as a docker container
 
 Docker Client (CLI)
     Stateless. Configured to talk to Docker Host.
-Docker Host
+Docker Host/Engine
     This is where the state is maintained.
     Has a Docker Daemon running, listening to incoming requests (REST API call) from the Docker CLI.
     By default configured to talk to Registry (Docker Hub).
     You can have cluster of Docker Hosts to avoid single point of failure.
-Docker Registry
+Docker Registry/Hub
+
+Docker Toolbox has Docker Engine, Docker Machine, Docker Compose and Docker Kitematic.
+Ignore the toolbox, since it is needed if your Mac/Windows machine does not fulfill the basic requirements.
 
 Free Docker Registry
 --------------------
@@ -40,7 +43,6 @@ https://treescale.com/
 Build an image, which you'll be able to run on any operating system.
 You should have a Docker Engine/Docker host running, that understands the image format.
 Docker Engine takes the image format and runs the software for you.
-
 ```
 
 ##### Process
@@ -62,17 +64,6 @@ This is where we have Docker Daemon running.
 
 Note: Docker is a native Linux technology. It is built on concepts like cgroups, namespaces, etc. These inherently
 exist in Linux, so on OSX and Windows, you do have to run sort of a virtual machine.
-```
-
-##### Docker Workflow
-
-```
-Docker Client
-    docker build
-    docker pull
-    docker run
-Docker Host/Engine
-Docker Registry/Hub
 ```
 
 ##### Docker Toolbox
