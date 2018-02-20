@@ -1,6 +1,8 @@
 # Spring Boot
 
-Java application framework
+Spring applications usually require a lot of setup. Consider working with JPA \(Datasource, TransactionManager, EntityManagerFactory, etc\) or Web MVC application \(WebApplicationInitializer/web.xml, ContextLoaderListener, DispatcherServlet\). Spring boot can be thought of as an enhancement over Spring, that can do most of this setup itself.
+
+Spring Boot is an opinionated runtime for Spring projects using sensible defaults mostly based on classpath contents, that handles most low-level and predictable setup.
 
 ##### Features
 
@@ -33,6 +35,8 @@ YAML - replace application.properties to make it useful for production ready app
 ##### Creating a project
 
 ```
+All you need is 3 files: pom.xml, Controller and Application launcher.
+
 Navigate to http://start.spring.io/
 Make selections and download a zip file
 It scaffolds the project for you!
