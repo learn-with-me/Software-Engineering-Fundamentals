@@ -30,11 +30,6 @@ spring-boot-starter-web
 Resolves: spring-web-*.jar, spring-webmvc-*.jar, tomcat-*.jar, jackson-databind-*.jar, etc . . .
 
 Actuator   - Metrics
-Endpoints:
-    App Config: /autoconfig, /beans, /env, /configprops
-    App Info:   /health, /info, /metrics, /logfile (logging.file and logging.path)
-    Web Apps:   /mappings, /trace
-    Other:      /shutdown, /flyway, /liquibase
 
 DevTools   - Hot reload+
 
