@@ -22,6 +22,7 @@
     * [Java - Basics](04-back-end/java/java-basics.md)
     * [Spring](04-back-end/java/java-spring.md)
     * [Spring Boot](04-back-end/java/spring-boot.md)
+      * [Configuration](04-back-end/java/spring-boot/configuration.md)
     * [Serialization](04-back-end/java/serialization.md)
   * [Python](04-back-end/python.md)
 * [Database](05-database/README.md)

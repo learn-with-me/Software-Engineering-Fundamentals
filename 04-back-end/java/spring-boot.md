@@ -11,7 +11,7 @@ Spring Boot is an opinionated runtime for Spring projects using sensible default
   * Embedded servers: Tomcat, Jetty or Undertow
   * Metrics
   * Health checks: Spring Boot Actuator
-  * Externalized configuration
+  * Externalized configuration/properties \(application.properties\)
   * Security, Caching, etc
 * Quick starter projects with Auto Configuration: Web and JPA \(Java Persistence API with Hibernate\)
   * Uses Annotations to keep the code clean. Also known as Dependency Injection or Autowiring.
@@ -26,7 +26,16 @@ Spring Boot is an opinionated runtime for Spring projects using sensible default
 
 ```
 Web        - If you need embedded Tomcat and Spring MVC
+spring-boot-starter-web
+Resolves: spring-web-*.jar, spring-webmvc-*.jar, tomcat-*.jar, jackson-databind-*.jar, etc . . .
+
 Actuator   - Metrics
+Endpoints:
+    App Config: /autoconfig, /beans, /env, /configprops
+    App Info:   /health, /info, /metrics, /logfile (logging.file and logging.path)
+    Web Apps:   /mappings, /trace
+    Other:      /shutdown, /flyway, /liquibase
+
 DevTools   - Hot reload+
 
 YAML - replace application.properties to make it useful for production ready applications
