@@ -13,6 +13,9 @@ $ curl localhost:8080/health
 
 Disk Health
 $ curl -u user:pa$s localhost:8080/health
+
+Beans
+curl -u user:c654eed6-b877-4494-8fb2-8e9fb21f00c4 localhost:8080/beans
 ```
 
 ##### Actuator properties - Enabling/Disabling
@@ -46,6 +49,14 @@ Renaming Endpoints:
 endpoints.beans.id=springbeans
 endpoints.trace.id=httprequests
 endpoints.trace.logfile=log
+
+Setting Required Authentication Credentials & Authorization Roles
+security.user.name=admin
+security.user.password=admin$ecret
+management.security.role=ADMIN
+
+Disable All Security Checks for Actuator Endpoints (behind firewall)
+management.security.enabled=false
 ```
 
 
