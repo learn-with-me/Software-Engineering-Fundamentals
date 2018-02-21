@@ -10,12 +10,13 @@ Other:        /shutdown, /flyway, /liquibase
 
 Unsecured Access
 $ curl localhost:8080/health
+$ curl localhost:8080/metrics
 
 Disk Health
 $ curl -u user:pa$s localhost:8080/health
 
 Beans
-curl -u user:c654eed6-b877-4494-8fb2-8e9fb21f00c4 localhost:8080/beans
+$ curl -u user:c654eed6-b877-4494-8fb2-8e9fb21f00c4 localhost:8080/beans
 ```
 
 ##### Actuator properties - Enabling/Disabling
