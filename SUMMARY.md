@@ -24,6 +24,7 @@
     * [Spring Boot](04-back-end/java/spring-boot.md)
       * [Configuration](04-back-end/java/spring-boot/configuration.md)
     * [Serialization](04-back-end/java/serialization.md)
+    * [Package Management](04-back-end/java/package-management.md)
   * [Python](04-back-end/python.md)
 * [Database](05-database/README.md)
   * [Hadoop](05-database/hadoop.md)
