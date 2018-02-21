@@ -25,13 +25,12 @@ Spring Boot is an opinionated runtime for Spring projects using sensible default
 ##### Plugins
 
 ```
-Web        - If you need embedded Tomcat and Spring MVC
-spring-boot-starter-web
-Resolves: spring-web-*.jar, spring-webmvc-*.jar, tomcat-*.jar, jackson-databind-*.jar, etc . . .
-
-Actuator   - Metrics
-
+Web        - If you need embedded Tomcat and Spring MVC to create a web application
+    spring-boot-starter-web
+    Resolves: spring-web-*.jar, spring-webmvc-*.jar, tomcat-*.jar, jackson-databind-*.jar, etc . . .
+Actuator   - Monitoring, Health, Metrics
 DevTools   - Hot reload+
+Templates  - Velocity, Freemarker, Thymeleaf, or Groovy
 
 YAML - replace application.properties to make it useful for production ready applications
 ```
