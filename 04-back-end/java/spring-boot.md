@@ -30,7 +30,9 @@ Web        - If you need embedded Tomcat and Spring MVC to create a web applicat
     Resolves: spring-web-*.jar, spring-webmvc-*.jar, tomcat-*.jar, jackson-databind-*.jar, etc . . .
 Actuator   - Monitoring, Health, Metrics
 DevTools   - Hot reload+
-Templates  - Velocity, Freemarker, Thymeleaf, or Groovy
+Templates  - Velocity, Freemarker, or Groovy
+    Thymeleaf: an open­source and Java­-based template engine that is fully integrated with Spring and aims to be a
+        substitute for JSP
 
 YAML - replace application.properties to make it useful for production ready applications
 ```
