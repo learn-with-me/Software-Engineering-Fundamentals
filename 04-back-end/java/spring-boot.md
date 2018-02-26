@@ -32,7 +32,8 @@ Actuator   - Monitoring, Health, Metrics
 DevTools   - Hot reload+
 Templates  - Velocity, Freemarker, or Groovy
     Thymeleaf: an open­source and Java­-based template engine that is fully integrated with Spring and aims to be a
-        substitute for JSP
+        substitute for JSP. To avoid restart during development, following property is useful:
+        spring.thymeleaf.cache​=false
 
 YAML - replace application.properties to make it useful for production ready applications
 ```

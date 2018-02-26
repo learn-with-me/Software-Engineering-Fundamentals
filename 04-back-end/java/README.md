@@ -75,5 +75,14 @@ Basics
 Collection
 ```
 
+##### Terms
+
+```
+Entity    - Java object mapped to DB table, used to store and retrieve Data from DB using ORM tool
+Hibernate - ORM (Object Relational Mapping) tool
+H2        - Java based SQL Database
+
+```
+
 
 
