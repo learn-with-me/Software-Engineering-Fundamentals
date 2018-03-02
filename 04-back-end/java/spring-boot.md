@@ -38,6 +38,13 @@ Templates  - Velocity, Freemarker, or Groovy
 YAML - replace application.properties to make it useful for production ready applications
 ```
 
+##### Installation
+
+```
+Although you could just copy Spring Boot jars, we generally recommend that you use a build tool that supports
+dependency management (such as Maven or Gradle).
+```
+
 ##### Creating a project
 
 ```
