@@ -66,6 +66,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/common-applicatio
 ```
 $ mvn spring-boot:run --debug
 $ java -jar myproject-0.0.1-SNAPSHOT.jar --debug
+$ java -jar target/api_crypto_historical_data-0.1.0-SNAPSHOT.jar --server.port=9000
 ```
 
 
