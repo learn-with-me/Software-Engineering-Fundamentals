@@ -61,5 +61,12 @@ Reference Links
 https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 ```
 
+##### Execution
+
+```
+$ mvn spring-boot:run --debug
+$ java -jar myproject-0.0.1-SNAPSHOT.jar --debug
+```
+
 
 
