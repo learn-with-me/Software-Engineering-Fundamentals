@@ -13,7 +13,7 @@ $ curl localhost:8080/health
 $ curl localhost:8080/metrics
 
 Disk Health
-$ curl -u user:pa$s localhost:8080/health
+$ curl -u user:pa$s localhost:8080/metrics
 
 Beans
 $ curl -u user:c654eed6-b877-4494-8fb2-8e9fb21f00c4 localhost:8080/beans
