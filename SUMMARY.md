@@ -12,6 +12,7 @@
   * [Big Data](02-technical-concepts/big-data.md)
   * [FE Frameworks to Learn](02-technical-concepts/fe-frameworks-to-learn.md)
   * [Software Licensing](02-technical-concepts/software-licensing.md)
+  * [Authentication](02-technical-concepts/authentication.md)
 * [Frontend](03-front-end/README.md)
   * [HTML5](03-front-end/notes-html5.md)
   * [Node.js](03-front-end/nodejs/README.md)
