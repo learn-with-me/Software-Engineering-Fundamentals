@@ -17,6 +17,7 @@
   * [Node.js](03-front-end/nodejs/README.md)
     * [Node Packages](03-front-end/nodejs/node-packages.md)
     * [Package Manager](03-front-end/nodejs/package-manager.md)
+  * [React](03-front-end/react.md)
 * [Backend](04-back-end/README.md)
   * [Java](04-back-end/java/README.md)
     * [Java - Basics](04-back-end/java/java-basics.md)
