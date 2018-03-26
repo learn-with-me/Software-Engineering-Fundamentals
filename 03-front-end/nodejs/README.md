@@ -4,7 +4,7 @@
 
 * An open source, cross platform runtime environment for developing server-side applications.
 * Node is built on Google Chrome V8 JavaScript engine.
-* Event-driven, non blocking I/O making it asynchronous
+* Event-driven, non blocking I/O making it asynchronous, light-weight and efficient.
 * Strongest point is ability to do high-performance communication.
 
 ##### Technologies
