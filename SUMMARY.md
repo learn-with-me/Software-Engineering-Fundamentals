@@ -29,6 +29,7 @@
     * [Serialization](04-back-end/java/serialization.md)
     * [Package Management](04-back-end/java/package-management.md)
   * [Python](04-back-end/python.md)
+  * [GraphQL](04-back-end/java/graphql.md)
 * [Database](05-database/README.md)
   * [Hadoop](05-database/hadoop.md)
   * [MongoDB](05-database/mongodb.md)
