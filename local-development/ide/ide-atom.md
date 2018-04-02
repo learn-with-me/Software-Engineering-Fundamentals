@@ -8,7 +8,8 @@
 ##### Plugins & Configurations
 
 ```
-
+Atom has a package manager for you to be able to install plugins:
+$ apm
 ```
 
 
