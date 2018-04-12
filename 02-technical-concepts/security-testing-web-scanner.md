@@ -8,6 +8,9 @@ Security testing is a very wide topic.
 PortSwigger Burp Suite
 OWASP ZAP
 Netsparker
+
+Google: Web Server Security Test
+https://observatory.mozilla.org/
 ```
 
 ##### Reference Articles
