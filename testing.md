@@ -1,5 +1,19 @@
 # Testing
 
+> Testing is complex when done right!
+
+##### Types
+
+```
+Integration testing
+Regression testing
+Penetration testing
+Security Testing
+
+White box testing
+Black box testing
+```
+
 ##### Initial Exploring
 
 ```

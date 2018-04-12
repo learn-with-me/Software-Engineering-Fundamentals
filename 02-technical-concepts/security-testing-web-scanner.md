@@ -1,6 +1,6 @@
 # Web Scanner
 
-Security testing is a very wide topic. 
+Security testing is a very wide topic.
 
 ##### Tools
 
@@ -14,7 +14,9 @@ Netsparker
 
 ```
 https://danielmiessler.com/blog/web-scanner-series-burp-vs-netsparker/
+https://www.networkworld.com/article/2944811/network-security/8-penetration-testing-tools-that-will-do-the-job.html
 
+https://www.simplilearn.com/advanced-ethical-hacking-introduction-tutorial-video
 ```
 
 
