@@ -36,7 +36,9 @@ Also read page \#13, \#14
 
 ```
 Dynamic Programming
+Functional Programming
 Aspect Oriented Programming
+Orchestration
 
 https://12factor.net/
 ```
