@@ -7,6 +7,7 @@
   * [Interview - Tech breakdown](01-introduction/interview-tech-breakdown.md)
 * [Technical Concepts](02-technical-concepts/README.md)
   * [Language Classification](02-technical-concepts/language-classification.md)
+  * [Programming](02-technical-concepts/programming.md)
   * [Application Classification](02-technical-concepts/application-classification.md)
   * [Data Structures & Algorithms](02-technical-concepts/data-structures-and-algorithms.md)
   * [Big Data](02-technical-concepts/big-data.md)

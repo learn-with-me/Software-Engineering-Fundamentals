@@ -1,32 +1,6 @@
-### Programming Fundamentals 101
+### CS Fundamentals 101
 
 > Just because you can do it with a language/framework, does not mean you should.
-
-**Object Oriented Programming** -
-
-**Functional Programing** - more flexible, makes testing and debugging easier
-
-Core concepts:
-
-1. Immutability
-2. Stateless
-
-Functional Concepts
-
-1. Pure Functions - a function where the return value is only determined by its input values, without observable side effects
-2. Map, Reduce, Filter - Array helper methods, which take in functions and do not mutate the original array
-3. Currying - technique of translating the evaluation of a function that takes multiple arguments into evaluating a sequence of functions, each of a single argument
-
-**Imperative Programming** -
-
-Pure function is a function where the return value is only determined by its input values, without its observable side effects.
-
-Note:
-
-* JS allows all three styles of programming
-* React brings these functional programming concepts to UI
-
-Also read page \#13, \#14
 
 #### Scoring
 
@@ -35,10 +9,8 @@ Also read page \#13, \#14
 # More Ideas
 
 ```
-Dynamic Programming
-Functional Programming
-Aspect Oriented Programming
 Orchestration
+RWD vs Adaptive vs Mobile Optimized
 
 https://12factor.net/
 ```
