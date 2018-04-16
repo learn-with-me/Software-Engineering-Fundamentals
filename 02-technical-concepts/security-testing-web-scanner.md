@@ -11,6 +11,8 @@ Netsparker
 
 Google: Web Server Security Test
 https://observatory.mozilla.org/
+
+https://www.htbridge.com/websec/?id=IhONFf7y
 ```
 
 ##### Reference Articles
