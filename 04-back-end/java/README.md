@@ -7,6 +7,20 @@ Java is a static, compiled language
 > CLASSPATH is the path where jvm should be able to find all the classes. Classpath is the path or list of directory which is used by ClassLoaders to find and load class in Java program. Located in META-INF/manifest.mf file inside JAR file in Java.  
 > [http://javarevisited.blogspot.sg/2011/01/how-classpath-work-in-java.html](http://javarevisited.blogspot.sg/2011/01/how-classpath-work-in-java.html)
 
+##### Features - Java 8
+
+```
+forEach() method in Iterable interface
+default and static methods in Interfaces
+Functional Interfaces and Lambda Expressions
+Java Stream API for Bulk Data Operations on Collections
+Java Time API
+Collection API improvements
+Concurrency API improvements
+Java IO improvements
+Miscellaneous Core API improvements
+```
+
 ##### JVM Languages
 
 ```
@@ -24,6 +38,8 @@ http://www.crashub.org/
 ##### Index
 
 ```
+About
+Features
 Setup and local code execution
 Basics
     Data Types
