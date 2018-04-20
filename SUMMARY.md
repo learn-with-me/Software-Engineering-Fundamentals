@@ -15,6 +15,7 @@
   * [Software Licensing](02-technical-concepts/software-licensing.md)
   * [Authentication](02-technical-concepts/authentication.md)
   * [Security Testing - Web Scanner](02-technical-concepts/security-testing-web-scanner.md)
+  * [Hosting](02-technical-concepts/hosting.md)
 * [Frontend](03-front-end/README.md)
   * [HTML5](03-front-end/notes-html5.md)
   * [Node.js](03-front-end/nodejs/README.md)
