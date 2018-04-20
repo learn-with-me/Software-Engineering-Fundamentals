@@ -2,7 +2,11 @@
 
 > In a sense, you rent space on a computer to hold your website/application. Your host, the computer where your website files are stored, assigns an address \(DNS\) for your files to your domain name, so that anyone can find your website on the internet by typing in your domain name.
 
+##### Types of hosting
 
+1. Shared hosting
+2. Dedicated hosting
+3. VPS hosting
 
 ##### Links
 
