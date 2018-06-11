@@ -32,7 +32,7 @@
       * [Application](04-back-end/java/spring-boot/application.md)
     * [Serialization](04-back-end/java/serialization.md)
     * [Package Management](04-back-end/java/package-management.md)
-    * Remote Debugging
+    * [Remote Debugging](04-back-end/java/remote-debugging.md)
   * [Python](04-back-end/python.md)
   * [GraphQL](04-back-end/java/graphql.md)
 * [Database](05-database/README.md)
