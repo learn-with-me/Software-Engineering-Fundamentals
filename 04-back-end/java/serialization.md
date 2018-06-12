@@ -1,5 +1,7 @@
 # Serialization
 
+Process of converting an object into a stream of bytes, to store the object or transmit it to memory, a database or a file.
+
 Read about couple of these frameworks, their strengths and weaknesses.
 
 ```
