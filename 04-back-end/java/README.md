@@ -56,13 +56,21 @@ You really should understand well, what PATH and CLASSPATH in Java mean.
 
 This is a concept within Operating System, and not Java. An Operating System allows you to set key-value pairs, called Environment Variables, to be able to configure software or share information among multiple modules. Generally environment variables can be used to identify installation directory, location of temporary files, tools, profile setting, etc.
 
-In terms of "path for Java", it refers to the path where Java libraries are found. JDK's bin folder must be added to PATH to have javac and java accessible via command line. Example "/java/jdk1.8.0\_65/bin". 
+In terms of "path for Java", it refers to the path where Java libraries are found. JDK's bin folder must be added to PATH to have javac and java accessible via command line. Example "/java/jdk1.8.0\_65/bin".
 
 Steps to setup PATH are mentioned in JAVA setup instructions. \[REALLY???\]
 
 ## Java Compiler and Interpreter
 
+#### Compiler
 
+Compilation process is what generates bytecode. Bytecode is binary code that is understood by the JVM.
+
+#### Interpreter
+
+It takes bytecode as input and executes the code by converting it into native code
+
+---
 
 ##### Features - Java 8
 
