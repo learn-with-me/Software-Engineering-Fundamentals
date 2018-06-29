@@ -1,5 +1,18 @@
 # Code Execution & Packaging
 
+##### Verification
+
+```
+javac -version       # Compiler version
+javac -help          # Display all compiler options
+java -verbose        # Output compiler messages
+java -deprecated     # Identify deprecated APIs
+
+java -version        # Interpreter version
+java -help           # Display interpreter options
+java -verbose        # Display interpreter information
+```
+
 ##### Local Code execution
 
 ```
