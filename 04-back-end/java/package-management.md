@@ -8,5 +8,12 @@ Maven is a package management tool for Java-based applications. Probably the mos
 
 Code-like configuration. Faster than Maven.
 
+# Topics to include
+
+* Bundling
+* Why package managers?
+* Why frameworks?
+* What is Spring Boot over Spring?
+
 
 
