@@ -5,6 +5,7 @@
 ##### Types
 
 ```
+Unit testing
 Integration testing
 Regression testing
 Penetration testing
