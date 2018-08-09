@@ -16,5 +16,5 @@ Typical set of modules in new projects
 
 Jest
 
-provides an integrated zero-configuration. By default jest searches for tests within all the directories named __test__. 
+provides an integrated zero-configuration. By default jest searches for tests within all the directories named \_\_test\_\_. 
 
