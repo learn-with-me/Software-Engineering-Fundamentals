@@ -192,5 +192,15 @@ https://db-engines.com/en/ranking
 https://db-engines.com/en/articles
 ```
 
+#### DB for Local Development
+
+```
+https://github.com/typicode/lowdb         # Small local JSON database powered by Lodash
+https://github.com/techfort/LokiJS        # In-memory JavaScript Datastore with Persistence
+https://github.com/pouchdb/pouchdb        # inspired by Apache CouchDB. Work offline as well.
+
+http://www.sqlitetutorial.net/sqlite-nodejs/connect/
+```
+
 
 
