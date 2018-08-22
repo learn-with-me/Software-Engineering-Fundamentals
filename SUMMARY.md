@@ -40,6 +40,7 @@
   * [MongoDB](05-database/mongodb.md)
   * [Neo4j](05-database/neo4j.md)
   * [Postgres](05-database/postgres.md)
+  * [Redis](05-database/redis.md)
 * [DevOps](06-devops/README.md)
   * [Virtualbox](06-devops/virtualbox.md)
   * [Docker](06-devops/docker.md)
