@@ -58,6 +58,7 @@
     * [GC Networking](06-devops/google-cloud/gc-networking.md)
     * [GC Big Data](06-devops/google-cloud/gc-big-data.md)
     * [GC Machine Learning](06-devops/google-cloud/gc-machine-learning.md)
+  * [Providers](06-devops/providers.md)
 * [Internet Of Things](07-internet-of-things/README.md)
   * [Electric Circuits](07-internet-of-things/electric-circuits.md)
   * [Arduino](07-internet-of-things/arduino/README.md)
