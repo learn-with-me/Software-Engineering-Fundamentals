@@ -42,7 +42,7 @@
   * [Postgres](05-database/postgres.md)
   * [Redis](05-database/redis.md)
 * [DevOps](06-devops/README.md)
-  * [Providers](06-devops/providers.md)
+  * [Service Providers](06-devops/providers.md)
   * [Virtualbox](06-devops/virtualbox.md)
   * [Docker](06-devops/docker.md)
   * [Vagrant](06-devops/vagrant.md)
