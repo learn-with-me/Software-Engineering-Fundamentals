@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Getting Started](01-introduction/README.md)
-  * [Roles & Responsibilities](01-introduction/roles-and-responsibilities.md)
+  * [Development Roles & Responsibilities](01-introduction/roles-and-responsibilities.md)
   * [Job Search](01-introduction/job-search.md)
   * [Interview - Tech breakdown](01-introduction/interview-tech-breakdown.md)
 * [Technical Concepts](02-technical-concepts/README.md)
@@ -31,3 +31,4 @@
     * [IDE IntelliJ](local-development/ide/ide-intellij.md)
     * [IDE WebStorm](local-development/ide/ide-webstorm.md)
   * [Debugging](local-development/debugging.md)
+
