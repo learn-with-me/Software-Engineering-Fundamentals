@@ -28,4 +28,3 @@
     * [IDE IntelliJ](local-development/ide/ide-intellij.md)
     * [IDE WebStorm](local-development/ide/ide-webstorm.md)
   * [Debugging](local-development/debugging.md)
-
