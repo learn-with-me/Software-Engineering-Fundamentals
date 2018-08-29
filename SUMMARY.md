@@ -3,8 +3,6 @@
 * [Introduction](README.md)
 * [Getting Started](01-introduction/README.md)
   * [Development Roles & Responsibilities](01-introduction/roles-and-responsibilities.md)
-  * [Job Search](01-introduction/job-search.md)
-  * [Interview - Tech breakdown](01-introduction/interview-tech-breakdown.md)
 * [Technical Concepts](02-technical-concepts/README.md)
   * [Language Classification](02-technical-concepts/language-classification.md)
   * [Programming](02-technical-concepts/programming.md)
