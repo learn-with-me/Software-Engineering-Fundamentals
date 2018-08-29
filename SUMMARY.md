@@ -9,7 +9,6 @@
   * [Application Classification](02-technical-concepts/application-classification.md)
   * [Data Structures & Algorithms](02-technical-concepts/data-structures-and-algorithms.md)
   * [Big Data](02-technical-concepts/big-data.md)
-  * [FE Frameworks to Learn](02-technical-concepts/fe-frameworks-to-learn.md)
   * [Software Licensing](02-technical-concepts/software-licensing.md)
   * [Authentication](02-technical-concepts/authentication.md)
   * [Security Testing - Web Scanner](02-technical-concepts/security-testing-web-scanner.md)
