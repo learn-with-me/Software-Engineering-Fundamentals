@@ -69,8 +69,16 @@ There is no one cloud fits all solution. Pick cloud deployment models after unde
 #### Cloud Deployment Models
 
 * Private - More secure. You own the hardware and run the cloud on premises. 
+  * Open Stack
+  * VMWare
 * Public - Elastic scaling. Leveraging cloud services over internet using software and hardware that you do not own.
+  * Microsoft Azure
+  * Google
+  * AWS
+  * RackSpace, IDC Frontier, HP Cloud, etc
 * Hybrid - Seamless. Mix of both
+* Traditional - You do all by yourself
+  * Bare Metal
 
 #### Types of Cloud
 
@@ -87,8 +95,6 @@ There is no one cloud fits all solution. Pick cloud deployment models after unde
   * Google App Engine
   * AWS's Elastic Beanstalk
   * Microsoft Azure
-
-
 
 ##### Blogs to read
 
