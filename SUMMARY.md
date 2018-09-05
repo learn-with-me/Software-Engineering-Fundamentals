@@ -34,4 +34,5 @@
   * [Finance API](local-development/setting-up-linux/finance-api.md)
 * [Networking](networking.md)
 * [Hardware](hardware.md)
+* [Random](random.md)
 
