@@ -31,5 +31,7 @@
   * [Debugging](local-development/debugging.md)
   * [Security-Vulnerability](local-development/setting-up-linux/security-vulnerability.md)
   * [Application Boilerplate](local-development/setting-up-linux/application-boilerplate.md)
+  * [Finance API](local-development/setting-up-linux/finance-api.md)
 * [Networking](networking.md)
+* [Hardware](hardware.md)
 
