@@ -13,6 +13,7 @@
   * [Authentication](02-technical-concepts/authentication.md)
   * [Security Testing - Web Scanner](02-technical-concepts/security-testing-web-scanner.md)
   * [Hosting](02-technical-concepts/hosting.md)
+  * [CI/CD Flow](02-technical-concepts/cicd-flow.md)
 * [Local Development](local-development/README.md)
   * [Setting up Linux](local-development/setting-up-linux/README.md)
     * [Linux Docker](local-development/setting-up-linux/linux-docker.md)
@@ -28,3 +29,4 @@
     * [IDE IntelliJ](local-development/ide/ide-intellij.md)
     * [IDE WebStorm](local-development/ide/ide-webstorm.md)
   * [Debugging](local-development/debugging.md)
+
