@@ -31,4 +31,5 @@
   * [Debugging](local-development/debugging.md)
   * [Security-Vulnerability](local-development/setting-up-linux/security-vulnerability.md)
   * [Application Boilerplate](local-development/setting-up-linux/application-boilerplate.md)
+* [Networking](networking.md)
 
