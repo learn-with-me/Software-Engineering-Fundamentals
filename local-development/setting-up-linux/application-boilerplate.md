@@ -1,5 +1,7 @@
 # Starter's Boilerplate
 
+The boilerplate is an opinionated framework, all the tools and libraries included
+
 Client:
 
 * React.js \(view library to server UI components\)
@@ -17,7 +19,7 @@ Server:
 * Server side rendering of React components \(optional for each project and each route\)
 * JWT \(securing API routes with tokens\)
 * Global services \(global header and footer\)
-* helmet, a collection of security modules, to harden application \(see https://github.com/helmetjs/helmet\#how-it-works for default modules enabled\)
+* helmet, a collection of security modules, to harden application \(see [https://github.com/helmetjs/helmet\#how-it-works](https://github.com/helmetjs/helmet#how-it-works) for default modules enabled\)
 
 Common:
 
@@ -35,8 +37,6 @@ Dev Tools:
 * Docker
 * ESLint
 * Guide how to deploy to the cloud
-
-
 
 
 
