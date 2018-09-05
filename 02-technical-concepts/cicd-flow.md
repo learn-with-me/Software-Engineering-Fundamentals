@@ -2,5 +2,3 @@
 
 ![](/assets/ci-cd-flow.png)
 
-
-
