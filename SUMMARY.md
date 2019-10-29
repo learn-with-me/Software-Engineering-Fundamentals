@@ -38,4 +38,5 @@
   * [Mistakes setting up goals](random/mistakes-setting-up-goals.md)
   * [Make most of your day](random/make-most-of-your-day.md)
   * [Learnings 2017](random/learnings-2017.md)
+  * [Protocols](random/protocols.md)
 
