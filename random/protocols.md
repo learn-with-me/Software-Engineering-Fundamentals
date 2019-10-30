@@ -41,15 +41,15 @@ When it comes to application development, all of the communication is done on ei
       * HTTP - Application
       * POP3 - Application
 
-#### OSI Model Table \(Open Systems Interconnection\)
+#### OSI Model \(Open Systems Interconnection\)
 
-| Classification | Data | Layer | Description | Protocols |
+| Classification | Packet Data Unit | Layer | Description | Protocols |
 | :--- | :--- | :--- | :--- | :--- |
-| Host Layers | Data | Application Layer | Network process to application | HTTP, FTP, DNS, SNMP, Telnet, SMTP, IMAP, POP3, DCHP, PING |
-| Host Layers | Data | Presentation Layer | Data representation, Compression and Encryption | SSL, TLS, MPEG, ASCII chars, Compression |
+| Host Layers | Data | Application Layer | Network process to application | HTTP, FTP, DNS, SNMP, Telnet, SMTP, IMAP, POP3, DCHP |
+| Host Layers | Data | Presentation Layer | Data representation, Compression and Encryption | TLS, SSL, MPEG, ASCII chars, Compression |
 | Host Layers | Data | Session Layer | Interhost Communication | NetBIOS, PPTP, SAP, RPC, SQL |
 | Host Layers | Segments | Transport Layer | End-to-End connections and Reliability | TCP, UDP |
-| Media Layers | Packets | Network Layer | Path Determination and IP \(Logical Addressing\) | IPV4, IPV6, ARP, ICMP, IPSec, MPLS |
+| Media Layers | Packets | Network Layer | Path Determination and IP \(Logical Addressing\) | IPV4, IPV6, ARP, ICMP \(ping\), IPSec, MPLS |
 | Media Layers | Frames | Data Link Layer | MAC and LLC \(Physical Addressing\) | PPP, ATM, Ethernet, MPLS, 802.1x, FDDI, MAC address, Fiber Channel |
 | Media Layers | Bits | Physical Layer | Media, Signal and Binary transmission | Ethernet, USB, Bluetooth, IEEE802.11, Cables, Connectors, Hubs |
 
@@ -66,6 +66,23 @@ SSL \(Secure Socket Layer\)
 * RFC
 * JDBC
 * Session
+
+#### API Protocols
+
+* SOAP
+* REST
+* JSON-RPC
+* gRPC
+* GraphQL
+* Thrift
+
+#### IIoT Protocols
+
+* MQTT
+* AMQP
+* REST
+* OPC UA
+* DHTP
 
 
 

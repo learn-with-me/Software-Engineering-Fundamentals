@@ -6,6 +6,21 @@
 * Refer: [https://code.visualstudio.com/docs?start=true](https://code.visualstudio.com/docs?start=true)
 * Looks very promising for full-stack work
 
+##### Extensions to install
+
+```
+Live Server
+Project Manager
+
+Arduino
+Beautify
+C/C++
+Docker
+Git History
+GitLens
+PlatformIO IDE
+```
+
 ##### Extensions/Plugins/Configurations
 
 ```
