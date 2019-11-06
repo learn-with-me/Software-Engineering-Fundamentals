@@ -7,7 +7,16 @@
 * Traditional Approach \(Client-Server\)
 * SOA Approach
 * Virtualized SOA Approach \(Service Virtualization Layer\)
-* Microservice Approach
+* Micro-service Approach
+* Event-driven Systems
+* Streaming Analytics Architecture
+* CQRS
+
+###### Event-driven Systems
+
+**JMS** - you can send only 200-300 messages per second and then the queue gets full until some/all of the messages are processed.
+
+**Kafka** - 
 
 #### Scoring
 
