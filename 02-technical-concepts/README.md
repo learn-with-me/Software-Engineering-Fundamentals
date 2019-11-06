@@ -2,7 +2,7 @@
 
 > Just because you can do it with a language/framework, does not mean you should.
 
-#### Application Development
+#### Application Development Architectures
 
 * Traditional Approach \(Client-Server\)
 * SOA Approach
@@ -11,12 +11,11 @@
 * Event-driven Systems
 * Streaming Analytics Architecture
 * CQRS
-
-###### Event-driven Systems
+* Event Sourcing
 
 **JMS** - you can send only 200-300 messages per second and then the queue gets full until some/all of the messages are processed.
 
-**Kafka** - 
+**Kafka** - Entire conversation about app architectures comes down to Kafka in cases of need for a message broker.
 
 #### Scoring
 
