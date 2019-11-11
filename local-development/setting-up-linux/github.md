@@ -1,6 +1,6 @@
 # GitHub
 
-Not to ignore, GitHub has introduced several features lately. 
+Not to ignore, GitHub has introduced several features lately.
 
 Topics to be covered here:
 
@@ -11,6 +11,9 @@ Topics to be covered here:
 * Projects
 * Wiki
 * GH Pages
+* packages
+* release
+* Tag
 
 
 
