@@ -27,6 +27,7 @@
   * [Security-Vulnerability](local-development/setting-up-linux/security-vulnerability.md)
   * [Application Boilerplate](local-development/setting-up-linux/application-boilerplate.md)
   * [Finance API](local-development/setting-up-linux/finance-api.md)
+  * [GitHub](local-development/setting-up-linux/github.md)
 * [Networking](networking.md)
 * [Hardware](hardware.md)
 * [Random](random.md)
