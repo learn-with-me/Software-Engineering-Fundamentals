@@ -1,12 +1,10 @@
-# Software Development: Part 1 - Overview
+# Software Engineering Fundamentals
 
 > Think of free & open-source as Free speech and not Free beer.
 
-This part of the book covers general practices, methodologies, concepts of software development.
+Attempting to repurpose old notes and make something out for it.
 
-#### License
-
-See the LICENSE file.
+Keep watching this space...
 
 #### Contribute
 
@@ -15,6 +13,3 @@ We'd love your help! Feel free to make suggestions or add more content to this b
 #### Distribution
 
 Compiled and printed versions of the book will be available soon.
-
-
-
