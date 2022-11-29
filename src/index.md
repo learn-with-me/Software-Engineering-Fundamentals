@@ -1,24 +1,16 @@
 ---
 tags:
-  - mkdocs
+  - fundamentals
   - template
-  - python
 ---
 
-# Welcome to MkDocs
+# Software Engineering Fundamentals
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+There is nothing new in this site, that will not be anywhere else. In fact, a lot of the content here is being sourced from various authors online.
 
-## Commands
+I've been mindful of giving credit to the sources as I am making these notes. In case you feel there is a lack of credit in some place where it should have been, please feel free to point it out.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Index
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* [Licensing](./licensing/)
+* [Networking](./networking/)

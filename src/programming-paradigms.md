@@ -1,4 +1,4 @@
-# Programming
+# Programming Paradigms
 
 Programming styles originate from the language designer as well as how a developer chooses to use a language
 
