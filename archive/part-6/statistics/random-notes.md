@@ -1,0 +1,4 @@
+Lookup
+
+Simpson's Paradox
+
