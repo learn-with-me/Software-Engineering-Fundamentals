@@ -1,8 +1,8 @@
 # Software Engineering Fundamentals
 
-> Think of free & open-source as Free speech and not Free beer.
-
 Attempting to repurpose old notes and make something out for it.
+
+Read the notes on the [website](https://learn-with-me.github.io/Software-Engineering-Fundamentals/)
 
 Keep watching this space...
 
