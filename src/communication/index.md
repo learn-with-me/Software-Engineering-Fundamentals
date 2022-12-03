@@ -66,6 +66,10 @@ To complicate this further, none of the existing code/library will be able to re
 
 - Wiki - [Communication Protocol](https://en.wikipedia.org/wiki/Communication_protocol)
 - Techopedia [Communication Protocol explained](https://www.techopedia.com/definition/25705/communication-protocol) blog
-- National Cyber Security Centre - [Protocol Design Principles](https://www.ncsc.gov.uk/whitepaper/protocol-design-principles) whitepaper
-- [Designing your own protocol in 5 minutes](https://mayaposch.wordpress.com/2011/10/03/design-your-own-protocol-in-five-minutes/) blog
-- Quora [How to design protocol?](https://www.quora.com/How-do-I-design-and-write-my-own-network-protocol-like-TCP-IP-and-implement-it-in-C++)
+- [WebDAV Protocol](https://en.wikipedia.org/wiki/WebDAV)
+- [Constrained Application Protocol](https://coap.technology) overview
+  - Wiki - [Constrained Application Protocol](https://en.wikipedia.org/wiki/Constrained_Application_Protocol)
+- Designing a protocol
+  - National Cyber Security Centre - [Protocol Design Principles](https://www.ncsc.gov.uk/whitepaper/protocol-design-principles) whitepaper
+  - [Designing your own protocol in 5 minutes](https://mayaposch.wordpress.com/2011/10/03/design-your-own-protocol-in-five-minutes/) blog
+  - Quora [How to design protocol?](https://www.quora.com/How-do-I-design-and-write-my-own-network-protocol-like-TCP-IP-and-implement-it-in-C++)

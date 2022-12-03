@@ -62,8 +62,3 @@ There are some ways of speeding up the initial load of an SPA, such as a heavy a
 ```
 https://en.wikipedia.org/wiki/Single-page_application
 ```
-
-### 
-
-
-
