@@ -43,9 +43,9 @@ theme:
     # - toc.integrate
   plugins:
     - tags
-  extra:
-    homepage: https://learn-with-me.github.io/Software-Engineering-Fundamentals/
-    copyright: Copyright &copy; 2022 - 2023 goel4ever
-    analytics:
-      provider: google
-      property: G-ABC123
+extra:
+  homepage: https://learn-with-me.github.io/Software-Engineering-Fundamentals/
+  copyright: Copyright &copy; 2022 - 2023 goel4ever
+  analytics:
+    provider: google
+    property: G-LBF3VZYFJJ
