@@ -82,3 +82,19 @@ Retention is durable storage of messages for some period of time. When not using
 The retention setting can be applied as fine as individual topics.
 
 Topics can also be configured as `log compacted`, which retains only the last message produced with a specific key. This can be helpful where only the latest update is valuable.
+
+## Multiple Clusters
+
+Reasons why it can be useful to have multiple clusters:
+
+- Segregation of types of data
+- Isolation for security requirements
+- Multiple datacenters (disaster recovery)
+
+### MirrorMaker
+
+When working with multiple datacenters, it is often required that messages between them stays in sync. The replication mechanisms within the Kafka clusters are designed only to work within a single cluster, not between multiple clusters.
+
+A tool called `MirrorMaker` is used for replicating data to other clusters. It is simply a Kafka consumer and producer, linked together with a queue.
+
+![Multiple Datacenters Architecture](./assets/multiple_datacenter_architecture.png)
