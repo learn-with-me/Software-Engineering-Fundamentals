@@ -8,7 +8,6 @@ Kafka is going to be the main focus of this section, while also explaining gener
 - [Why Kafka?](./02-why-kafka.md)
 - [Kafka use-cases](./03-kafka-use-cases.md)
 - [Terms Explained](./04-terms.md)
-- [Performance Considerations](./09-performance.md)
 - [Installation](./installation/index.md)
 
 ## History

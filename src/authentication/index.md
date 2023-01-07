@@ -6,7 +6,7 @@
 
 * LDAP - Lightweight Directory Access Protocol
 * TOTP
-* PKCE
+* PKCE [RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636)
 * SCRAM-SHA
 * SASL-SSL
 * Kerberos - a network authentication protocol
