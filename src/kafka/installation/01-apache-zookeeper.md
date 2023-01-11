@@ -1,6 +1,6 @@
 # Apache ZooKeeper
 
-Apache Kafka uses `Apache ZooKeeper` for storing metadata for the brokers/cluster, as well as consumer client details. ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services.
+Apache Kafka uses `Apache ZooKeeper` for storing metadata for the `cluster`, `brokers`, `topics`, `partitions`, as well as `consumer client` details. ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services.
 
 While it is possible to run a ZooKeeper server using scripts contained in the Kafka distribution, it is trivial to install a full version of ZooKeeper from the distribution.
 
