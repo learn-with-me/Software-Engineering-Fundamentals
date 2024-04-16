@@ -29,3 +29,10 @@ The core Apache Kafka project has also added some streaming platform features th
 `Kafka Connect` assists with the task of pulling data from a source data system and pushing it into Kafka, or pulling data from Kafka and pushing it into a sink data system.
 
 `Kafka Streams` provides a library for easily developing stream processing applications that are scalable and fault tolerant.
+
+## References
+
+* YT - [System Design: Why is Kafka fast?](https://www.youtube.com/watch?v=UNUz1-msbOM&ab_channel=ByteByteGo)
+    * [Why is Kafka fast?](https://blog.bytebytego.com/p/why-is-kafka-fast)
+* [How Kafka Is so Performant If It Writes to Disk?](https://andriymz.github.io/kafka/kafka-disk-write-performance/#ssl-and-zero-copy)
+* [Maximizing Efficiency](https://kafka.apache.org/26/documentation.html#maximizingefficiency) Official doc

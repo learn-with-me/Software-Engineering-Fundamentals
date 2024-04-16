@@ -39,6 +39,22 @@ Important parameters of system throughput: `QPS (TPS)`, `concurrent users`, `res
 
 If the system is overloaded, other consumptions such as context switching, memory, etc cause the system performance to decline.
 
+## Availability
+
+TBD
+
+## Consistency
+
+TBD
+
+## Durability
+
+TBD
+
+## Fault-Tolerant
+
+TBD
+
 ## RDBMS
 
 Relational Database Management System
