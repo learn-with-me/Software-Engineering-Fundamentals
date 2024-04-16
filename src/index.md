@@ -1,7 +1,8 @@
 ---
 tags:
+  - software engineering
   - fundamentals
-  - template
+  - notes
 ---
 
 # Software Engineering Fundamentals
@@ -12,5 +13,7 @@ I've been mindful of giving credit to the sources as I am making these notes. In
 
 ## Index
 
-* [Licensing](./licensing/)
+* [Authentication](./authentication/)
+* [Content Protection](./content-protection/)
+* [Databases](./databases/)
 * [Networking](./networking/)
