@@ -1,6 +1,26 @@
 # Resources
 
-## Key Machine Learning Papers
+## Books (Applied ML)
+
+* [Introduction to Machine Learning with Python](https://learning.oreilly.com/library/view/introduction-to-machine/9781449369880/), Muller & Guido | O'Reilly
+* [Learning from Data](https://work.caltech.edu/telecourse), Yaser Mostafa
+    * About:
+    * CalTech [Machine Learning Course - CS 156](https://www.youtube.com/playlist?list=PLD63A284B7615313A) | YouTube playlist
+    * Book [website](https://amlbook.com/)
+* Deep Learning, Yoshua Bengio
+    * About: Contains everything you need to know about deep learning. So no need to refer anything else. First 5 chapters talk about foundational aspects of deep learning, not the core topic, like: statistics, probability, optimization, etc. From 6th chapter onwards, they'll go into deep learning, CNN, RNN, etc.
+    * Pdf on [GitHub](https://github.com/janishar/mit-deep-learning-book-pdf)
+    * [Online version](https://www.deeplearningbook.org/)
+* Applied Predictive Modeling
+* [Fundamentals of Data Visualization](https://learning.oreilly.com/library/view/fundamentals-of-data/9781492031079/), Claus Wilke | O'Reilly
+    * About: Classic book on data visualization. You'll read this book multiple times, esp when trying to present data.
+* Extras: Pattern Recognition, Christopher Bishop
+    * Pdf on [Microsoft website](https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf)
+* Extras: Probabilistic Machine Learning, Kevin Murphy
+    * Pdf on [GitHub](https://github.com/EvanLi/programming-book-3/blob/master/Machine-Learning/MLAPP%20-%20Machine%20Learning-A%20Probabilistic%20Perspective%20-%20Kevin%20P.%20Murphy.pdf)
+    * Book [website](https://probml.github.io/pml-book/book1.html)
+
+## Machine Learning Papers
 
 * [A Fast Learning Algorithm for Deep Belief Nets](https://www.cs.toronto.edu/~hinton/absps/ncfast.pdf) - Geoffrey Hinton, 2006
     * Shows how to train a deep neural network capable of recognizing handwritten digits with state-of-the-art precision (>98%)
@@ -44,3 +64,10 @@
 * [Pandas Documentation](https://pandas.pydata.org/docs/user_guide/index.html)
 * [NumPy Documentation](https://numpy.org/doc/stable/user/index.html)
 * [Matplotlib Documentation](https://matplotlib.org/stable/users/index.html)
+* [RayTune](https://pytorch.org/tutorials/beginner/hyperparameter_tuning_tutorial.html) - for hyperparameter tuning
+
+## Public Datasets
+
+* [Dataset Search](https://datasetsearch.research.google.com/)
+* [Kaggle](https://www.kaggle.com/datasets/)
+* Government datasets

@@ -8,15 +8,29 @@ Imagine that you want a robot to learn to sort your toys into different boxes. A
 
 ### Supervised Learning
 
+These algorithms learn a function that maps inputs to an output from a set of labeled training data.
+
 This is like when parents help the kid with their homework. They already know the correct answers (because they're the "teacher") and they guide them to learn the right answers. In the same way, in supervised learning, we have a robot that is `learning from examples where we already know the right answer`. 
 
 ### Unsupervised Learning
+
+These algorithms learn fundamental patterns of the data from unlabeled data samples, without specific goal in mind. This is a NP-hard problem, and does not scale well with data. This issue has made it hard for the research to further much in this area, as compared to supervised learning.
 
 This is like when kids play with their Lego blocks. Nobody tells them what to build, but they start grouping blocks by color or size, and maybe they start building something on their own. In unsupervised learning, the robot doesn't have any right answers to learn from. Instead, it `tries to find patterns or groups in the data` all by itself.
 
 ### Reinforcement Learning
 
+These algorithms try to mimic typically how human's learn, through taking an action and waiting for feedback or reward, for them to decide on the next step.
+
+Watch documentary of [Google Deepmind Go challenge](https://www.youtube.com/watch?v=1aMt7ulL6EI&ab_channel=GoogleDeepMind) match. In game 2, step 32 or 37, the step that the algorithm made was ingenious. Find commentaries on that move or read literature around it. It's amazing what these algorithms can learn when they're given so much data.
+
 This is like when you play a video game. You try different things, and sometimes you win points, and sometimes you lose points. Over time, you learn what actions help you win more points. In reinforcement learning, a robot `learns by trying different actions and getting rewards or penalties`. It learns to do the things that get it the most rewards. 
+
+### Other areas in research
+
+* Active learning - early in adoption. Also in a place where it allows to sparingly have a human in the loop.
+* Self-supervised learning - Meta's chief scientist is a big proponent of learning from unlabeled data.
+* Transfer learning
 
 ## Common Algorithms
 
@@ -25,43 +39,45 @@ This is like when you play a video game. You try different things, and sometimes
 * **Clustering** - grouping ungrouped data
 * **Association Mining Rule** - finding associations between two or more classes
 
-## Common ML Techniques
+### Deep Learning
 
-* **Data Preprocessing** - preparing the data for machine learning models. 
-    * This includes cleaning the data, handling missing values, encoding categorical variables, scaling the data, etc.
-    * Data preprocessing is an essential step in the machine learning pipeline and is used with all types of machine learning algorithms. 
-    * A crucial step before applying any machine learning algorithm, be it regression, classification, or clustering.
+When you're applying machine learning techniques, one of the key aspect is `Feature engineering`, where you're trying to create some sort of features or variables that'll allow the system to learn the task better. Feature engineering is limited by your intuition and understanding of the problem itself. These are mostly driven by domain knowledge, the context of the problem space and your creativity in what you think is important to the problem.
 
-* **Dimensionality Reduction** - reducing the number of input variables in a dataset.
-    * Used with regression, classification, and clustering algorithms to improve their performance, especially when dealing with high-dimensional data
-    * Using feature extraction techniques like `Principal Component Analysis (PCA)`, `t-SNE`, `Hashing` (Locality sensitive hashing), etc.
+`Deep learning` is a class of ML algorithms that uses multiple layers to progressively extract higher-level features/abstractions from raw inputs. 
 
-* **Ensemble Methods** - combining predictions from multiple models to improve the performance and accuracy over any individual model.
-    * Techniques like `Bagging`, `Boosting`, `Stacking`, etc.
-    * Used with regression and classification algorithms.
+Deep learning became a big deal in ML space, because it takes away the feature engineering aspect away from you. It starts to abstract the useful information from the data itself, and is not limited like human brain.
 
-* **Evaluation Metrics** - used to evaluate the performance of ML models. 
-    * They are used with all types of machine learning tasks including regression (e.g., `Mean Squared Error`), classification (e.g., `Accuracy`, `Precision`, `Recall`), and clustering (e.g., `Silhouette Score`).
-    * Common metrics include accuracy, precision, recall, `F1 score`, `ROC-AUC`, etc.
+On the contrary, deep learning has also made machine learning a black box, meaning it is harder to figure out what the model is trying to do.
 
-* **Overfitting and Underfitting** - common problems in machine learning where the model performs well on the training data but poorly on the test data.
-    * `Overfitting` occurs when the model is too complex and captures noise in the training data.
-    * `Underfitting` occurs when the model is too simple and fails to capture the underlying patterns in the data.
-    * These concepts apply to all types of machine learning models including regression, classification, and clustering.
+## Trends over time
 
-* **Neural Networks and Deep Learning** - types of ML model, particularly useful for complex tasks like image recognition, natural language processing, etc.
-    * These are a set of algorithms, modeled loosely after the human brain.
-    * Different types of neural networks like `Convolutional Neural Networks (CNN)`, `Recurrent Neural Networks (RNN)`, etc.
-    * Can be used for a wide range of tasks, including regression, classification, and clustering.
+* <1950s - Statistical methods
+* 1950s  - Simple ML algorithms
+* 1960s  - Bayesian methods in ML
+* 1970s  - AI winters
+* 1980s  - Back propagation
+* 1990s  - SVMs & RNNs
+* 2000s  - Kernel methods
+* 2010s  - Deep learning
+* 2020s  - LLMs
 
-### Neural Networks vs Deep Learning
+> Note: When you're solving SVMs, you're actually solving quadratic optimization problem, that does not scale with the number of samples itself. In simple terms, if you had to train with a large amount of data, training of SVMs becomes a problem.
 
-NN consists of interconnected layers of nodes, or "neurons", and each connection between nodes has a weight that is adjusted during training. Neural networks can learn to perform tasks by considering examples, generally without task-specific programming.
+> Note: Yoshua Bengio is the one who brought breakthrough in Deep learning space.
 
-Deep learning is a subfield of machine learning that focuses on neural networks with many layers - hence the term "deep". These deep neural networks are capable of learning from large amounts of data and can automatically extract features from the data during training. This is a key advantage of deep learning over traditional machine learning methods, which often require manual feature extraction. Deep learning is particularly effective for complex tasks such as image recognition, speech recognition, and natural language processing.
+> Note: Models in 1950s were trained on 2 parameters. GPT3 is trained on 175 billion parameters. ML space has evolved a lot in 70 years.
 
-### LLM
+### Reason for progress
 
-* **Large Language Model (LLM)**: This is a type of AI model used in natural language processing (NLP). These models, such as GPT-3 or GPT-4, are designed to understand and generate human-like text. They are trained on a large corpus of text data and can generate coherent and contextually relevant sentences. They are used in a variety of applications including translation, question answering, and text generation.  
+1. Computational power
+2. Big data + Map-Reduce
+3. Breakthrough in Deep learning
 
-* **Latent Linear Model (LLM)**: This is a type of statistical model used in machine learning for data analysis. In a latent linear model, the observed data is assumed to be a linear function of some latent (unobserved) variables, plus some noise. These models are often used in dimensionality reduction techniques, such as Principal Component Analysis (PCA), where the goal is to represent high-dimensional data in a lower-dimensional space.
+All these things came in between 2006 to 2010. For example, you can have an EC2 instance with 12 TB of RAM, democratization of AI
+
+## References
+
+* Applied Machine Learning, Columbia University
+* Book: [Fundamentals of Data Visualization](https://learning.oreilly.com/library/view/fundamentals-of-data/9781492031079/), Claus O. Wilke, 2019
+    * [Online book](https://clauswilke.com/dataviz/)
+    * [GitHub code](https://github.com/clauswilke/dataviz)
