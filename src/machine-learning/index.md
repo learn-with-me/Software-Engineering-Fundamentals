@@ -78,6 +78,8 @@ All these things came in between 2006 to 2010. For example, you can have an EC2 
 ## References
 
 * Applied Machine Learning, Columbia University
+* [Machine Learning Course - CS 156](https://www.youtube.com/playlist?list=PLD63A284B7615313A) | CatTech | YouTube playlist
+    * [Website](https://work.caltech.edu/telecourse)
 * Book: [Fundamentals of Data Visualization](https://learning.oreilly.com/library/view/fundamentals-of-data/9781492031079/), Claus O. Wilke, 2019
     * [Online book](https://clauswilke.com/dataviz/)
     * [GitHub code](https://github.com/clauswilke/dataviz)

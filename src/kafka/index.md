@@ -2,6 +2,13 @@
 
 Kafka is going to be the main focus of this section, while also explaining general concepts.
 
+# TODO Kafka Outline
+
+- [ ] Observer
+- [ ] Event Bus
+- [ ] Pub-Sub
+- [ ] Message Broker
+
 ## Index
 
 - [Publish/Subscribe Messaging](./01-pub-sub-messaging.md)
@@ -18,7 +25,7 @@ LinkedIn continues to maintain several, including [Cruise Control](https://githu
 
 In the fall of 2014, Jay Kreps, Neha Narkhede, and Jun Rao left LinkedIn to found Confluent, a company centered around providing development, enterprise support, and training for Apache Kafka. Confluent, through a partnership with Google, provides managed Kafka clusters on Google Cloud Platform, as well as similar services on Amazon Web Services and Azure. One of the other major initiatives of Confluent is to organize the Kafka Summit conference series.
 
-## Messsage Queue vs Message Bus
+## Message Queue vs Message Bus
 
 There is a lot of overlap in the terms that we use today, in the modern world. They’re all similar: they share similar interfaces (sending and receiving events); they share many features; and they’re both used in complex products or at scale. While similar, they’re (typically) used for different purposes.
 

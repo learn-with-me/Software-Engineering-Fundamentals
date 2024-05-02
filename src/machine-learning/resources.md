@@ -49,6 +49,25 @@
 * [MIT OpenCourseWare](https://ocw.mit.edu/index.htm)
 * [Towards Data Science](https://towardsdatascience.com/)
 
+## Blogs
+
+* [Andrej Karpathy](https://karpathy.github.io/)
+* [Christopher Olah](https://colah.github.io/)
+* [Denny Britz](https://dennybritz.com/)
+* [Tim Dettmers](https://timdettmers.com/)
+* [Open AI](https://openai.com/blog)
+* [Google Research](https://research.google/blog/)
+
+## Newsletters
+
+* [AI Weekly](https://aiweekly.co/)
+* [Deep Learning Weekly](https://www.deeplearningweekly.com/)
+* [Import AI](https://importai.substack.com/)
+* [Synced](https://syncedreview.com/)
+* [The Gradient](https://thegradient.pub/)
+* Mostly behind paywall
+    * [Towards Data Science](https://towardsdatascience.com/)
+
 ## Tutorials
 
 * [Scikit-learn Documentation](https://scikit-learn.org/stable/index.html)
