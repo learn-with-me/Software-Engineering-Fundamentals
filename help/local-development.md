@@ -4,6 +4,14 @@ These instructions will create a local server, with site hosted on port `8000`. 
 
 To view/edit the site in live mode, open a browser session in [http://localhost:8000](http://localhost:8000)
 
+## Set up environment (using script)
+
+```sh
+source scripts/setup.sh
+```
+
+Skip any steps below if this works
+
 ## Set up environment
 
 > Skip this stop if `venv` exists in current directory.

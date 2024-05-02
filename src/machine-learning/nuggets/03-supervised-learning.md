@@ -23,6 +23,14 @@ There is a lot of work that goes into creating this dataset, where this data has
 
 ### Development-test data split
 
+* Typically the dataset is split into development dataset and test dataset in the ratio of 4:1 (also called 80/20 split) or 3:1. scikit-learn has a default split of 3:1, which can be changed on will.
+* Purpose of the test dataset is to evaluate the performance of the final optimal model
+* Model evaluation is supposed to give a pulse on how the model would perform in the wild
+* Be careful choosing splitting strategies. Overall you want these split datasets to be as similar as possible. Some of them are:
+    * Random splitting
+    * Stratified splitting
+    * Structured splitting
+
 #### Baseline
 
 When you're training a model, establishing a baseline is very important, esp to know if you're doing good or bad in the next training.
@@ -43,3 +51,18 @@ One of the commonly used baseline technique is `k-nearest neighbors`.
 An optimization to reduce computation is `approximate nearest neighbors`, where you bucket the data points. Now when a new data point comes in, you first figure out the bucket it falls into, and then calculate the nearest neighbor(s) and label in that bucket.
 
 At the end of the day, predictions is an expensive process because you have to compute distances. Distance can be anything including `euclidean` or `manhattan` or custom distance as long as it follows the norms of the distance metric, but it is still a computation.
+
+### Hyperparameter tuning
+
+
+### Optimal model training
+
+
+### Model evaluation
+
+
+### Model deployment
+
+
+
+Note: Measure confidence around your prediction.

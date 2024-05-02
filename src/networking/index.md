@@ -1,178 +1,42 @@
 # Networking
 
-##### IP Address
+## Transmission Control Protocol (TCP)
 
-Internet Protocol address \(IP address\) is a unique string of numbers separated by periods that identifies each computer using the Internet Protocol to communicate over a network. \(example, 255.255.255.255\). There are two versions of IP addresses used today 32-bit \(IPV4\) or 128-bit \(IPV6\).
+The protocol sits at layer 4 of the OSI model, and it is responsible for delivering the data segment between two nodes in a reliable and error-checked manner. The TCP consists of a 160-bit header that contains, among other fields, source and destination ports, a sequence number, an acknowledgment number, control flags, and a checksum.
 
-The IP address space is managed globally by the Internet Assigned Numbers Authority \(IANA\), and by five regional Internet registries \(RIRs\) responsible in their designated territories for assignment to end users and local Internet registries, such as Internet service providers. IPv4 addresses have been distributed by IANA to the RIRs in blocks of approximately 16.8 million addresses each. Each ISP or private network administrator assigns an IP address to each device connected to its network. Such assignments may be on a static \(fixed or permanent\) or dynamic basis, depending on its software and practices.
+TCP uses `datagram` sockets or ports to establish host-to-host communication, through designated ports such as port 80 for HTTP (web) and port 25 for SMTP (mail). The server listens on one of these well-known ports in order to receive communication requests from the client. The TCP connection is managed by the operating system with the socket representing the local endpoint for the connection.
 
-IP address has two principal functions
+The protocol operation consists of a `state machine`, which the machine needs to keep track of when it is listening for an incoming connection during the communication session, as well as releasing resources once the connection is closed. Each TCP connection goes through a series of states such as `Listen`, `SYN-SENT`, `SYN-RECEIVED`, `ESTABLISHED`, `FIN-WAIT`, `CLOSE-WAIT`, `CLOSING`, `LAST-ACK`, `TIME-WAIT`, and `CLOSED`. The different states help in managing the TCP messages.
 
-1. host or network interface identification
-2. location addressing
+TCP transmits data in an ordered and reliable fashion, thus guaranteeing delivery. It does this by first establishing a three-way handshake to synchronize the sequence number between the transmitter and the receiver, `SYN`, `SYN-ACK`, and `ACK`. The acknowledgment is used to keep track of subsequent segments in the conversation. Finally, at the end of the conversation, one side will send a `FIN` message, and the other side will `ACK`.
 
-##### Subnet/Subnetwork
+## User datagram protocol (UDP)
 
-A logical subdivision of an IP network.
+Unlike TCP, the header is only 64 bits, which only consists of a source and destination port, length, and checksum. The lightweight header makes it ideal for applications that prefer faster data delivery without setting up the session between two hosts or needing reliable data delivery. Perhaps it’s hard to imagine with today’s fast internet connections, but the lightweight header made a big difference to the speed of transmission in the early days of `X.21` and frame relay links. Also, not having to maintain various states, such as TCP, also saves computer resources.
 
-**Mac Address**
+Multimedia video streaming benefits from a lighter header when the application just wants to deliver the datagram as quickly as possible. The fast Domain Name System (DNS) lookup process is also based on the UDP protocol. The tradeoff between accuracy and latency usually tips to the side of low latency.
 
-A unique identifier assigned to network interface controllers for communication.
-
-##### Modem
-
-Connects ISP to your home, translating analog data to digital
-
-##### Router
-
-Controls the flow of digital data between devices. tA router creates a local network for devices to communicate, just like appartment. These are the cheapest and fastest way to connect to the internet. Have their own operating system called firmware, where default has limited functionality since most want plug-n-play.
-
-##### Switch
-
-Box that turns one ethernet connection into several, allowing multiple wired devices to connect to internet without overloading the router.
-
-##### Cables
-
-Cat5e/Cat6/Cat6e/Cat7
-
-```
-https://planetechusa.com/blog/ethernet-different-ethernet-categories-cat3-vs-cat5e-vs-cat6-vs-cat6a-vs-cat7-vs-cat8/
-https://www.cablewholesale.com/support/technical_articles/megahertz_madness.php
-https://www.ebay.com/gds/What-are-the-Different-Types-of-Ethernet-Cables-/10000000177629325/g.html
-https://www.howtogeek.com/70494/what-kind-of-ethernet-cat-5e6a-cable-should-i-use/
-http://www.flukenetworks.com/knowledge-base/applicationstandards-articles-copper/mhz-vs-mbits-and-encoding
-```
-
-#### Home Network
-
-A network with many devices becomes taxing on the router.
-
-Some core principles:
-
-* Use wires over Wi-Fi as much as possible
-* Eliminate bottlenecks \(device is capable of handling the speed\)
-* Use switches to minimize traffic hitting the router
-* Use a third-party firmware on your router to manually prioritize devices/services.
-
-##### Performance
-
-```
-https://broadbandnow.com/report/design-supercharged-home-network/
-    https://www.howtogeek.com/51477/how-to-remove-advertisements-with-pixelserv-on-dd-wrt/
-https://broadbandnow.com/report/optimize-network-faster-speeds/
-https://www.blackhillsinfosec.com/home-network-design-part-1/
-    https://www.troyhunt.com/ubiquiti-all-the-things-how-i-finally-fixed-my-dodgy-wifi/
-    https://www.troyhunt.com/wiring-a-home-network-from-the-ground-up-with-ubiquiti/
-https://www.lifewire.com/home-network-diagrams-4064053
-```
-
-##### Useful Links
-
-```
-http://www.practicallynetworked.com/
-https://hackaday.io/project/20063-flashing-forceware-on-sb6141
-https://www.youtube.com/watch?v=7iSC9yXxVVc
-```
-
-##### Network Stories
-
-```
-https://www.youtube.com/watch?v=dIFKmJ4wufc            # Eli the computer guy
-    https://www.youtube.com/watch?v=9yYqNqTNnqI            # Switches
-    https://www.youtube.com/watch?v=q4P4BjjXghQ            # VPN
-    https://www.youtube.com/watch?v=rL8RSFQG8do&index=1&list=PLF360ED1082F6F2A5
-https://www.youtube.com/watch?v=RGVPeB98zWI
-    https://www.youtube.com/watch?v=QuV__5P4Bxw
-https://www.youtube.com/watch?v=8J00rfZE17Y
-https://www.youtube.com/watch?v=00UTYN9j0FE
-https://www.youtube.com/watch?v=bUY7-tsdSsU            # My Home Network Diagram Explained
-https://www.youtube.com/watch?v=TNpEIqq77Fk            # Home Networking 101
-https://www.youtube.com/watch?v=saD_SFOYCWk            # Building a simple network
-https://www.youtube.com/watch?v=j41JveqPUQM            # Building a smart network
-https://www.youtube.com/watch?v=2wtBeeZyxqs            # Tour of home network
-    https://www.youtube.com/watch?v=PR7GBvc1zw0&list=PLy4Ry1Cuuzt7BB2u023ZsKKE2WN_zsoYD    # Playlist
-
-https://www.youtube.com/watch?v=GagY5EeYFzs            # NAS
-    https://www.youtube.com/watch?v=tdSCwTChR48
-    https://www.bhphotovideo.com/c/product/1364346-REG/synology_ds418_diskstation_4_bay_nas.html
-    https://www.bhphotovideo.com/c/product/1242542-REG/synology_diskstation_ds416slim_4_bay_nas.html
-    https://www.bhphotovideo.com/c/product/1333824-REG/synology_ds1817_2gb_ds1817_8_bay_nas.html
-https://www.youtube.com/watch?v=SnLkrwMMxGA            # TechWiser - NAS
-
-https://www.youtube.com/watch?v=_RlxCc0M6Ko            # Home Media Server - Techquickie
-```
-
-##### Network Design
-
-```
-https://www.youtube.com/watch?v=J5QJb3O19zI            # Connect two routers
-https://www.youtube.com/watch?v=UXKZi6me-ew            # How to wire a home
-```
-
-##### Network Monitoring
-
-```
-https://www.youtube.com/watch?v=WAw6w6IMRyM            # TechWiser
-    https://www.youtube.com/watch?v=AeGdWbUxYug            # Secure yourself on public WiFi
-    https://www.youtube.com/watch?v=NjwQPWDT9KY
-    https://www.youtube.com/watch?v=cCYU5EdlPtg            # Kick people off your internet
-https://www.youtube.com/watch?v=yLbKhwnc0HY            # Gadget Addict
-```
-
-##### Network Troubleshooting
-
-```
-https://www.youtube.com/watch?v=5Tke_JD7-jk            # HackAttack
-https://www.youtube.com/watch?v=AimCNTzDlVo            # Sakitech
-https://www.youtube.com/watch?v=h43fmazlkoI            # Professor Messer
-https://www.youtube.com/watch?v=b-hXJ5xxk-M
-https://www.youtube.com/watch?v=PVOuff-p420            # Basic Linux Network troubleshooting
-https://www.youtube.com/watch?v=75lCgcXP4dc            # Basic Linux Network troubleshooting
-
-https://www.youtube.com/watch?v=IHS7LLFvDFE            # Cisco Network Troubleshooting
-    https://www.youtube.com/watch?v=onfPC19eFYg
-
-http://www.nirsoft.net/network_tools.html
-```
-
-##### VPN
-
-VPN creates a secure, encrypted connection, which can be thought of as a tunnel, and no one \(even your ISP\) can see your traffic until it exits the tunnel
-
-```
-https://www.youtube.com/watch?v=xGjGQ24cXAY            # Android Authority
-```
-
-##### Security
-
-```
-https://www.youtube.com/watch?v=ciNHn38EyRc            # Computerphile
-```
-
-##### Captive Portal
-
-```
-https://www.youtube.com/watch?v=LA4dowjsn1s
-```
-
-##### AWS
-
-```
-https://www.youtube.com/watch?v=N89AffsxS-g            # Eli the computer guy
-https://www.youtube.com/watch?v=IT1X42D1KeA            # Edureka
-    https://www.youtube.com/watch?v=IT1X42D1KeA&list=PL9ooVrP1hQOFWxRJcGdCot7AgJu29SVV3&index=1
-```
-
-##### What to think about when designing own home network?
-
-```
-Wall mount rack
-Dedicated Space
-Backup power supply (UPS)
-Cache drive
-
-Home Automation
-```
+## Internet protocol
 
 
 
+## Topics
+
+* Local Area Network (LAN)
+* Internet Service Provider (ISP)
+* Internet of Things (IoT)
+* Internet Protocol (IP)
+* Dense Wavelength Division Multiplexing (DWDM)
+* OSI Model
+* Infrastructure as a Service (IaaS)
+* Software-Defined Wide-Area-Networks (SD-WANs)
+* International Organization for Standardization (ISO), now as Telecommunication Standardization Sector of the International Telecommunication Union (ITU-T)
+* Advanced Research Projects Agency Network (ARPANET)
+* Internet Assigned Numbers Authority (IANA)
+
+## References
+
+* [TCP Guide](http://www.tcpipguide.com/)
+* [UDP Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)
+* [Understanding sockets concepts](https://www.ibm.com/docs/en/zos/3.1.0?topic=concepts-understanding-sockets) | IBM
+* [The difference between a Port and a Socket](https://www.baeldung.com/cs/port-vs-socket)
