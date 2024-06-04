@@ -4,7 +4,7 @@ To explain the concept, we're going to be building on a growth story
 
 ## Scenario
 
-Let's say you are working on a proof-of-concept application with a need for some form of persistent storage, which has a potential to generate revenue if there are enough users. You anticipate a few hundered users to get on the platform every month. Because there is not enough revenue potential in first year, so you spin up a relational database instance and roll out the application in production.
+Let's say you are working on a proof-of-concept application with a need for some form of persistent storage, which has a potential to generate revenue if there are enough users. You anticipate a few hundred users to get on the platform every month. Because there is not enough revenue potential in first year, so you spin up a relational database instance and roll out the application in production.
 
 Based on real-life traffic pattern, you see a growth rate of 5x users per month. As your application starts getting this gradual increase in traffic, you realize that your database is capable of handling 5k queries per second, and this demand will only go up.
 
@@ -74,4 +74,4 @@ Will it keep erroring transactions?
 - Advanced Topics
   - Paxos, 
 - What if
-  - user growth was overnight insted of gradual?
+  - user growth was overnight instead of gradual?
