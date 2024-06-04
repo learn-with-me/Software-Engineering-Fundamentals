@@ -23,12 +23,11 @@ Measuring `throughput` and `latency` can help to identify performance issues on 
 ### References
 
 - [Latency](https://en.wikipedia.org/wiki/Latency_(engineering)) | Wiki
-- [Latency](https://www.hackapedia.com/latency/) | Hackapedia
 - [Escaping the DRAM price trap: Storage Class Memory](https://blocksandfiles.com/2018/11/28/2019-the-year-of-storage-class-memory/) | Blocks & Files
 
 ## Throughput
 
-The throughput (pressure capacity) of a system is closely related to the CPU consumption of requests, external interfaces, IO, etc. The higher the CPU consumption of a single reqeust, the slower the external system interface and IO impact speed, the lower the system throughput, and vice versa.
+The throughput (pressure capacity) of a system is closely related to the CPU consumption of requests, external interfaces, IO, etc. The higher the CPU consumption of a single request, the slower the external system interface and IO impact speed, the lower the system throughput, and vice versa.
 
 Two factors determine the upper limit of throughput:
 
