@@ -170,6 +170,7 @@ class Graph {
    The DFS function recursively traverses the graph starting from a given vertex. It uses a boolean array to keep track of visited vertices.
 
 5. **Breadth First Search (BFS) Function:**
+
    ```java
    public void BFS(int startVertex) {
        boolean[] visited = new boolean[numVertices];
@@ -194,6 +195,7 @@ class Graph {
    The BFS function iteratively traverses the graph starting from a given vertex using a queue to manage the traversal.
 
 6. **Main Method:**
+
    ```java
    public static void main(String[] args) {
        Graph graph = new Graph(5);
