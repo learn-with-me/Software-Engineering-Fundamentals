@@ -45,58 +45,73 @@ public class StackExample {
 
 #### Explanation:
 
-1. **Import the Stack Class:**
-   ```java
-   import java.util.Stack;
-   ```
+**Import the Stack Class:**
 
-2. **Create a Stack:**
-   ```java
-   Stack<Integer> stack = new Stack<>();
-   ```
-   Here, we create a stack of integers.
+```java
+import java.util.Stack;
+```
 
-3. **Push Elements onto the Stack:**
-   ```java
-   stack.push(10);
-   stack.push(20);
-   stack.push(30);
-   stack.push(40);
-   ```
-   We use the `push()` method to add elements to the top of the stack.
+**Create a Stack:**
 
-4. **Display the Stack:**
-   ```java
-   System.out.println("Stack: " + stack);
-   ```
-   This prints the current elements in the stack.
+```java
+Stack<Integer> stack = new Stack<>();
+```
 
-5. **Pop an Element from the Stack:**
-   ```java
-   int poppedElement = stack.pop();
-   System.out.println("Popped Element: " + poppedElement);
-   ```
-   The `pop()` method removes and returns the top element of the stack.
+Here, we create a stack of integers.
 
-6. **Display the Stack after Pop:**
-   ```java
-   System.out.println("Stack after Pop: " + stack);
-   ```
-   This prints the stack after removing an element.
+**Push Elements onto the Stack:**
 
-7. **Peek at the Top Element:**
-   ```java
-   int topElement = stack.peek();
-   System.out.println("Top Element: " + topElement);
-   ```
-   The `peek()` method returns the top element without removing it from the stack.
+```java
+stack.push(10);
+stack.push(20);
+stack.push(30);
+stack.push(40);
+```
 
-8. **Check if the Stack is Empty:**
-   ```java
-   boolean isEmpty = stack.isEmpty();
-   System.out.println("Is the Stack empty? " + isEmpty);
-   ```
-   The `isEmpty()` method checks if the stack is empty and returns a boolean value.
+We use the `push()` method to add elements to the top of the stack.
+
+**Display the Stack:**
+
+```java
+System.out.println("Stack: " + stack);
+```
+
+This prints the current elements in the stack.
+
+**Pop an Element from the Stack:**
+
+```java
+int poppedElement = stack.pop();
+System.out.println("Popped Element: " + poppedElement);
+```
+
+The `pop()` method removes and returns the top element of the stack.
+
+**Display the Stack after Pop:**
+
+```java
+System.out.println("Stack after Pop: " + stack);
+```
+
+This prints the stack after removing an element.
+
+**Peek at the Top Element:**
+
+```java
+int topElement = stack.peek();
+System.out.println("Top Element: " + topElement);
+```
+
+The `peek()` method returns the top element without removing it from the stack.
+
+**Check if the Stack is Empty:**
+
+```java
+boolean isEmpty = stack.isEmpty();
+System.out.println("Is the Stack empty? " + isEmpty);
+```
+
+The `isEmpty()` method checks if the stack is empty and returns a boolean value.
 
 ### Conclusion
 

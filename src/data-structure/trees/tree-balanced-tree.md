@@ -149,8 +149,8 @@ public class AVLTree {
         /* The constructed AVL Tree would be
                  30
                 /  \
-              20   40
-             /  \     \
+              20    40
+             /  \    \
            10  25    50
         */
         System.out.println("Preorder traversal" +
@@ -162,19 +162,21 @@ public class AVLTree {
 
 ### Explanation
 
-1. **Node Class:**
-   ```java
-   class Node {
-       int key, height;
-       Node left, right;
+**Node Class:**
 
-       Node(int d) {
-           key = d;
-           height = 1;
-       }
-   }
-   ```
-   This class represents a node in the AVL tree, containing an integer `key`, height of the node, and pointers to the left and right children.
+```java
+class Node {
+    int key, height;
+    Node left, right;
+
+    Node(int d) {
+        key = d;
+        height = 1;
+    }
+}
+```
+
+This class represents a node in the AVL tree, containing an integer `key`, height of the node, and pointers to the left and right children.
 
 2. **AVLTree Class:**
    - **Height Function:**

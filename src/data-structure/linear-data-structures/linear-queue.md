@@ -48,59 +48,74 @@ public class QueueExample {
 
 #### Explanation:
 
-1. **Import the Queue Interface and LinkedList Class:**
-   ```java
-   import java.util.LinkedList;
-   import java.util.Queue;
-   ```
+**Import the Queue Interface and LinkedList Class:**
 
-2. **Create a Queue:**
-   ```java
-   Queue<Integer> queue = new LinkedList<>();
-   ```
-   Here, we create a queue of integers using the `LinkedList` class, which implements the `Queue` interface.
+```java
+import java.util.LinkedList;
+import java.util.Queue;
+```
 
-3. **Add Elements to the Queue (Enqueue Operation):**
-   ```java
-   queue.add(10);
-   queue.add(20);
-   queue.add(30);
-   queue.add(40);
-   ```
-   We use the `add()` method to insert elements into the queue. Elements are added to the rear of the queue.
+**Create a Queue:**
 
-4. **Display the Queue:**
-   ```java
-   System.out.println("Queue: " + queue);
-   ```
-   This prints the current elements in the queue.
+```java
+Queue<Integer> queue = new LinkedList<>();
+```
 
-5. **Remove an Element from the Queue (Dequeue Operation):**
-   ```java
-   int removedElement = queue.remove();
-   System.out.println("Removed Element: " + removedElement);
-   ```
-   The `remove()` method removes and returns the front element of the queue.
+Here, we create a queue of integers using the `LinkedList` class, which implements the `Queue` interface.
 
-6. **Display the Queue after Dequeue:**
-   ```java
-   System.out.println("Queue after Dequeue: " + queue);
-   ```
-   This prints the queue after removing an element.
+**Add Elements to the Queue (Enqueue Operation):**
 
-7. **Peek at the Front Element:**
-   ```java
-   int frontElement = queue.peek();
-   System.out.println("Front Element: " + frontElement);
-   ```
-   The `peek()` method returns the front element without removing it from the queue.
+```java
+queue.add(10);
+queue.add(20);
+queue.add(30);
+queue.add(40);
+```
 
-8. **Check if the Queue is Empty:**
-   ```java
-   boolean isEmpty = queue.isEmpty();
-   System.out.println("Is the Queue empty? " + isEmpty);
-   ```
-   The `isEmpty()` method checks if the queue is empty and returns a boolean value.
+We use the `add()` method to insert elements into the queue. Elements are added to the rear of the queue.
+
+**Display the Queue:**
+
+```java
+System.out.println("Queue: " + queue);
+```
+
+This prints the current elements in the queue.
+
+**Remove an Element from the Queue (Dequeue Operation):**
+
+```java
+int removedElement = queue.remove();
+System.out.println("Removed Element: " + removedElement);
+```
+
+The `remove()` method removes and returns the front element of the queue.
+
+**Display the Queue after Dequeue:**
+
+```java
+System.out.println("Queue after Dequeue: " + queue);
+```
+
+This prints the queue after removing an element.
+
+**Peek at the Front Element:**
+
+```java
+int frontElement = queue.peek();
+System.out.println("Front Element: " + frontElement);
+```
+
+The `peek()` method returns the front element without removing it from the queue.
+
+**Check if the Queue is Empty:**
+
+```java
+boolean isEmpty = queue.isEmpty();
+System.out.println("Is the Queue empty? " + isEmpty);
+```
+
+The `isEmpty()` method checks if the queue is empty and returns a boolean value.
 
 ### Conclusion
 
