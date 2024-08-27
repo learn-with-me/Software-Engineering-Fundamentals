@@ -1,4 +1,4 @@
-### Understanding Graphs
+# Understanding Graphs
 
 A graph is a collection of nodes (also called vertices) and edges that connect pairs of nodes. Graphs can be:
 - **Directed or Undirected:** In a directed graph, edges have a direction, while in an undirected graph, edges do not.
