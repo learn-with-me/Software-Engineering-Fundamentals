@@ -1,6 +1,7 @@
 site_name: Software Engineering Fundamentals
 site_url: https://learn-with-me.github.io/Software-Engineering-Fundamentals/
 repo_url: https://github.com/learn-with-me/Software-Engineering-Fundamentals
+copyright: Copyright &copy; 2024 - 2025 goel4ever
 docs_dir: 'src'
 
 theme:
@@ -31,19 +32,20 @@ theme:
     # - navigation.sections
     - navigation.indexes
     - navigation.top
+    - navigation.footer
     # - toc.integrate
-  plugins:
-    - tags
 plugins:
   - search
   - git-revision-date-localized
   - kroki
+  - tags:
+      tags_file: tags.md 
 markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 extra:
   homepage: https://learn-with-me.github.io/Software-Engineering-Fundamentals/
-  copyright: Copyright &copy; 2022 - 2023 goel4ever
+  generator: false
   analytics:
     provider: google
     property: G-LBF3VZYFJJ
