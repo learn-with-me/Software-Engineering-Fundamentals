@@ -2,24 +2,31 @@
 
 ### What is an Array?
 
-An array is a data structure that consists of a collection of elements, each identified by at least one array index or key. Arrays are one of the simplest and most widely used data structures in programming. They store elements of the same type in contiguous memory locations, allowing efficient access to any element using its index.
+An array is a fixed-size data structure that consists of a collection of elements of same type, each identified by an index.
+Arrays are one of the simplest and most widely used data structures in programming.
+They store elements of the same type in contiguous memory locations, allowing efficient access to any element using its index.
+The only downside is that the memory location has to be reserved at the time of creation and cannot be changed dynamically.
+
+```kroki-excalidraw no-transparency=false
+@from_file:data-structure/array/array.excalidraw
+```
 
 ### Key Characteristics
 
-1. **Fixed Size**: The size of an array is determined at the time of its creation and cannot be changed dynamically.
-2. **Homogeneous Elements**: All elements in an array are of the same data type.
-3. **Contiguous Memory Allocation**: Elements are stored in consecutive memory locations, allowing for efficient index-based access.
-4. **Indexed Access**: Elements can be accessed directly using their index, typically starting from 0 in most programming languages.
+1. **Fixed Size**
+2. **Homogeneous Elements**
+3. **Contiguous Memory Allocation**
+4. **Indexed Access**
 
 ### Types of Arrays
 
 1. **One-Dimensional Array**: A linear array where elements are accessed using a single index.
-   - Example: `int arr[5] = {1, 2, 3, 4, 5};`
+    - Example: `int arr[5] = {1, 2, 3, 4, 5};`
 
 2. **Multi-Dimensional Array**: Arrays with more than one dimension, such as two-dimensional arrays (matrices).
-   - Example: `int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};`
+    - Example: `int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};`
 
-3. **Dynamic Arrays**: Arrays that can change size dynamically during runtime, such as vectors in C++ or ArrayList in Java.
+3. **Dynamic Arrays**: Arrays that can change size dynamically during runtime, such as `vectors` in C++ or `ArrayList` in Java.
 
 ### Operations on Arrays
 

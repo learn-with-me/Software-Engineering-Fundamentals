@@ -6,3 +6,7 @@ A graph is a collection of nodes (also called vertices) and edges that connect p
 - **Sparse or Dense:** A sparse graph has relatively few edges compared to the number of nodes, while a dense graph has many edges.
 
 Graphs are used to represent various real-world systems such as social networks, transportation networks, and communication networks.
+
+```kroki-excalidraw no-transparency=false
+@from_file:data-structure/graph/graph.excalidraw
+```
