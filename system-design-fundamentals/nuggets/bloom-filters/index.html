@@ -1,0 +1,6153 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://learn-with-me.github.io/Software-Engineering-Fundamentals/system-design-fundamentals/nuggets/bloom-filters/">
+      
+      
+        <link rel="prev" href="../../cache/caching-write-around/">
+      
+      
+        <link rel="next" href="../cdn/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Bloom filters - Software Engineering Fundamentals</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-LBF3VZYFJJ"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-LBF3VZYFJJ",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-LBF3VZYFJJ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bloom-filters" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://learn-with-me.github.io/Software-Engineering-Fundamentals/" title="Software Engineering Fundamentals" class="md-header__button md-logo" aria-label="Software Engineering Fundamentals" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Software Engineering Fundamentals
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bloom filters
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/learn-with-me/Software-Engineering-Fundamentals" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://learn-with-me.github.io/Software-Engineering-Fundamentals/" title="Software Engineering Fundamentals" class="md-nav__button md-logo" aria-label="Software Engineering Fundamentals" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    Software Engineering Fundamentals
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/learn-with-me/Software-Engineering-Fundamentals" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Software Engineering Fundamentals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../programming-paradigms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A Journey Through Programming Paradigms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tags
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../authentication/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Authentication
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authentication/01-basic-authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    'Basic' HTTP Authentication Scheme
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authentication/02-access-tokens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Access Tokens
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authentication/03-oauth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OAuth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authentication/authentication-protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A Dive into Authentication Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authentication/pkce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Proof Key for Code Exchange (PKCE)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authentication/sasl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SASL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authentication/totp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TOTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../authentication/two-factor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Two-factor Authentication (2FA)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/aws-ebs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS EBS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/aws-efs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS EFS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/aws-file-cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS File Cache
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/aws-fsx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS FSx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/object-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object Storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../communication/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Communication
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Communication
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../communication/01-transmission-method/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Transmission
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../communication/02-protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Communication Protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../communication/03-network-protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Network Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../communication/04-osi-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OSI Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../communication/05-ip-tcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IP / TCP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../communication/11-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data-engineering/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Data engineering
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Data engineering
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-engineering/cdc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unraveling the Power of Change Data Capture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-engineering/data-lake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Lake
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-engineering/data-lakehouse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Lakehouse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-engineering/data-mesh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Mesh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-engineering/data-warehouse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Warehouse
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-engineering/medallion-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Medallion Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data-mining/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Data mining
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Data mining
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-mining/dark-web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dark Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-mining/ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ethics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-mining/legalities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Legalities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data-structure/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Data structure
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Data structure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data-structure/array/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Array
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Array
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-structure/array/implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implementation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data-structure/graph/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Graph
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Graph
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-structure/graph/implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implementation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data-structure/hash-table/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Hash table
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_4" id="__nav_9_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            Hash table
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-structure/hash-table/implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implementation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data-structure/linked-list/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Linked list
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_5" id="__nav_9_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_5">
+            <span class="md-nav__icon md-icon"></span>
+            Linked list
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-structure/linked-list/implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implementation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data-structure/queue/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Queue
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_6" id="__nav_9_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_6">
+            <span class="md-nav__icon md-icon"></span>
+            Queue
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-structure/queue/implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implementation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../data-structure/stack/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Stack
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9_7" id="__nav_9_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_7">
+            <span class="md-nav__icon md-icon"></span>
+            Stack
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-structure/stack/implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implementation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_8" id="__nav_9_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Trees
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_8">
+            <span class="md-nav__icon md-icon"></span>
+            Trees
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-structure/trees/tree-balanced-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tree balanced tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-structure/trees/tree-binary-search-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tree binary search tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-structure/trees/tree-binary-tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tree binary tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-structure/trees/tree-heap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tree heap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-structure/trees/tree-trie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tree trie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data-structure/trees/trie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../databases/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Databases
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Databases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../databases/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../databases/replication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Replication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_4" id="__nav_10_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Fundamentals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../databases/fundamentals/02-acid-01-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../databases/fundamentals/02-acid-02-atomicity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Atomicity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../databases/fundamentals/02-acid-03-isolation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Isolation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../databases/fundamentals/02-acid-04-consistency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Consistency
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../databases/fundamentals/02-acid-05-durability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Durability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../databases/scaling/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Scaling
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_5" id="__nav_10_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            Scaling
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../databases/scaling/caching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Database Caching
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../databases/scaling/denormalization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Database Denormalization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../databases/scaling/indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Database Indexing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../databases/scaling/materialized-view/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Materialized View
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../databases/scaling/replication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Database Replication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../databases/scaling/sharding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Database Shrading
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../databases/scaling/vertical-scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vertical Scaling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../digital-content/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Digital content
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Digital content
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../digital-content/content-creation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content Creation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../digital-content/dmca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Demystifying the DMCA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../digital-content/protecting-content/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Protecting your Content
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../digital-content/securing-creativity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Securing Your Creativity: Effective Strategies to Protect Your Content Online
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../digital-content/software-licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Demystifying Software Licensing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../digital-content/user-privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A Deep Dive into User Privacy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../kafka/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Kafka
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Kafka
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/00-PREFACE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Preface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/01-pub-sub-messaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pub/Sub Messaging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/02-why-kafka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Why Kafka?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/03-kafka-use-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kafka Use Cases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/05-need-for-zookeeper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Need for ZooKeeper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/06-producers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kafka Producers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/99-terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/configuration-management-kafka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuration Management - Kafka
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kafka Monitoring
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/todo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Review First
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/tuning-kafka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kafka Performance Tuning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_13" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../kafka/Ch%2001%20Background/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Ch 01 Background
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_13" id="__nav_12_13_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_13">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 01 Background
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/Ch%2001%20Background/async-operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Async Operation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/Ch%2001%20Background/event-bus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Event Bus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_14" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../kafka/Ch%2002%20Fundamentals/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Ch 02 Fundamentals
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_14">
+            <span class="md-nav__icon md-icon"></span>
+            Ch 02 Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_15" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../kafka/configuration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_15" id="__nav_12_15_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_15">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/configuration/00-configuring-the-cluster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuraing the Cluster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/configuration/01-configuring-the-broker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure the Broker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/configuration/02-configuring-the-topic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configuring Topics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/configuration/03-common-configuration-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Configurations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_16" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../kafka/how-to/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    How to
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_16" id="__nav_12_16_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_16">
+            <span class="md-nav__icon md-icon"></span>
+            How to
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/how-to/choosing-partitions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to choose # of partitions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/how-to/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Performance Considerations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/how-to/selecting-hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Selecting Hardware
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_17" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../kafka/installation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12_17" id="__nav_12_17_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_17">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/installation/01-apache-zookeeper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apache ZooKeeper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../kafka/installation/02-apache-kafka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apache Kafka
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../machine-learning/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Machine learning
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_13" id="__nav_13_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Machine learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine-learning/common-ml-techniques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common ML Techniques
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine-learning/getting-hands-on/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hands-on: Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine-learning/learning-path/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Learning Path
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine-learning/resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_6" id="__nav_13_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Nuggets
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_6">
+            <span class="md-nav__icon md-icon"></span>
+            Nuggets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine-learning/nuggets/01-exploratory-data-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exploratory Data Analysis (EDA)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine-learning/nuggets/02-data-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Visualization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine-learning/nuggets/03-supervised-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Supervised Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine-learning/nuggets/data-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine-learning/nuggets/decision-trees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Decision Trees
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine-learning/nuggets/llm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Llm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine-learning/nuggets/rag/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Retrieval Augmented Generation (RAG)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../machine-learning/nuggets/recommendation-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Recommendation Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../message-queue/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Message queue
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Message queue
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../networking/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Networking
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../networking/components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Network Components
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../networking/home-network______TBD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home Network
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../networking/internet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Internet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../networking/network-protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Network Protocols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../operating-system/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Operating system
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            Operating system
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    System design fundamentals
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_17" id="__nav_17_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_17">
+            <span class="md-nav__icon md-icon"></span>
+            System design fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protobuf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Protobuf
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quorum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quorum
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../retry-on-failure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Retry on failure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../cache/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Cache
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_17_6" id="__nav_17_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_17_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_17_6">
+            <span class="md-nav__icon md-icon"></span>
+            Cache
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cache/cache-eviction-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cache Eviction Strategies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cache/caching-hybrid-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hybrid Caching Strategies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cache/caching-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Caching Strategies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cache/caching-write-around/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Caching: Write Around
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_17_7" id="__nav_17_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Nuggets
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_17_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_17_7">
+            <span class="md-nav__icon md-icon"></span>
+            Nuggets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Bloom filters
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bloom filters
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-hash-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple-hash functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiple-hash functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#number-of-hash-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number of hash functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash-function-complexity-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hash function complexity criteria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commonly-used-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commonly used functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter size
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persistence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Persistence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storing-on-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storing on Disk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storing-in-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storing in DB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistent-probabilistic-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persistent Probabilistic Data structures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learn more
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#db-using-bloom-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      DB using Bloom Filters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternatives
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CDN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../consistent-hashing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Consistent Hashing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gossip-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gossip protocol
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../load-balancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Load Balancer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reverse-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reverse Proxy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    System designs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_18">
+            <span class="md-nav__icon md-icon"></span>
+            System designs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../system-designs/test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Test page
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_19" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../text-processing/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Text processing
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_19" id="__nav_19_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_19">
+            <span class="md-nav__icon md-icon"></span>
+            Text processing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../text-processing/character-encoding-scheme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character Encoding Scheme
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../text-processing/character-encoding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character Encoding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../text-processing/character-set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character Set
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../text-processing/data-storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Storage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../text-processing/human-computer-interaction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Human-Computer Interaction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-hash-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple-hash functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiple-hash functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#number-of-hash-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Number of hash functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash-function-complexity-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hash function complexity criteria
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commonly-used-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commonly used functions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter size
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persistence
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Persistence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storing-on-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storing on Disk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storing-in-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storing in DB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistent-probabilistic-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persistent Probabilistic Data structures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learn-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learn more
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#db-using-bloom-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      DB using Bloom Filters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternatives
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="bloom-filters">Bloom filters</h1>
+<p>A Bloom filter is a space-efficient probabilistic data structure designed to test whether a given element is a member of a set. It provides a fast and memory-efficient way to perform set membership tests, but with a small probability of false positives.</p>
+<p>Here's how a Bloom filter works:</p>
+<ol>
+<li><strong>Initialization:</strong></li>
+<li>The Bloom filter is initialized with a fixed-size array of bits, typically all set to 0.</li>
+<li>
+<p>Also, it uses k independent hash functions (usually more than one) that generate hash values.</p>
+</li>
+<li>
+<p><strong>Adding Elements:</strong></p>
+</li>
+<li>
+<p>To add an element to the set, the element is hashed using each of the k hash functions, and the corresponding bits in the array are set to 1.</p>
+</li>
+<li>
+<p><strong>Membership Test:</strong></p>
+</li>
+<li>To check if an element is in the set, the element is hashed using each of the k hash functions.</li>
+<li>
+<p>If all the corresponding bits in the array are set to 1, the element is considered possibly in the set.</p>
+</li>
+<li>
+<p><strong>False Positives:</strong></p>
+</li>
+<li>
+<p>Due to the nature of hashing and the fixed-size array, there is a possibility of false positives. If an element hashes to the same bit positions as some other elements, it might incorrectly appear as a member of the set.</p>
+</li>
+<li>
+<p><strong>False Negatives:</strong></p>
+</li>
+<li>Bloom filters do not produce false negatives. If an element is not in the set, all the corresponding bits will be 0.</li>
+</ol>
+<p>Bloom filters are particularly useful in scenarios where memory is limited, and you can tolerate a small probability of false positives. Common use cases include:</p>
+<ul>
+<li>
+<p><strong>Caching:</strong> To quickly check if a particular item is present in a cache before looking it up in a slower data store.</p>
+</li>
+<li>
+<p><strong>Spell Checking:</strong> To quickly check if a word is in a dictionary.</p>
+</li>
+<li>
+<p><strong>Network Routing Tables:</strong> To determine if a destination IP address is likely to be in a routing table.</p>
+</li>
+<li>
+<p><strong>Duplicate Elimination:</strong> In databases or distributed systems, to quickly eliminate duplicate items.</p>
+</li>
+</ul>
+<p>However, it's essential to be aware of the trade-off involved. As more elements are added, the probability of false positives increases. The size of the Bloom filter and the number of hash functions used impact this trade-off, and careful consideration is needed to choose appropriate parameters for a given use case.</p>
+<h2 id="multiple-hash-functions">Multiple-hash functions</h2>
+<p>Multiple hash functions in a Bloom filter serve two important purposes: reducing the probability of collisions and distributing elements more uniformly across the filter's bits. Here's why multiple hash functions are beneficial:</p>
+<ol>
+<li>
+<p><strong>Reducing Collisions:</strong></p>
+<ul>
+<li>A hash function takes an input (an element to be inserted or queried) and produces a fixed-size hash value. With a single hash function, there's a possibility of collisions, where different elements map to the same hash value.</li>
+<li>By using multiple independent hash functions, the likelihood of different elements colliding at all hash positions is reduced. This helps in spreading out the bits that represent different elements, minimizing false positives.</li>
+</ul>
+</li>
+<li>
+<p><strong>Distributing Elements Uniformly:</strong></p>
+<ul>
+<li>If only a single hash function were used, the distribution of elements in the Bloom filter could be skewed. This could lead to certain bits being set more frequently than others, which may increase the probability of false positives.</li>
+<li>Multiple hash functions help distribute elements more uniformly across the bits of the filter, promoting a balanced distribution.</li>
+</ul>
+</li>
+<li>
+<p><strong>Enhancing Independence:</strong></p>
+<ul>
+<li>The effectiveness of a Bloom filter depends on the independence of the hash functions. Using multiple hash functions with diverse properties enhances this independence.</li>
+<li>Independence ensures that collisions for one hash function don't correlate strongly with collisions for another, providing a better approximation of randomness.</li>
+</ul>
+</li>
+<li>
+<p><strong>Controlling False Positive Rate:</strong></p>
+<ul>
+<li>The probability of a false positive in a Bloom filter is influenced by the number of hash functions used, the size of the filter, and the number of elements inserted.</li>
+<li>By using multiple hash functions, you can control and manage the false positive rate based on the desired trade-off between memory usage and accuracy.</li>
+</ul>
+</li>
+</ol>
+<p>In summary, multiple hash functions in a Bloom filter contribute to its effectiveness in terms of reducing collisions, promoting a more uniform distribution of elements, enhancing independence, and allowing for better control over the false positive rate. The choice of the number of hash functions depends on the desired level of accuracy and the trade-offs acceptable for the specific use case.</p>
+<h3 id="number-of-hash-functions">Number of hash functions</h3>
+<p>The number of hash functions needed in a Bloom filter depends on several factors, including the desired false positive rate, the size of the Bloom filter, and the number of elements to be inserted. The optimal number of hash functions can be determined by considering the following factors:</p>
+<ol>
+<li><strong>False Positive Rate (FPR):</strong></li>
+<li>
+<p>The false positive rate is the probability that a query incorrectly reports the presence of an element not in the set. It is influenced by the number of hash functions. As a general guideline, the false positive rate (FPR) can be estimated using the formula:
+     [ FPR = (1 - e^{-kn/m})^k ]
+   where:</p>
+<ul>
+<li>( k ) is the number of hash functions,</li>
+<li>( n ) is the number of elements in the set,</li>
+<li>( m ) is the number of bits in the Bloom filter.</li>
+</ul>
+</li>
+<li>
+<p><strong>Desired Accuracy:</strong></p>
+</li>
+<li>
+<p>The desired accuracy level plays a role in determining the number of hash functions. If a lower false positive rate is acceptable, fewer hash functions may be sufficient. Conversely, if a high level of accuracy is required, a higher number of hash functions might be necessary.</p>
+</li>
+<li>
+<p><strong>Size of the Bloom Filter:</strong></p>
+</li>
+<li>
+<p>The size of the Bloom filter, represented by the number of bits ( m ), impacts the accuracy. A larger filter provides more bits for distribution, potentially reducing collisions and improving accuracy. However, it also increases memory requirements.</p>
+</li>
+<li>
+<p><strong>Empirical Testing:</strong></p>
+</li>
+<li>
+<p>In some cases, practical experimentation with different numbers of hash functions may be necessary. Depending on the specific characteristics of the data and use case, you can observe the trade-offs between accuracy and memory usage.</p>
+</li>
+<li>
+<p><strong>Rule of Thumb:</strong></p>
+</li>
+<li>A common rule of thumb is to use approximately ( ( m / n ) * ln(2) ) hash functions, where ( m ) is the number of bits in the Bloom filter and ( n ) is the expected number of elements to be inserted.</li>
+</ol>
+<p>Keep in mind that the choice of the number of hash functions involves trade-offs. Using too few hash functions may result in a higher false positive rate, while using too many may increase computational overhead and memory usage.</p>
+<p>It's often beneficial to start with a reasonable estimate based on the factors mentioned above and then adjust through testing and analysis, considering the specific requirements and constraints of your application.</p>
+<h3 id="hash-function-complexity-criteria">Hash function complexity criteria</h3>
+<p>The complexity of hash functions in the context of a Bloom filter is typically evaluated in terms of time complexity and collision resistance. Here's how you can assess the complexity:</p>
+<ol>
+<li><strong>Time Complexity:</strong></li>
+<li>The time complexity of a hash function is evaluated based on the computation time required to produce the hash value for an input.</li>
+<li>
+<p>In practice, hash functions used in Bloom filters should have a constant or near-constant time complexity, meaning the time it takes to compute the hash is not significantly affected by the size of the input or the size of the Bloom filter.</p>
+</li>
+<li>
+<p><strong>Collision Resistance:</strong></p>
+</li>
+<li>Collision resistance is a crucial property of a hash function. A hash function is considered collision-resistant if it is computationally infeasible to find two different inputs that produce the same hash value.</li>
+<li>
+<p>In the context of a Bloom filter, collisions can lead to false positives. Therefore, the hash function should provide a high level of collision resistance.</p>
+</li>
+<li>
+<p><strong>Independence:</strong></p>
+</li>
+<li>
+<p>The independence of hash functions is important in the context of Bloom filters. Multiple hash functions are used to provide a more uniform distribution of elements across the filter. Each hash function should behave independently, meaning that the occurrence of collisions in one hash function should not significantly impact the likelihood of collisions in another.</p>
+</li>
+<li>
+<p><strong>Hash Function Quality:</strong></p>
+</li>
+<li>
+<p>The quality of a hash function is also assessed based on its ability to produce uniformly distributed hash values for a wide range of inputs. A good hash function minimizes clustering, where multiple inputs map to the same hash value, and provides a relatively even distribution across the hash space.</p>
+</li>
+<li>
+<p><strong>Cryptographic Hash Functions (Optional):</strong></p>
+</li>
+<li>While not always necessary for Bloom filters, if security is a concern, using cryptographic hash functions that meet specific security properties, such as being resistant to collision attacks, may be appropriate.</li>
+</ol>
+<p>Keep in mind that for Bloom filters, the primary focus is on fast computation and achieving a good distribution of hash values across the filter. Cryptographic hash functions, while providing strong collision resistance, may introduce unnecessary computational overhead.</p>
+<p>Overall, a good hash function for a Bloom filter should exhibit constant or near-constant time complexity, provide collision resistance, and produce uniformly distributed and independent hash values. The specifics of the chosen hash function depend on the requirements and constraints of the application.</p>
+<h3 id="commonly-used-functions">Commonly used functions</h3>
+<p>In the context of Bloom filters, commonly used hash functions are those that provide a good balance between computational efficiency, low collision probability, and a reasonably uniform distribution of hash values. Here are some examples of hash functions commonly used in practice:</p>
+<ol>
+<li>
+<p><strong>MurmurHash:</strong>
+   MurmurHash is a non-cryptographic hash function known for its speed and good distribution properties. It comes in various versions, such as MurmurHash2 and MurmurHash3. MurmurHash3, in particular, is widely used for hash-based algorithms, including Bloom filters.</p>
+</li>
+<li>
+<p><strong>Jenkins Hash Function:</strong>
+   The Jenkins hash functions, such as Bob Jenkins' one-at-a-time hash, are simple and fast non-cryptographic hash functions. They are often used in situations where speed is critical, making them suitable for Bloom filters.</p>
+</li>
+<li>
+<p><strong>FNV-1a (Fowler-Noll-Vo):</strong>
+   FNV-1a is a non-cryptographic hash function known for its simplicity and ease of implementation. It is often used in scenarios where a quick and reasonably distributed hash function is needed.</p>
+</li>
+<li>
+<p><strong>CityHash:</strong>
+   CityHash, developed by Google, is designed for hash-based algorithms and is known for its speed and good distribution properties. It's not cryptographic but is suitable for applications like Bloom filters.</p>
+</li>
+<li>
+<p><strong>xxHash:</strong>
+   xxHash is a fast, non-cryptographic hash function known for its simplicity and speed. It is often used in situations where a quick hash function is needed, making it suitable for Bloom filters.</p>
+</li>
+<li>
+<p><strong>SHA-256 (optional):</strong>
+   While cryptographic hash functions like SHA-256 can be used in Bloom filters, they are generally overkill unless security properties are a strict requirement. Cryptographic hash functions are computationally more expensive than non-cryptographic ones.</p>
+</li>
+</ol>
+<p>It's important to note that the choice of hash function may depend on the specific requirements of your application, including the desired trade-off between computational efficiency and hash distribution. The hash function should be suitable for the characteristics of the data and the constraints of the system where the Bloom filter is deployed. Additionally, the independence of multiple hash functions used in a Bloom filter is often more critical than the specific hash function chosen.</p>
+<h2 id="filter-size">Filter size</h2>
+<p>Calculating the needed size of a Bloom filter involves considering factors such as the expected number of elements to be inserted, the desired false positive rate, and the number of hash functions used. Here's a step-by-step guide:</p>
+<ol>
+<li>
+<p><strong>Determine False Positive Rate (FPR):</strong></p>
+<ul>
+<li>Decide on the acceptable false positive rate (FPR). The FPR is the probability that a query will incorrectly report the presence of an element not in the set.</li>
+</ul>
+</li>
+<li>
+<p><strong>Choose Number of Hash Functions ( k ):</strong></p>
+<ul>
+<li>Select the number of hash functions to be used in the Bloom filter. The number of hash functions affects the probability of false positives. Commonly used values are 2 or 3.</li>
+</ul>
+</li>
+<li>
+<p><strong>Estimate the Number of Elements ( n ):</strong></p>
+<ul>
+<li>Estimate the total number of elements you expect to insert into the Bloom filter.</li>
+</ul>
+</li>
+<li>
+<p><strong>Calculate Bloom Filter Size ( m ):</strong></p>
+<ul>
+<li>Use the formula to calculate the optimal size ( m ) of the Bloom filter:
+ [ m = - (n  * ln(FPR)) / (ln(2))^2 ]</li>
+<li>Where:<ul>
+<li>( n ) is the estimated number of elements.</li>
+<li>( FPR ) is the desired false positive rate.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Calculate Optimal Number of Bits Per Element ( b ):</strong></p>
+<ul>
+<li>Use the formula to calculate the optimal number of bits per element ( b ):
+ [ b = m / n ]</li>
+<li>This represents the number of bits in the Bloom filter allocated per element.</li>
+</ul>
+</li>
+<li>
+<p><strong>Round Up to the Nearest Integer:</strong></p>
+<ul>
+<li>The calculated (m) and (b) may not be integers, but the Bloom filter size must be a whole number. Round up the values to the nearest integer to ensure that the Bloom filter is implemented with whole bits.</li>
+</ul>
+</li>
+<li>
+<p><strong>Consider Memory Constraints:</strong></p>
+<ul>
+<li>Take into account any memory constraints or limitations imposed by the system or application environment. Ensure that the chosen size is feasible within these constraints.</li>
+</ul>
+</li>
+</ol>
+<p>Keep in mind that these calculations provide an estimate, and the actual performance may vary based on factors like hash function quality and the distribution of data. Also, choosing an appropriate number of hash functions is crucial; too few may increase the probability of false positives, while too many may increase computational overhead.</p>
+<p>In summary, calculating the needed size of a Bloom filter involves estimating the number of elements, choosing a false positive rate, and using the formulas to determine the optimal size and number of bits per element. Adjustments may be needed based on specific requirements and constraints.</p>
+<h2 id="persistence">Persistence</h2>
+<p>A traditional Bloom filter is an in-memory data structure. It doesn't inherently support persistence. There are variations and extensions of the basic Bloom filter concept that aim to provide some level of persistence or durability. These include:</p>
+<ol>
+<li>
+<p><strong>Counting Bloom Filters:</strong>
+   Counting Bloom Filters maintain a counter at each hash position instead of a simple binary value. This allows for removal of items from the filter and enables limited persistence.</p>
+</li>
+<li>
+<p><strong>Bloom Filters with Disk Storage:</strong>
+   Some implementations use external storage, such as disk or a database, to store the Bloom filter. This allows the filter to persist across program executions.</p>
+</li>
+<li>
+<p><strong>Bloom Filters in Databases:</strong>
+   Some databases, especially those designed for high-performance and large-scale data storage, may integrate Bloom filters as part of their indexing or query optimization mechanisms. In such cases, the database itself provides persistence.</p>
+</li>
+<li>
+<p><strong>Disk-Based Bloom Filters:</strong>
+   Techniques like "Disk-Based Bloom Filters" involve using a combination of in-memory and on-disk data structures to create a Bloom filter that can handle larger datasets that don't fit entirely in memory.</p>
+</li>
+</ol>
+<p>While these variations may offer a degree of persistence or the ability to handle larger datasets, they often come with trade-offs such as increased complexity, higher storage requirements, or slower performance compared to traditional, in-memory Bloom filters.</p>
+<p>If persistence is a critical requirement for your use case, you might want to explore alternative data structures or databases designed for persistent storage, such as traditional databases, key-value stores, or other probabilistic data structures that inherently support persistence.</p>
+<h3 id="storing-on-disk">Storing on Disk</h3>
+<p>Combining in-memory and on-disk data structures to create a Bloom filter involves using a hybrid approach where the core Bloom filter resides in memory for fast lookups, while additional components are stored on disk to handle larger datasets or to provide persistence. This hybrid design is often used when dealing with datasets that exceed available memory.</p>
+<p>Here's a conceptual overview of how you might combine in-memory and on-disk structures for a Bloom filter:</p>
+<ol>
+<li>
+<p><strong>In-Memory Bloom Filter:</strong></p>
+<ul>
+<li>The primary Bloom filter structure is kept in memory for fast and efficient set-membership queries. This in-memory component allows for quick lookups and insertions.</li>
+</ul>
+</li>
+<li>
+<p><strong>On-Disk Component:</strong></p>
+<ul>
+<li>Additional data structures or components, such as a disk-backed storage or a secondary index, are used to handle the larger dataset that cannot fit entirely in memory.</li>
+<li>This on-disk component might store elements that are not present in the in-memory Bloom filter or maintain a representation of the entire dataset.</li>
+</ul>
+</li>
+<li>
+<p><strong>Synchronization Mechanism:</strong></p>
+<ul>
+<li>There needs to be a mechanism for synchronizing updates between the in-memory Bloom filter and the on-disk component. This ensures that changes made in memory are eventually persisted to disk.</li>
+</ul>
+</li>
+<li>
+<p><strong>On-Disk Storage Structure:</strong></p>
+<ul>
+<li>The on-disk storage structure can vary based on requirements. It might be a traditional database, a key-value store, or a custom file format designed for efficient disk-based lookups.</li>
+</ul>
+</li>
+<li>
+<p><strong>Loading and Eviction Strategies:</strong></p>
+<ul>
+<li>Loading and eviction strategies are implemented to manage the transition of elements between the in-memory Bloom filter and the on-disk component. This includes loading elements into memory when needed and evicting elements to disk to make space for new ones.</li>
+</ul>
+</li>
+<li>
+<p><strong>Persistence Mechanism:</strong></p>
+<ul>
+<li>To ensure durability, a persistence mechanism is required to store the on-disk component. This may involve periodic snapshots, write-ahead logging, or other methods to recover the state in case of failures.</li>
+</ul>
+</li>
+</ol>
+<p>By combining in-memory and on-disk components, this hybrid design allows for the benefits of fast set-membership queries provided by the Bloom filter in memory, while also addressing the limitations of memory size for large datasets. The approach is often used in scenarios where the dataset is too large to fit entirely in memory but the performance benefits of an in-memory Bloom filter are still desired.</p>
+<h3 id="storing-in-db">Storing in DB</h3>
+<p>Storing Bloom filters directly in databases is less common because Bloom filters are typically used as auxiliary structures to enhance query performance rather than as primary data storage. However, in certain cases, databases or storage systems may provide facilities for managing and storing Bloom filters. Here are a few examples:</p>
+<ol>
+<li>
+<p><strong>Redis:</strong>
+   Redis, an in-memory data structure store, allows users to create and manage Bloom filters using the <code>BF.ADD</code> and <code>BF.MEXISTS</code> commands. Bloom filters in Redis are explicitly created and managed by the user within the Redis data store.</p>
+</li>
+<li>
+<p><strong>RocksDB:</strong>
+   RocksDB, a high-performance embedded key-value storage engine, allows users to use the <code>rocksdb::FilterPolicy</code> interface to specify custom Bloom filters for their databases. Users can define and configure Bloom filters to be associated with specific column families in RocksDB.</p>
+</li>
+<li>
+<p><strong>LevelDB:</strong>
+   LevelDB, a key-value storage library, provides an interface for users to specify a custom <code>FilterPolicy</code> when opening a database. Users can implement and use their own Bloom filters through the <code>FilterPolicy</code> interface.</p>
+</li>
+<li>
+<p><strong>Apache Cassandra:</strong>
+   Apache Cassandra, a distributed NoSQL database, uses Bloom filters internally as part of its SSTable (Sorted String Table) storage format. While users do not interact directly with these internal Bloom filters, Cassandra provides configuration options related to their usage.</p>
+</li>
+</ol>
+<p>In general, when Bloom filters are used in databases, they are often part of the internal mechanisms used for optimization, indexing, or reducing the need for unnecessary disk reads. Users typically configure and manage Bloom filters indirectly through database-specific interfaces or APIs rather than directly interacting with them as standalone entities.</p>
+<p>It's worth noting that databases often integrate Bloom filters as part of their internal optimizations, and users may not have direct access or control over these Bloom filters. If you specifically need a data structure that is primarily a Bloom filter and is stored as such, you might consider standalone Bloom filter libraries or custom implementations within your application rather than relying on database-specific features.</p>
+<h3 id="persistent-probabilistic-data-structures">Persistent Probabilistic Data structures</h3>
+<p>Many probabilistic data structures are designed to be memory-efficient and provide fast approximate answers to various queries. While most of them are inherently designed for memory usage optimization, persistence is typically not a primary feature. However, there are certain variations and extensions of probabilistic data structures or techniques that introduce persistence. Here are a few examples:</p>
+<ol>
+<li>
+<p><strong>Persistent Bloom Filters:</strong>
+   Persistent Bloom Filters are an extension of traditional Bloom filters with a focus on supporting persistence. They allow you to efficiently maintain previous versions of the Bloom filter over time, enabling queries and modifications to be performed on historical states.</p>
+</li>
+<li>
+<p><strong>Count-Min Sketch with Aging:</strong>
+   Count-Min Sketch is a probabilistic data structure used for approximate counting. Introducing an aging mechanism allows you to gradually reduce the influence of older elements, effectively achieving a form of persistence.</p>
+</li>
+<li>
+<p><strong>Counting Bloom Filters with Snapshots:</strong>
+   By periodically creating snapshots of a Counting Bloom Filter and persisting those snapshots, you can achieve a form of persistence. Each snapshot represents a historical state of the Counting Bloom Filter.</p>
+</li>
+<li>
+<p><strong>Time-Decaying Bloom Filters:</strong>
+   Similar to Count-Min Sketch with aging, Time-Decaying Bloom Filters incorporate a decay factor for elements over time, allowing the filter to provide approximate answers to queries for historical periods.</p>
+</li>
+<li>
+<p><strong>Retroactive Data Structures:</strong>
+   Retroactive data structures, though not probabilistic by nature, allow you to efficiently modify the past state of a data structure. By combining a probabilistic data structure with retroactive techniques, you can achieve a form of persistence.</p>
+</li>
+</ol>
+<p>It's important to note that introducing persistence to probabilistic data structures often involves trade-offs. Techniques like snapshots, retroactive modifications, or aging mechanisms may add complexity and memory overhead. Additionally, the persistence mechanisms themselves might impact the probabilistic nature of the data structure.</p>
+<p>When considering probabilistic data structures with persistence, it's crucial to carefully evaluate the specific requirements of your application, including the desired level of accuracy, memory constraints, and the need for historical data. Depending on your use case, a combination of probabilistic data structures with persistence features or other specialized techniques might be the most suitable solution.</p>
+<h2 id="learn-more">Learn more</h2>
+<p>To learn more about Bloom filters and deepen your understanding, you can explore various resources ranging from papers and articles to books and practical implementations. Here are some recommended resources:</p>
+<ol>
+<li>
+<p><strong>Original Bloom Filter Paper:</strong></p>
+<ul>
+<li>Title: "Space/Time Trade-offs in Hash Coding with Allowable Errors"</li>
+<li>Authors: Burton H. Bloom</li>
+<li>This is the original paper that introduced the concept of Bloom filters.</li>
+<li><a href="https://dl.acm.org/doi/10.1145/365230.365257">Link to the paper</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Online Articles and Tutorials:</strong></p>
+<ul>
+<li>Several online articles and tutorials provide explanations and practical examples of Bloom filters. Search for "Bloom filter tutorial" or "Bloom filter explained" on platforms like Medium, Towards Data Science, or others.</li>
+</ul>
+</li>
+<li>
+<p><strong>Books on Algorithms and Data Structures:</strong></p>
+<ul>
+<li>Books that cover algorithms and data structures often include sections on Bloom filters. Some recommended books include:<ul>
+<li>"Introduction to Algorithms" by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein.</li>
+<li>"Data Structures and Algorithms in Python" by Michael T. Goodrich, Roberto Tamassia, and Michael H. Goldwasser.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>GitHub Repositories:</strong></p>
+<ul>
+<li>Explore open-source projects and implementations of Bloom filters. Reading through the code can provide practical insights.</li>
+<li>Search on GitHub for repositories related to Bloom filters, hashing, or data structures.</li>
+</ul>
+</li>
+<li>
+<p><strong>Lecture Videos and Online Courses:</strong></p>
+<ul>
+<li>Platforms like YouTube, Coursera, edX, and others may have lectures or courses on algorithms and data structures that cover Bloom filters.</li>
+<li>Search for relevant keywords on these platforms to find educational content.</li>
+</ul>
+</li>
+<li>
+<p><strong>Documentation of Libraries and Databases:</strong></p>
+<ul>
+<li>Documentation of certain libraries and databases may include information on the use of Bloom filters. For example, Redis, Cassandra, and other systems use Bloom filters in their implementations.</li>
+</ul>
+</li>
+</ol>
+<p>Remember to experiment with Bloom filters through practical implementations. Building a simple Bloom filter and testing its behavior with different parameters will enhance your understanding of how they work and when to use them effectively.</p>
+<h2 id="db-using-bloom-filters">DB using Bloom Filters</h2>
+<p>Several databases and storage systems integrate Bloom filters as part of their indexing or query optimization mechanisms. Bloom filters are often used to quickly exclude unnecessary lookups, reducing the overall workload and improving query performance. Here are some databases and storage systems that incorporate Bloom filters:</p>
+<ol>
+<li>
+<p><strong>Cassandra:</strong>
+   Apache Cassandra, a distributed NoSQL database, uses Bloom filters to reduce the number of disk seeks during query execution. Bloom filters are employed in Cassandra's SSTable (Sorted String Table) file format to determine whether a particular SSTable might contain data for a given query.</p>
+</li>
+<li>
+<p><strong>HBase:</strong>
+   Apache HBase, a distributed and scalable NoSQL database built on top of Hadoop, uses Bloom filters to speed up lookups in its storage structure. Bloom filters help in skipping unnecessary reads for queries that can be quickly determined to have no matching data.</p>
+</li>
+<li>
+<p><strong>LevelDB and RocksDB:</strong>
+   LevelDB, an embedded key-value storage library, and its fork RocksDB both use Bloom filters to improve the efficiency of key lookups. Bloom filters help avoid unnecessary disk reads by quickly determining the absence of a key.</p>
+</li>
+<li>
+<p><strong>Redis:</strong>
+   Redis, an in-memory data structure store, introduced the HyperLogLog probabilistic data structure, which can be considered an alternative to Bloom filters. HyperLogLog is used for approximate cardinality estimation and set-membership queries.</p>
+</li>
+<li>
+<p><strong>Elasticsearch:</strong>
+   Elasticsearch, a distributed search and analytics engine, uses Bloom filters as part of its inverted index structure. Bloom filters help optimize queries by quickly identifying shards that may not contain relevant data.</p>
+</li>
+<li>
+<p><strong>Couchbase:</strong>
+   Couchbase, a NoSQL database, uses Bloom filters to reduce the number of unnecessary disk reads during query execution. Bloom filters are employed in the storage engine to quickly identify whether a key may exist in a specific data block.</p>
+</li>
+<li>
+<p><strong>Amazon DynamoDB:</strong>
+   DynamoDB, a managed NoSQL database service by Amazon Web Services (AWS), uses Bloom filters to reduce the number of unnecessary read operations. Bloom filters help quickly determine whether an item might exist in a partition.</p>
+</li>
+<li>
+<p><strong>Google Bigtable:</strong>
+   Google Cloud Bigtable, a distributed NoSQL database service, leverages Bloom filters to optimize key lookups. Bloom filters are used to determine whether a specific column family or column qualifier may exist in a given row.</p>
+</li>
+</ol>
+<p>These databases integrate Bloom filters to optimize various aspects of their storage and retrieval mechanisms, resulting in improved query performance and reduced I/O operations. The integration of Bloom filters helps these systems quickly eliminate irrelevant data during query processing, making them suitable for use in scenarios where quick exclusion of non-matching records is crucial.</p>
+<h2 id="alternatives">Alternatives</h2>
+<p>While Bloom filters are useful for certain scenarios, there are alternative data structures and techniques that serve similar purposes or address specific limitations of Bloom filters. Here are some Bloom filter alternatives:</p>
+<ol>
+<li>
+<p><strong>Counting Bloom Filter:</strong>
+   A variation of the traditional Bloom filter where each hash function maintains a counter instead of a binary value. This allows removal of elements from the filter and supports counting occurrences.</p>
+</li>
+<li>
+<p><strong>Cuckoo Filter:</strong>
+   Cuckoo Filters are space-efficient data structures that provide similar functionality to Bloom filters but with lower false positive rates. They use a cuckoo hashing scheme, allowing for constant-time lookups and deletions.</p>
+</li>
+<li>
+<p><strong>Quotient Filter:</strong>
+   Quotient Filters are designed to be space-efficient and support set-membership queries. They are based on a combination of hashing and division, allowing for efficient operations with low false positive rates.</p>
+</li>
+<li>
+<p><strong>Bipartite Tables:</strong>
+   Bipartite Tables, like Count-Min Sketch, are used for approximate counting of events in data streams. They offer advantages in terms of space efficiency and performance for certain types of queries.</p>
+</li>
+<li>
+<p><strong>Roaring Bitmaps:</strong>
+   Roaring Bitmaps are compressed bitmap data structures that efficiently represent sets of integers. They are particularly useful for scenarios where the set of elements is dense or when the range of possible values is limited.</p>
+</li>
+<li>
+<p><strong>HyperLogLog:</strong>
+   HyperLogLog is a probabilistic data structure designed for approximating the cardinality (distinct count) of a multiset. It is often used for large-scale cardinality estimation in streaming data scenarios.</p>
+</li>
+<li>
+<p><strong>Bloomier Filters:</strong>
+   Bloomier Filters are a generalization of Bloom filters that provide a mapping from keys to values. They allow for efficient and space-efficient storage of key-value pairs with a similar probabilistic nature.</p>
+</li>
+<li>
+<p><strong>MinHash and HyperMinHash:</strong>
+   MinHash is a technique for estimating the Jaccard similarity between sets. HyperMinHash extends this concept and provides improvements in terms of accuracy and space efficiency.</p>
+</li>
+<li>
+<p><strong>Xor Filters:</strong>
+   Xor Filters are space-efficient filters that use XOR operations to determine membership. They offer advantages in terms of memory usage compared to Bloom filters.</p>
+</li>
+<li>
+<p><strong>Bloom Filters with Delta-Encoding:</strong>
+   This involves combining Bloom filters with delta-encoding techniques to efficiently represent evolving sets, where elements are inserted or deleted over time.</p>
+</li>
+</ol>
+<p>The choice of an alternative to Bloom filters depends on the specific requirements of the application, such as the desired accuracy, memory constraints, and the types of operations needed. Each alternative has its own strengths and weaknesses, and the selection should be based on the characteristics of the data and the use case.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 11, 2025 06:07:39">May 11, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../cache/caching-write-around/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Caching: Write Around">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Caching: Write Around
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../cdn/" class="md-footer__link md-footer__link--next" aria-label="Next: CDN">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                CDN
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 - 2025 goel4ever
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
